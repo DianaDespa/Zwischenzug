@@ -15,11 +15,19 @@ string convertToBitString( long long value)
     return str;
 }
 bool Is_Bit_Set(BITBOARD table, int pos){
-	return ( table & ((BITBOARD)1 << (pos) ) ) !=0;
+	return ( table & ((BITBOARD)1 <<pos ) ) !=0;
+}
+void Set_Bit(BITBOARD &table, int pos){
+	table = table | ((BITBOARD)1<<pos);
+}
+void Unset_Bit(BITBOARD &table, int pos){
+	table = table & ~((BITBOARD)1<<pos);
 }
 void Move_Pawn(board &table, int initial_pos, int final_pos, bool white){
-	table.existance = table.existance & ~((BITBOARD)1<<(initial_pos));
-	table.existance = table.existance | ((BITBOARD)1<<(final_pos));
+	//table.existance = table.existance & ~((BITBOARD)1<<(initial_pos));
+	//table.existance = table.existance | ((BITBOARD)1<<(final_pos));
+	Set_Bit(table.existance, initial_pos);
+	Unset_Bit(table.existance, final_pos);
 	table.nametable[initial_pos] = EMPTY_CODE;
 	if(white)
 		table.nametable[final_pos] = WHITE_PAWN_CODE;
@@ -115,6 +123,63 @@ void InitializeBitboard(board &table){
 	for( i = 16 ; i <= 47 ; i++)
 		table.nametable[i] = EMPTY_CODE;
 }
+int* Generate_Valid_Moves_Pawn(board &table, int initial_pos, bool white){
+	int *v;
+	v = new int(2);
+	if( Is_Bit_Set(table.existance, initial_pos) ){
+		if(!white){
+			if( table.nametable[initial_pos] == BLACK_PAWN_CODE)
+				if( (55 - initial_pos) * (initial_pos - 48) >= 0){
+					//SUNT PE POZITIA INITIALA A UNUI PION
+					*v = initial_pos - 8;
+					*(v+1) = initial_pos - 16;
+				}
+				else{
+					if(initial_pos > 7)
+						*v = initial_pos - 8;
+					else{
+						//EXCEPTIE: PION NEGRU PE ULTIMUL RAND
+						// PRIMESTE  O PIESA
+					}
+				}
+			else{
+				//EXCEPTIE: NU E PIONUL NEGRU ACOLO
+			}
+		}
+		else {
+			if( table.nametable[initial_pos] == WHITE_PAWN_CODE)
+				if( (15 - initial_pos) * (initial_pos - 8) >= 0){
+					//SUNT PE POZITIA INITIALA A UNUI PION
+					*v = initial_pos + 8;
+					*(v+1) = initial_pos + 16;
+				}
+				else{
+					//NU SUNT PE O POZITIE INITIALA A UNUI PION
+					if(initial_pos < 56)
+						*v = initial_pos + 8;
+					else{
+						//EXCEPTIE: PION ALB PE ULTIMUL RAND
+						//  PRIMESTE  O PIESA
+					}
+				}
+				else{
+				//EXCEPTIE: NU E PIONUL ALB ACOLO
+			}
+		}
+	}
+	else{
+		//EXCEPTIE: PE TABLA DE EXISTENTA NU E MARCAT CA EXISTAND O PIESA PE POZITIA INITIALA
+	}
+	//DE DEZALOCAT..CANDVA
+	return v;
+}
+BITBOARD Generate_Valid_BitBoard_Pawn(board &table, int initial_pos, bool white){
+	int* v = Generate_Valid_Moves_Pawn(table, initial_pos, white);
+	BITBOARD T = 0ull;
+	for(int i =0 ; i<=sizeof(v) / sizeof(v[0]); i++)
+		Set_Bit(T, v[i]);
+	return T;
+}
 
 int main(){
 	BITBOARD b = 0;
@@ -128,8 +193,19 @@ int main(){
 			cout << "\n";
 	}
 	cout<<"\n";
-	Valid_Move_Pawn(T, 8, 16, true);
-	Valid_Move_Pawn(T, 48, 40, false);
+	//Valid_Move_Pawn(T, 8, 16, true);
+	//Valid_Move_Pawn(T, 48, 40, false);
+	//int *v = new int(2);
+	BITBOARD bb = Generate_Valid_BitBoard_Pawn(T, 8, true);
+	string bit_map = convertToBitString(bb);
+	for(int j =7 ; j>=0 ; j--){ 
+	for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
+		
+		cout<<bit_map[i]<<" ";
+	}
+		cout << "\n";
+	}
+	cout<<"\n";
 	string binar = convertToBitString(T.existance);
 	for(int j =7 ; j>=0 ; j--){ 
 	for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
