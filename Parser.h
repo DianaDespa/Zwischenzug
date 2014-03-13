@@ -1,20 +1,32 @@
-#ifndef PARSER_h
-#define PARSER_h
-#include "AllHeader.h"
+#ifndef _PARSER_H
+#define _PARSER_H
 
-class Paser{
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <cstring>
+#include "FromEnginetoXboard.h"
+#include "FromXboardtoEngine.h"
 
+class Parser{
+	
+	FILE* logFile;
 	//parses command from winboard/xboard
-	char* getMove();
-	void sendMove(char* command);
+	public:
+		int interpretCommand();
+		//Parser();
+		//~Parser();
+	//char* getMove();
+	//void sendMove(char* command);
 	
-	int initialize;
+	//int initialize;
 	
 	
-	private:
+	//private:
 
 	
-	int parseCommand(char *command);
+	/*int parseCommand(char *command);
 	
 	void resignCommand();
     void moveCommand(char *command);
@@ -24,9 +36,9 @@ class Paser{
     void whiteCommand(char *command);
     void blackCommand(char *command);
     void quitCommand(char *command);
-	
+	*/
 
-}
+};
 #endif
 
 

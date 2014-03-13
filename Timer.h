@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <sys/timeb.h>
 
 class Timer{

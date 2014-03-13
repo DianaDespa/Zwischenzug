@@ -1,10 +1,12 @@
-#ifndef MODES_H
-#define MODES_H
+#ifndef _MODES_H
+#define _MODES_H
 
-bool XBOARD_MODE = false;
-bool FORCE_MODE = true;
-bool WHITE_MODE = false;
-bool BLACK_MODE = false; // the playing colour
-bool WHITE_MOVING = false; // the colour on the move
-bool BLACK_MOVING = false;
+namespace Modes {
+	extern bool XBOARD_MODE;
+	extern bool FORCE_MODE;
+	extern bool WHITE_MODE;
+	extern bool BLACK_MODE;
+	extern bool WHITE_MOVING;
+	extern bool BLACK_MOVING;
+};
 #endif

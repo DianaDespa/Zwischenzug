@@ -1,55 +1,64 @@
-#include "Lib.h"
-#include "FromXboardtoEngine.h"
-#include "FromEnginetoXboard.h"
-
-class Parser{
-
-	Parser::Parser(){
-	FILE* logFile = fopen("log","w");		
+#include "Parser.h"
+	
+	/*Parser::Parser(){
+	logFile = fopen("log","w");		
 	}
 	
 	Parser::~Parser(){
 	fclose(logFile);
-	}
+	}*/
 	
-	void Parser::interpretCommand(){
+	int Parser::interpretCommand(){
 		
 		FromXboardtoEngine XBOARD;
+		FromEnginetoXboard ENGINE;
 		
-		char* command = (char *)malloc(30);
-		char* move = (char*)malloc(10);
-		fgets(command, 30,stdin);
 		
-		fputs(command, logFile);
+		setbuf(stdout, NULL);
+		setbuf(stdin, NULL);	
 		
+		std::string command;
 		while (1){
-			if (strcmp(command,"xboard\n")==0){
-				XBOARD.xboardCommand;
-				break;}
-			else if (strcmp(command, "new\n") == 0){
-				XBOARD.newCommand();
-				break;}
-			else if(strcmp(command,"quit\n" == 0)){
-				XBOARD.quitCommand();
-				break;}
-			else if(strcmp(command, "force\n") == 0){
-				XBOARD.foceCommand();
-				break;}
-			else if(strcmp(command, "go\n")){			
-				XBOARD.goCommand();
-				break;}
-			else if(strcmp(command,"white\n") == 0){
-				XBOARD.whiteCommand();
-				break;}
-			else if(strcmp(command, "black\n") == 0){
-				XBOARD.blackCommand();
-				break;}
-			else {
-				printf("%s", move);
-				XBOARD.moveCommand(move);
-				}
-		}
-		free(command);
 	
-	} 
-}
+			std::cin >> command;
+			if(command.compare("xboard") == 0){
+		        std::cout<<"feature myname=\"Team\""<< std::endl;
+		    }
+
+		    else  if(command.compare("quit") == 0){
+				XBOARD.quitCommand();
+		        break;
+		    }
+
+			else if (command.compare("new") == 0){
+				//fputs(command, logFile);
+				XBOARD.newCommand();
+				}
+			else if(command.compare("force") == 0){
+				//fputs(command, logFile);
+				XBOARD.forceCommand();
+				}
+			else if(command.compare("go") == 0){			
+				//fputs(command, logFile);
+				XBOARD.goCommand();
+				}
+			else if(command.compare("white") == 0){
+				//fputs(command, logFile);
+				XBOARD.whiteCommand();
+				}
+			else if(command.compare("black") == 0){
+				//fputs(command, logFile);
+				XBOARD.blackCommand();
+				}
+			
+			else{ 
+				char* cmd = strdup(command.c_str());
+				XBOARD.moveCommand(cmd);
+				std::cout<<"move e7e5"<<std::endl;
+				ENGINE.parseMovetoXboard();
+		        }
+		   }
+		return 0;
+	
+	}
+
