@@ -1,5 +1,7 @@
 #include "FromXboardtoEngine.h"
 
+extern functii ChessBoard;
+
 FromXboardtoEngine::FromXboardtoEngine(void) {
 }
 
@@ -14,6 +16,7 @@ void FromXboardtoEngine::newCommand(void) {
 	//Initialize board
 	//wait for white user to move
 	//set black
+	ChessBoard.initializeBitboard();
 	WHITE_MOVING = true;
 	BLACK_MOVING = false;
 	WHITE_MODE = false;
@@ -91,18 +94,9 @@ void FromXboardtoEngine::blackCommand(void) {
 }
 
 void FromXboardtoEngine::moveCommand(char* command) {
-	/*char* backupCommand = strdup(command);
-	char* move = strtok(backupCommand, " ");
-	int file1 = move[0] - 97;
-	int rank1 = move[1] - 49;
-	int file2 = move[2] - 97;
-	int rank2 = move[3] - 49;
-	int initPos = rank1 * 8 + file1;
-	int movePos = rank2 * 8 + file2;
-	*/
-	functii book;
-	book.updateOpponentMove(command,WHITE_MODE);
-	//TODO update table
-	//valid_move(initPos, movePos):
-	// a b c d e f g h => 97 98 ...
+	if (!FORCE_MODE) {
+		ChessBoard.updateOpponentMove(command, BLACK_MODE);
+	} //else check valid
+	WHITE_MOVING = !WHITE_MOVING;
+	BLACK_MOVING = !BLACK_MOVING;
 }

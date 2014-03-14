@@ -10,6 +10,7 @@ char* ALPHA_NUMERIC_POSITIONS[64] = {"a1","b1","c1","d1","e1","f1","g1","h1",
 "a8","b8","c8","d8","e8","f8","g8","h8"};
 
 #include "new_functii.h"
+extern FILE* f;
 
 functii::functii(){
 	initializeBitboard();
@@ -39,78 +40,141 @@ void swap(char* a ,char* b ){
 	char aux;
 	aux = *a;
 	*a = *b;
-	*b = aux; 
+	*b = aux;
 }
 
 void swap(BITBOARD* a, BITBOARD* b ){
 	BITBOARD aux;
 	aux = *a;
 	*a = *b;
-	*b = aux; 
+	*b = aux;
 }
 
 void functii::movePiece(int initial_pos, int final_pos){
+
 	table.occupied &= ~(1ULL << (initial_pos));
-	table.occupied |= 1ULL << (final_pos);
 	swap(&table.nametable[initial_pos].name, &table.nametable[final_pos].name);
 	//swap(&table.nametable[initial_pos].nextMoves, &table.nametable[final_pos].nextMoves);
-	//update bitboards
+	
 
-	if (table.nametable[final_pos].name < 97) {
-		switch (table.nametable[final_pos].name){
-		case 'P':
-			table.whitePawns &= ~(1ULL << initial_pos);
-			table.whitePawns |= 1ULL << final_pos;
-			break;
-		case 'R':
-			table.whiteRooks &= ~(1ULL << initial_pos);
-			table.whiteRooks |= 1ULL << final_pos;
-			break;
-		case 'N':
-			table.whiteKnights &= ~(1ULL << initial_pos);
-			table.whiteKnights |= 1ULL << final_pos;
-			break;
-		case 'B':
-			table.whiteBishops &= ~(1ULL << initial_pos);
-			table.whiteBishops |= 1ULL << final_pos;
-			break;
-		case 'Q':
-			table.whiteQueen = 1ULL << final_pos;
-			break;
-		case 'K':
-			table.whiteKing = 1ULL << final_pos;
-			break;
+	//pt ca le-am interschimbat verific ce e pe poz initiala
+	if (table.nametable[initial_pos].name == EMPTY_CODE) {
+		table.occupied |= 1ULL << (final_pos);
+
+		if (table.nametable[final_pos].name < 97) {
+			switch (table.nametable[final_pos].name){
+			case 'P':
+				table.whitePawns &= ~(1ULL << initial_pos);
+				table.whitePawns |= 1ULL << final_pos;
+				break;
+			case 'R':
+				table.whiteRooks &= ~(1ULL << initial_pos);
+				table.whiteRooks |= 1ULL << final_pos;
+				break;
+			case 'N':
+				table.whiteKnights &= ~(1ULL << initial_pos);
+				table.whiteKnights |= 1ULL << final_pos;
+				break;
+			case 'B':
+				table.whiteBishops &= ~(1ULL << initial_pos);
+				table.whiteBishops |= 1ULL << final_pos;
+				break;
+			case 'Q':
+				table.whiteQueen = 1ULL << final_pos;
+				break;
+			case 'K':
+				table.whiteKing = 1ULL << final_pos;
+				break;
+			}
+			table.whitePieces &= ~(1ULL << initial_pos);
+			table.whitePieces |= 1ULL << final_pos;
+		}else {
+			switch(table.nametable[final_pos].name) {
+			case 'p':
+				table.blackPawns &= ~(1ULL << initial_pos);
+				table.blackPawns |= 1ULL << final_pos;
+				break;
+			case 'r':
+				table.blackRooks &= ~(1ULL << initial_pos);
+				table.blackRooks |= 1ULL << final_pos;
+				break;
+			case 'n':
+				table.blackKnights &= ~(1ULL << initial_pos);
+				table.blackKnights |= 1ULL << final_pos;
+				break;
+			case 'b':
+				table.blackBishops &= ~(1ULL << initial_pos);
+				table.blackBishops |= 1ULL << final_pos;
+				break;
+			case 'q':
+				table.blackQueen = 1ULL << final_pos;
+				break;
+			case 'k':
+				table.blackKing = 1ULL << final_pos;
+				break;
+			}
+			table.blackPieces &= ~(1ULL << initial_pos);
+			table.blackPieces |= 1ULL << final_pos;
 		}
-		table.whitePieces &= ~(1ULL << initial_pos); 
-		table.whitePieces |= 1ULL << final_pos;
-	}else {
-		switch(table.nametable[final_pos].name) {
-		case 'p':
-			table.blackPawns &= ~(1ULL << initial_pos);
-			table.blackPawns |= 1ULL << final_pos;
-			break;
-		case 'r':
-			table.blackRooks &= ~(1ULL << initial_pos);
-			table.blackRooks |= 1ULL << final_pos;
-			break;
-		case 'n':
-			table.blackKnights &= ~(1ULL << initial_pos);
-			table.blackKnights |= 1ULL << final_pos;
-			break;
-		case 'b':
-			table.blackBishops &= ~(1ULL << initial_pos);
-			table.blackBishops |= 1ULL << final_pos;
-			break;
-		case 'q':
-			table.blackQueen = 1ULL << final_pos;
-			break;
-		case 'k':
-			table.blackKing = 1ULL << final_pos;
-			break;
+	} else {
+		if (table.nametable[initial_pos].name < 97) {
+			switch (table.nametable[initial_pos].name){
+			case 'P':
+				table.whitePawns &= ~(1ULL << initial_pos);
+				break;
+			case 'R':
+				table.whiteRooks &= ~(1ULL << initial_pos);
+				break;
+			case 'N':
+				table.whiteKnights &= ~(1ULL << initial_pos);
+				break;
+			case 'B':
+				table.whiteBishops &= ~(1ULL << initial_pos);
+				break;
+			case 'Q':
+				table.whiteQueen = 0ULL;
+				break;
+			case 'K':
+				table.whiteKing = 0ULL;
+				break;
+			}
+			table.whitePieces &= ~(1ULL << initial_pos);
+		}else {
+			switch(table.nametable[final_pos].name) {
+			case 'p':
+				table.blackPawns &= ~(1ULL << initial_pos);
+				break;
+			case 'r':
+				table.blackRooks &= ~(1ULL << initial_pos);
+				break;
+			case 'n':
+				table.blackKnights &= ~(1ULL << initial_pos);
+				break;
+			case 'b':
+				table.blackBishops &= ~(1ULL << initial_pos);
+				break;
+			case 'q':
+				table.blackQueen = 0ULL;
+				break;
+			case 'k':
+				table.blackKing = 0ULL;
+				break;
+			}
+			table.blackPieces &= ~(1ULL << initial_pos);
+
 		}
-		table.blackPieces &= ~(1ULL << initial_pos); 
-		table.blackPieces |= 1ULL << final_pos;
+		table.nametable[initial_pos].name = EMPTY_CODE;
+		//table.nametable[initial_pos].name = ?
+
 	}
+	for (int i=0; i<64; i++){
+		fprintf(f, "%c", convertToBitString(table.blackPawns)[i]);
+	}
+	fprintf(f, "\n"); 
+	for (int i=0; i<64; i++){
+		fprintf(f, "%c", convertToBitString(table.whitePawns)[i]);
+	}
+	fprintf(f, "\n");
 }
 
 void functii::initializeBitboard(){
@@ -119,10 +183,10 @@ void functii::initializeBitboard(){
 					| WHITE_QUEEN | BLACK_QUEEN | WHITE_KING | BLACK_KING ;
 
 
-	table.whitePieces = WHITE_PAWN | WHITE_ROOK | WHITE_KNIGHT | 
+	table.whitePieces = WHITE_PAWN | WHITE_ROOK | WHITE_KNIGHT |
 						WHITE_BISHOP | WHITE_QUEEN | WHITE_KING;
 	table.blackPieces = table.whitePieces ^ table.occupied;
-	
+
 	table.whitePawns = WHITE_PAWN;
 	table.blackPawns = BLACK_PAWN;
 	table.whiteRooks = WHITE_ROOK;
@@ -175,7 +239,7 @@ bool functii::generateValidPawnMove(int pos, bool isWhite){
 	if (isWhite){
 		if	(table.nametable[pos + 8].name == EMPTY_CODE) {
 			b2 = true;
-			if (((15 - pos) * (pos - 8) >= 0) && 
+			if (((15 - pos) * (pos - 8) >= 0) &&
 				(table.nametable[pos + 16].name == EMPTY_CODE)){
 				b1 = true;
 			}
@@ -240,7 +304,7 @@ bool functii::generateValidPawnAttack(int pos, bool isWhite){
 			if (table.nametable[pos+9].name == BLACK_PAWN_CODE | table.nametable[pos+9].name == BLACK_ROOK_CODE |
 				table.nametable[pos+9].name == BLACK_KNIGHT_CODE | table.nametable[pos+9].name == BLACK_BISHOP_CODE |
 				table.nametable[pos+9].name == BLACK_QUEEN_CODE ){
-		
+
 				movePiece(pos, pos + 9);
 				final_position = pos + 9;
 				return true;
@@ -251,7 +315,7 @@ bool functii::generateValidPawnAttack(int pos, bool isWhite){
 			if (table.nametable[pos+7].name == BLACK_PAWN_CODE | table.nametable[pos+7].name == BLACK_ROOK_CODE |
 				table.nametable[pos+7].name == BLACK_KNIGHT_CODE | table.nametable[pos+7].name == BLACK_BISHOP_CODE |
 				table.nametable[pos+7].name == BLACK_QUEEN_CODE ){
-				
+
 				movePiece(pos, pos + 7);
 				final_position = pos + 7;
 				return true;
@@ -297,23 +361,23 @@ bool functii::generateValidPawnAttack(int pos, bool isWhite){
 	}
 	else{
 		if (pos % 8 == 0){
-			if (table.nametable[pos-9].name == WHITE_PAWN_CODE | table.nametable[pos-9].name == WHITE_ROOK_CODE |
-				table.nametable[pos-9].name == WHITE_KNIGHT_CODE | table.nametable[pos-9].name == WHITE_BISHOP_CODE |
-				table.nametable[pos-9].name == WHITE_QUEEN_CODE ){
-			
-				movePiece(pos, pos-9);
-				final_position = pos-9;
+			if (table.nametable[pos-7].name == WHITE_PAWN_CODE | table.nametable[pos-7].name == WHITE_ROOK_CODE |
+				table.nametable[pos-7].name == WHITE_KNIGHT_CODE | table.nametable[pos-7].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-7].name == WHITE_QUEEN_CODE ){
+
+				movePiece(pos, pos - 7);
+				final_position = pos - 7;
 				return true;
 			}
 			return false;
 		}
 		else if (pos % 8 == 7) {
-			if (table.nametable[pos-7].name == WHITE_PAWN_CODE | table.nametable[pos-7].name == WHITE_ROOK_CODE |
-				table.nametable[pos-7].name == WHITE_KNIGHT_CODE | table.nametable[pos-7].name == WHITE_BISHOP_CODE |
-				table.nametable[pos-7].name == WHITE_QUEEN_CODE ){
-			
-				movePiece(pos, pos-7);
-				final_position = pos-7;
+			if (table.nametable[pos-9].name == WHITE_PAWN_CODE | table.nametable[pos-9].name == WHITE_ROOK_CODE |
+				table.nametable[pos-9].name == WHITE_KNIGHT_CODE | table.nametable[pos-9].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-9].name == WHITE_QUEEN_CODE ){
+
+				movePiece(pos, pos - 9);
+				final_position = pos - 9;
 				return true;
 			}
 			return false;
@@ -379,14 +443,13 @@ bool functii::randomPositionPawn(bool isWhite){
 		while (v.size() > 0){
 			p = rand() % v.size();
 			//cout<<"A ALES POZITIA INITIALA "<<v[p];
-			/*if (generateValidPawnAttack(v[p], isWhite)){
+			if (generateValidPawnAttack(v[p], isWhite)){
 				initial_position = v[p];
 				return true;
 			}
-			else */
+			else
 			if (generateValidPawnMove(v[p], isWhite)){
 				initial_position = v[p];
-
 				return true;
 			}
 			v.erase(v.begin() + p);
@@ -452,14 +515,21 @@ int main() {
 	}
 	std::cout<<std::endl;
 
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.table.nametable[i].name;
+	char movePiece[6];
+	while(f.randomPiece(true)) {
+		char* initial = f.initialPosFunc();
+		char* final = f.finalPosFunc();
+		strcpy(movePiece, initial);
+		strcat(movePiece, final);
+		std::cout << movePiece <<std::endl;
+		for (int i=0; i<64; i++){
+			if (i%8 == 0)  std::cout<<std::endl;
+			std::cout << f.table.nametable[i].name;
+		}
+		std::cout<<std::endl;
 	}
-	std::cout<<std::endl;
-	f.randomPiece(true);
 
 	char a[100];
-	fgets(a,100,stdin);
+	std::cin >> a;
 	return 0;
 }*/
