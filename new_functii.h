@@ -3,6 +3,8 @@
 #define _FUNC_H
 
 #include <iostream>
+#include <string>
+#include <cstring>
 #include <stdlib.h>
 #include <vector>
 #include <ctime>
@@ -10,18 +12,19 @@
 
 class functii {
 
-private:
+//private:
+	
+public:
 	board table;
 	int initial_position, final_position;
-public:
 	board getBoard(void);
 	functii(void);
 	std::string convertToBitString( long long value);
 	bool isBitSet(BITBOARD table, int pos);
-	void movePiece(int initial_pos, int final_pos, bool white);
+	void movePiece(int initial_pos, int final_pos);
 	void initializeBitboard(void);
-	bool generateValidMove(int pos, bool white);
-	bool generateValidAttack(int pos, bool white);
+	bool generateValidPawnMove(int pos, bool white);
+	bool generateValidPawnAttack(int pos, bool white);
 	bool randomPositionPawn(bool white);
 	bool randomPiece(bool white);
 	char* finalPosFunc(void);

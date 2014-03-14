@@ -3,7 +3,7 @@
 void FromEnginetoXboard::parseMove(char* move){
 	//scrie efectiv mutarea pentru consola XBOARD
 	std::cout<<"move "<<move<<std::endl;
-	
+	setbuf(stdout, NULL);
 }
 
 void FromEnginetoXboard::parseMovetoXboard(){
@@ -19,7 +19,7 @@ void FromEnginetoXboard::parseMovetoXboard(){
 		resignCommand();
 	else {
 		char* initial = book.initialPosFunc();
-		char* final = book.finalPosFunc();
+		char* final = book.finalPosFunc();	
 		strcpy(movePiece, initial);
 		strcat(movePiece, final);
 		parseMove(movePiece);
@@ -34,8 +34,8 @@ void FromEnginetoXboard::resignCommand(void){
 	if (WHITE_MODE){
 		std::cout<<"0-1 {WHITE resigns}"<<std::endl;
 	}
-	
 	else{
 		std::cout<<"1-0 {BLACK resigns}"<<std::endl;
 	}
+	setbuf(stdout, NULL);
 }

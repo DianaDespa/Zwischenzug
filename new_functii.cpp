@@ -1,7 +1,16 @@
 //VEZI COMENTARII CU EXPLICATII INAINTE DE int main() !!!!!!!!!!
 
+char* ALPHA_NUMERIC_POSITIONS[64] = {"a1","b1","c1","d1","e1","f1","g1","h1",
+"a2","b2","c2","d2","e2","f2","g2","h2",
+"a3","b3","c3","d3","e3","f3","g3","h3",
+"a4","b4","c4","d4","e4","f4","g4","h4",
+"a5","b5","c5","d5","e5","f5","g5","h5",
+"a6","b6","c6","d6","e6","f6","g6","h6",
+"a7","b7","c7","d7","e7","f7","g7","h7",
+"a8","b8","c8","d8","e8","f8","g8","h8"};
+
 #include "new_functii.h"
-	
+
 functii::functii(){
 	initializeBitboard();
 }
@@ -21,9 +30,9 @@ std::string functii::convertToBitString(long long value){
 
 		return str;
 	}
-	
+
 bool functii::isBitSet(BITBOARD table, int pos){
-	return (table & ((BITBOARD)1 << pos)) != 0;
+	return (table & (1ULL << pos)) != 0;
 }
 
 void swap(char* a ,char* b ){
@@ -33,192 +42,253 @@ void swap(char* a ,char* b ){
 	*b = aux; 
 }
 
-void functii::movePiece(int initial_pos, int final_pos, bool white){
-	table.existance = table.existance & ~((BITBOARD)1 << (initial_pos));
-	table.existance = table.existance | ((BITBOARD)1 << (final_pos));
-	//table.nametable[initial_pos] = EMPTY_CODE;
-	if (white)
-		swap(&table.nametable[initial_pos], &table.nametable[final_pos]);
-	//table.nametable[final_pos] = WHITE_PAWN_CODE;
-	else
-		swap(&table.nametable[initial_pos], &table.nametable[final_pos]);
-	//table.nametable[final_pos] = BLACK_PAWN_CODE;
+void swap(BITBOARD* a, BITBOARD* b ){
+	BITBOARD aux;
+	aux = *a;
+	*a = *b;
+	*b = aux; 
 }
 
+void functii::movePiece(int initial_pos, int final_pos){
+	table.occupied &= ~(1ULL << (initial_pos));
+	table.occupied |= 1ULL << (final_pos);
+	swap(&table.nametable[initial_pos].name, &table.nametable[final_pos].name);
+	//swap(&table.nametable[initial_pos].nextMoves, &table.nametable[final_pos].nextMoves);
+	//update bitboards
+
+	if (table.nametable[final_pos].name < 97) {
+		switch (table.nametable[final_pos].name){
+		case 'P':
+			table.whitePawns &= ~(1ULL << initial_pos);
+			table.whitePawns |= 1ULL << final_pos;
+			break;
+		case 'R':
+			table.whiteRooks &= ~(1ULL << initial_pos);
+			table.whiteRooks |= 1ULL << final_pos;
+			break;
+		case 'N':
+			table.whiteKnights &= ~(1ULL << initial_pos);
+			table.whiteKnights |= 1ULL << final_pos;
+			break;
+		case 'B':
+			table.whiteBishops &= ~(1ULL << initial_pos);
+			table.whiteBishops |= 1ULL << final_pos;
+			break;
+		case 'Q':
+			table.whiteQueen = 1ULL << final_pos;
+			break;
+		case 'K':
+			table.whiteKing = 1ULL << final_pos;
+			break;
+		}
+		table.whitePieces &= ~(1ULL << initial_pos); 
+		table.whitePieces |= 1ULL << final_pos;
+	}else {
+		switch(table.nametable[final_pos].name) {
+		case 'p':
+			table.blackPawns &= ~(1ULL << initial_pos);
+			table.blackPawns |= 1ULL << final_pos;
+			break;
+		case 'r':
+			table.blackRooks &= ~(1ULL << initial_pos);
+			table.blackRooks |= 1ULL << final_pos;
+			break;
+		case 'n':
+			table.blackKnights &= ~(1ULL << initial_pos);
+			table.blackKnights |= 1ULL << final_pos;
+			break;
+		case 'b':
+			table.blackBishops &= ~(1ULL << initial_pos);
+			table.blackBishops |= 1ULL << final_pos;
+			break;
+		case 'q':
+			table.blackQueen = 1ULL << final_pos;
+			break;
+		case 'k':
+			table.blackKing = 1ULL << final_pos;
+			break;
+		}
+		table.blackPieces &= ~(1ULL << initial_pos); 
+		table.blackPieces |= 1ULL << final_pos;
+	}
+}
 
 void functii::initializeBitboard(){
-	table.existance = WHITE_PAWN | BLACK_PAWN | WHITE_ROOK | BLACK_ROOK
+	table.occupied = WHITE_PAWN | BLACK_PAWN | WHITE_ROOK | BLACK_ROOK
 					| WHITE_KNIGHT | BLACK_KNIGHT | WHITE_BISHOP | BLACK_BISHOP
 					| WHITE_QUEEN | BLACK_QUEEN | WHITE_KING | BLACK_KING ;
 
-	table.nametable[0] = WHITE_ROOK_CODE;
-	table.nametable[7] = WHITE_ROOK_CODE;
-	table.nametable[1] = WHITE_KNIGHT_CODE;
-	table.nametable[6] = WHITE_KNIGHT_CODE;
-	table.nametable[2] = WHITE_BISHOP_CODE;
-	table.nametable[5] = WHITE_BISHOP_CODE;
-	table.nametable[3] = WHITE_QUEEN_CODE;
-	table.nametable[4] = WHITE_KING_CODE;
 
-	table.nametable[56] = BLACK_ROOK_CODE;
-	table.nametable[63] = BLACK_ROOK_CODE;
-	table.nametable[57] = BLACK_KNIGHT_CODE;
-	table.nametable[62] = BLACK_KNIGHT_CODE;
-	table.nametable[58] = BLACK_BISHOP_CODE;
-	table.nametable[61] = BLACK_BISHOP_CODE;
-	table.nametable[59] = BLACK_QUEEN_CODE;
-	table.nametable[60] = BLACK_KING_CODE;
+	table.whitePieces = WHITE_PAWN | WHITE_ROOK | WHITE_KNIGHT | 
+						WHITE_BISHOP | WHITE_QUEEN | WHITE_KING;
+	table.blackPieces = table.whitePieces ^ table.occupied;
+	
+	table.whitePawns = WHITE_PAWN;
+	table.blackPawns = BLACK_PAWN;
+	table.whiteRooks = WHITE_ROOK;
+	table.blackRooks = BLACK_ROOK;
+	table.whiteBishops = WHITE_BISHOP;
+	table.blackBishops = BLACK_BISHOP;
+	table.whiteKnights = WHITE_KNIGHT;
+	table.blackKnights = BLACK_KNIGHT;
+	table.whiteQueen = WHITE_QUEEN;
+	table.blackQueen = BLACK_QUEEN;
+	table.whiteKing = WHITE_KING;
+	table.blackKing = BLACK_KING;
+
+	table.nametable[0].name = WHITE_ROOK_CODE;
+	table.nametable[7].name = WHITE_ROOK_CODE;
+	table.nametable[1].name = WHITE_KNIGHT_CODE;
+	table.nametable[6].name = WHITE_KNIGHT_CODE;
+	table.nametable[2].name = WHITE_BISHOP_CODE;
+	table.nametable[5].name = WHITE_BISHOP_CODE;
+	table.nametable[3].name = WHITE_QUEEN_CODE;
+	table.nametable[4].name = WHITE_KING_CODE;
+
+	table.nametable[56].name = BLACK_ROOK_CODE;
+	table.nametable[63].name = BLACK_ROOK_CODE;
+	table.nametable[57].name = BLACK_KNIGHT_CODE;
+	table.nametable[62].name = BLACK_KNIGHT_CODE;
+	table.nametable[58].name = BLACK_BISHOP_CODE;
+	table.nametable[61].name = BLACK_BISHOP_CODE;
+	table.nametable[59].name = BLACK_QUEEN_CODE;
+	table.nametable[60].name = BLACK_KING_CODE;
 
 	unsigned int i;
 
 	for (i = 8 ; i <= 15 ; i++)
-		table.nametable[i] = WHITE_PAWN_CODE;
+		table.nametable[i].name = WHITE_PAWN_CODE;
 
 	for (i = 48 ; i <= 55 ; i++)
-		table.nametable[i] = BLACK_PAWN_CODE;
+		table.nametable[i].name = BLACK_PAWN_CODE;
 
 	for (i = 16 ; i <= 47 ; i++)
-		table.nametable[i] = EMPTY_CODE;
+		table.nametable[i].name = EMPTY_CODE;
 }
 
-bool functii::generateValidMove(int pos, bool white){
+bool functii::generateValidPawnMove(int pos, bool isWhite){
 	bool b1 = false;
 	bool b2 = false;
-	
-	if (white){
-		if ((15 - pos) * (pos - 8) >= 0){
-			if (table.nametable[pos + 16] == '0'){
+
+	srand(time(NULL));
+
+	if (isWhite){
+		if	(table.nametable[pos + 8].name == EMPTY_CODE) {
+			b2 = true;
+			if (((15 - pos) * (pos - 8) >= 0) && 
+				(table.nametable[pos + 16].name == EMPTY_CODE)){
 				b1 = true;
 			}
-			if	(table.nametable[pos + 8] == '0') {
-				b2 = true;
-			}
-			if (b1 && b2){
-				srand(time(NULL));
+		}
+		if (b2){
+			if (b1) {
 				if(rand() % 2 == 0){
-					movePiece(pos, pos + 8, white);
+					movePiece(pos, pos + 8);
 					final_position = pos + 8;
 					return true;
 				}
 				else{
-					movePiece(pos, pos + 16, white);
+					movePiece(pos, pos + 16);
 					final_position = pos + 16;
 					return true;
 				}
 			}
-			else if (b2){
-				movePiece(pos, pos + 8, white);
+			else {
+				movePiece(pos, pos + 8);
 				final_position = pos + 8;
 				return true;
 			}
-			return false;
-		}
-		else{
-			if (table.nametable[pos + 8] == '0') {
-				movePiece(pos, pos + 8, white);
-				final_position = pos + 8;
-				return true;
-			}
-			return false;
 		}
 	}
 	else{
-		if ((55 - pos) * (pos - 48) >= 0){
-			if (table.nametable[pos - 16] == '0'){
+		if (table.nametable[pos - 8].name == EMPTY_CODE) {
+			b2 = true;
+			if (((55 - pos) * (pos - 48) >= 0) &&
+				(table.nametable[pos - 16].name == EMPTY_CODE)){
 				b1 = true;
 			}
-			if (table.nametable[pos - 8] == '0') {
-				b2 = true;
-			}
-			if (b1 && b2){
-				srand(time(NULL));
-				if (rand() % 2 == 0){
-					movePiece(pos, pos-8, white);
-					final_position = pos-8;
+		}
+		if (b2){
+			if (b1) {
+				if(rand() % 2 == 0){
+					movePiece(pos, pos - 8);
+					final_position = pos - 8;
 					return true;
 				}
 				else{
-					movePiece(pos, pos - 16, white);
+					movePiece(pos, pos - 16);
 					final_position = pos - 16;
 					return true;
 				}
 			}
-			else if (b2){
-				movePiece(pos, pos-8, white);
+			else {
+				movePiece(pos, pos - 8);
 				final_position = pos - 8;
 				return true;
 			}
-			return false;
-		}
-		else{
-			if (table.nametable[pos - 8] == '0') {
-				movePiece(pos, pos - 8, white);
-				final_position = pos - 8;
-				return true;
-			}
-			return false;
 		}
 	}
-
+	return false;
 }
-bool functii::generateValidAttack(int pos, bool white){
+bool functii::generateValidPawnAttack(int pos, bool isWhite){
 	bool b1 = false;
 	bool b2 = false;
+	srand(time(NULL));
 
-	if (white){
+	if (isWhite){
 		if (pos % 8 == 0){
-			if (table.nametable[pos+9] == BLACK_PAWN_CODE | table.nametable[pos+9] == BLACK_ROOK_CODE |
-				table.nametable[pos+9] == BLACK_KNIGHT_CODE | table.nametable[pos+9] == BLACK_BISHOP_CODE |
-				table.nametable[pos+9] == BLACK_QUEEN_CODE ){
+			if (table.nametable[pos+9].name == BLACK_PAWN_CODE | table.nametable[pos+9].name == BLACK_ROOK_CODE |
+				table.nametable[pos+9].name == BLACK_KNIGHT_CODE | table.nametable[pos+9].name == BLACK_BISHOP_CODE |
+				table.nametable[pos+9].name == BLACK_QUEEN_CODE ){
 		
-				movePiece(pos, pos + 9, white);
+				movePiece(pos, pos + 9);
 				final_position = pos + 9;
 				return true;
 			}
 			return false;
 		}
 		else if (pos % 8 == 7){
-			if (table.nametable[pos+7] == BLACK_PAWN_CODE | table.nametable[pos+7] == BLACK_ROOK_CODE |
-				table.nametable[pos+7] == BLACK_KNIGHT_CODE | table.nametable[pos+7] == BLACK_BISHOP_CODE |
-				table.nametable[pos+7] == BLACK_QUEEN_CODE ){
+			if (table.nametable[pos+7].name == BLACK_PAWN_CODE | table.nametable[pos+7].name == BLACK_ROOK_CODE |
+				table.nametable[pos+7].name == BLACK_KNIGHT_CODE | table.nametable[pos+7].name == BLACK_BISHOP_CODE |
+				table.nametable[pos+7].name == BLACK_QUEEN_CODE ){
 				
-				movePiece(pos, pos + 7, white);
+				movePiece(pos, pos + 7);
 				final_position = pos + 7;
 				return true;
 			}
 			return false;
 		}
 		else{
-			if (table.nametable[pos+7] == BLACK_PAWN_CODE | table.nametable[pos+7] == BLACK_ROOK_CODE |
-				table.nametable[pos+7] == BLACK_KNIGHT_CODE | table.nametable[pos+7] == BLACK_BISHOP_CODE |
-				table.nametable[pos+7] == BLACK_QUEEN_CODE ) {
+			if (table.nametable[pos+7].name == BLACK_PAWN_CODE | table.nametable[pos+7].name == BLACK_ROOK_CODE |
+				table.nametable[pos+7].name == BLACK_KNIGHT_CODE | table.nametable[pos+7].name == BLACK_BISHOP_CODE |
+				table.nametable[pos+7].name == BLACK_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table.nametable[pos+9] == BLACK_PAWN_CODE | table.nametable[pos+9] == BLACK_ROOK_CODE |
-				table.nametable[pos+9] == BLACK_KNIGHT_CODE | table.nametable[pos+9] == BLACK_BISHOP_CODE |
-				table.nametable[pos+9] == BLACK_QUEEN_CODE ){
+			if (table.nametable[pos+9].name == BLACK_PAWN_CODE | table.nametable[pos+9].name == BLACK_ROOK_CODE |
+				table.nametable[pos+9].name == BLACK_KNIGHT_CODE | table.nametable[pos+9].name == BLACK_BISHOP_CODE |
+				table.nametable[pos+9].name == BLACK_QUEEN_CODE ){
 				b2 = true;
 			}
 			if (b1 && b2){
 				srand(time(NULL));
 				if (rand() % 2 == 0){
-					movePiece(pos, pos + 9, white);
+					movePiece(pos, pos + 9);
 					final_position = pos + 9;
 					return true;
 				}
 				else{
-					movePiece(pos, pos + 7, white);
+					movePiece(pos, pos + 7);
 					final_position = pos + 7;
 					return true;
 				}
 			}
 			else if (b1){
-				movePiece(pos, pos + 7, white);
+				movePiece(pos, pos + 7);
 				final_position = pos + 7;
 				return true;
 			}
 			else if (b2){
-				movePiece(pos, pos + 9, white);
+				movePiece(pos, pos + 9);
 				final_position = pos + 9;
 				return true;
 			}
@@ -227,59 +297,59 @@ bool functii::generateValidAttack(int pos, bool white){
 	}
 	else{
 		if (pos % 8 == 0){
-			if (table.nametable[pos-9] == WHITE_PAWN_CODE | table.nametable[pos-9] == WHITE_ROOK_CODE |
-				table.nametable[pos-9] == WHITE_KNIGHT_CODE | table.nametable[pos-9] == WHITE_BISHOP_CODE |
-				table.nametable[pos-9] == WHITE_QUEEN_CODE ){
+			if (table.nametable[pos-9].name == WHITE_PAWN_CODE | table.nametable[pos-9].name == WHITE_ROOK_CODE |
+				table.nametable[pos-9].name == WHITE_KNIGHT_CODE | table.nametable[pos-9].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-9].name == WHITE_QUEEN_CODE ){
 			
-				movePiece(pos, pos-9, white);
+				movePiece(pos, pos-9);
 				final_position = pos-9;
 				return true;
 			}
 			return false;
 		}
 		else if (pos % 8 == 7) {
-			if (table.nametable[pos-7] == WHITE_PAWN_CODE | table.nametable[pos-7] == WHITE_ROOK_CODE |
-				table.nametable[pos-7] == WHITE_KNIGHT_CODE | table.nametable[pos-7] == WHITE_BISHOP_CODE |
-				table.nametable[pos-7] == WHITE_QUEEN_CODE ){
+			if (table.nametable[pos-7].name == WHITE_PAWN_CODE | table.nametable[pos-7].name == WHITE_ROOK_CODE |
+				table.nametable[pos-7].name == WHITE_KNIGHT_CODE | table.nametable[pos-7].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-7].name == WHITE_QUEEN_CODE ){
 			
-				movePiece(pos, pos-7, white);
+				movePiece(pos, pos-7);
 				final_position = pos-7;
 				return true;
 			}
 			return false;
 		}
 		else{
-			if (table.nametable[pos-7] == WHITE_PAWN_CODE | table.nametable[pos-7] == WHITE_ROOK_CODE |
-				table.nametable[pos-7] == WHITE_KNIGHT_CODE | table.nametable[pos-7] == WHITE_BISHOP_CODE |
-				table.nametable[pos-7] == WHITE_QUEEN_CODE ) {
+			if (table.nametable[pos-7].name == WHITE_PAWN_CODE | table.nametable[pos-7].name == WHITE_ROOK_CODE |
+				table.nametable[pos-7].name == WHITE_KNIGHT_CODE | table.nametable[pos-7].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-7].name == WHITE_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table.nametable[pos-9] == WHITE_PAWN_CODE | table.nametable[pos-9] == WHITE_ROOK_CODE |
-				table.nametable[pos-9] == WHITE_KNIGHT_CODE | table.nametable[pos-9] == WHITE_BISHOP_CODE |
-				table.nametable[pos-9] == WHITE_QUEEN_CODE ){
+			if (table.nametable[pos-9].name == WHITE_PAWN_CODE | table.nametable[pos-9].name == WHITE_ROOK_CODE |
+				table.nametable[pos-9].name == WHITE_KNIGHT_CODE | table.nametable[pos-9].name == WHITE_BISHOP_CODE |
+				table.nametable[pos-9].name == WHITE_QUEEN_CODE ){
 				b2 = true;
 			}
 			if (b1 && b2){
 				srand(time(NULL));
 				if(rand()%2==0){
-					movePiece(pos, pos - 9, white);
+					movePiece(pos, pos - 9);
 					final_position = pos - 9;
 					return true;
 				}
 				else{
-					movePiece(pos, pos-7, white);
-					final_position = pos-7;
+					movePiece(pos, pos - 7);
+					final_position = pos - 7;
 					return true;
 				}
 			}
 			else if (b1){
-				movePiece(pos, pos-7, white);
-				final_position = pos-7;
+				movePiece(pos, pos - 7);
+				final_position = pos - 7;
 				return true;
 			}
 			else if (b2){
-				movePiece(pos, pos-9, white);
-				final_position = pos-9;
+				movePiece(pos, pos - 9);
+				final_position = pos - 9;
 				return true;
 			}
 			return false;
@@ -287,35 +357,36 @@ bool functii::generateValidAttack(int pos, bool white){
 	}
 }
 
-bool functii::randomPositionPawn(bool white){
-	//srand(time(NULL));
+bool functii::randomPositionPawn(bool isWhite){
 	std::vector<int> v;
 	int p;
+	srand(time(NULL));
 
-	if (white){
+	if (isWhite){
 		for (unsigned int i = 8 ; i < 56 ; i ++){
-			if (table.nametable[i] == WHITE_PAWN_CODE)
+			if (table.nametable[i].name == WHITE_PAWN_CODE)
 				v.push_back(i);
 		}
 	}
 	else{
 		for (unsigned int i = 55 ; i > 7 ; i --){
-			if (table.nametable[i] == BLACK_PAWN_CODE)
+			if (table.nametable[i].name == BLACK_PAWN_CODE)
 				v.push_back(i);
 		}
 	}
 
 	if (v.size() > 0){
-		while (v.size()>0){
-			srand(time(NULL));
-			p = rand()%v.size();
+		while (v.size() > 0){
+			p = rand() % v.size();
 			//cout<<"A ALES POZITIA INITIALA "<<v[p];
-			if (generateValidAttack(v[p], white)){
+			/*if (generateValidPawnAttack(v[p], isWhite)){
 				initial_position = v[p];
 				return true;
 			}
-			else if (generateValidMove(v[p], white)){
+			else */
+			if (generateValidPawnMove(v[p], isWhite)){
 				initial_position = v[p];
+
 				return true;
 			}
 			v.erase(v.begin() + p);
@@ -324,9 +395,8 @@ bool functii::randomPositionPawn(bool white){
 	return false;
 }
 
-bool functii::randomPiece(bool white){
-	//srand(time(NULL));
-	return randomPositionPawn(white);
+bool functii::randomPiece(bool isWhite){
+	return randomPositionPawn(isWhite);
 }
 
 char* functii::finalPosFunc(){
@@ -337,7 +407,7 @@ char* functii::initialPosFunc(){
 	return ALPHA_NUMERIC_POSITIONS[initial_position];
 }
 
-void functii::updateOpponentMove(char* positions, bool white){
+void functii::updateOpponentMove(char* positions, bool isWhite){
 
 	int file1 = positions[0] - 97; int rank1 = positions[1] - 49;
 	int file2 = positions[2] - 97; int rank2 = positions[3] - 49;
@@ -345,8 +415,51 @@ void functii::updateOpponentMove(char* positions, bool white){
 	int initial_pos = rank1 * 8 + file1;
 	int final_pos = rank2 * 8 + file2;
 
-	if (white)
-		movePiece(initial_pos,final_pos,true);
-	else
-		movePiece(initial_pos,final_pos,true);
+	movePiece(initial_pos,final_pos);
 }
+
+/*
+int main() {
+	functii f;
+
+	f.initializeBitboard();
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.convertToBitString(f.table.occupied)[i];
+	}
+	std::cout<<std::endl;
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.convertToBitString(~f.table.occupied)[i];
+	}
+	std::cout<<std::endl;
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.convertToBitString(f.table.whitePawns)[i];
+	}
+	std::cout<<std::endl;
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.convertToBitString(f.table.blackPawns)[i];
+	}
+	std::cout<<std::endl;
+
+	f.movePiece(8,16);
+
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.convertToBitString(f.table.whitePawns)[i];
+	}
+	std::cout<<std::endl;
+
+	for (int i=0; i<64; i++){
+		if (i%8 == 0)  std::cout<<std::endl;
+		std::cout << f.table.nametable[i].name;
+	}
+	std::cout<<std::endl;
+	f.randomPiece(true);
+
+	char a[100];
+	fgets(a,100,stdin);
+	return 0;
+}*/

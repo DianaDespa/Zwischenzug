@@ -30,10 +30,15 @@
 typedef unsigned long long BITBOARD;
 
 typedef struct {
-	BITBOARD existance;
-	char nametable[64];
-} board;
+	BITBOARD nextMoves;
+	char name;
+} piece;
 
-extern char* ALPHA_NUMERIC_POSITIONS[64];
+typedef struct {
+	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns, 
+			 whiteRooks, blackRooks, whiteKnights, blackKnights, whiteBishops,
+			 blackBishops, whiteQueen, blackQueen, whiteKing, blackKing;
+	piece nametable[64];
+} board;
 
 #endif

@@ -21,8 +21,11 @@
 		while (1){
 	
 			std::cin >> command;
+			setbuf(stdin, NULL);
+			
 			if(command.compare("xboard") == 0){
 		        std::cout<<"feature myname=\"Team\""<< std::endl;
+				setbuf(stdout, NULL);
 		    }
 
 		    else  if(command.compare("quit") == 0){
@@ -54,7 +57,7 @@
 			else{ 
 				char* cmd = strdup(command.c_str());
 				XBOARD.moveCommand(cmd);
-				std::cout<<"move e7e5"<<std::endl;
+				//std::cout<<"move e7e5"<<std::endl;
 				ENGINE.parseMovetoXboard();
 		        }
 		   }
