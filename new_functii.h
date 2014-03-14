@@ -10,22 +10,23 @@
 
 class functii {
 
-	public: 
-		board table;
-		int initial_position, final_position;
-		board getBoard(void);
-		functii(void);
-		std::string convertToBitString( long long value);
-		bool Is_Bit_Set(BITBOARD table, int pos);
-		void Move_Piece(int initial_pos, int final_pos, bool white);
-		void InitializeBitboard(void);
-		bool generate_valid_move(int pos, bool white);
-		bool generate_valid_attack(int pos, bool white);
-		bool Random_Position_Pawn(bool white);
-		bool Random_Piece(bool white);
-		char* final_position_func(void);
-		char* initial_position_func(void);
-		void Update_Opponent_Move(char* positions,bool white);
+private:
+	board table;
+	int initial_position, final_position;
+public:
+	board getBoard(void);
+	functii(void);
+	std::string convertToBitString( long long value);
+	bool isBitSet(BITBOARD table, int pos);
+	void movePiece(int initial_pos, int final_pos, bool white);
+	void initializeBitboard(void);
+	bool generateValidMove(int pos, bool white);
+	bool generateValidAttack(int pos, bool white);
+	bool randomPositionPawn(bool white);
+	bool randomPiece(bool white);
+	char* finalPosFunc(void);
+	char* initialPosFunc(void);
+	void updateOpponentMove(char* positions,bool white);
 };
 
 #endif

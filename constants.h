@@ -29,12 +29,11 @@
 #define EMPTY_CODE '0'
 typedef unsigned long long BITBOARD;
 
-typedef struct board {
+typedef struct {
 	BITBOARD existance;
 	char nametable[64];
-};
+} board;
 
 extern char* ALPHA_NUMERIC_POSITIONS[64];
-
 
 #endif

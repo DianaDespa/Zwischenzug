@@ -15,11 +15,11 @@ void FromEnginetoXboard::parseMovetoXboard(){
 	//daca nu poate atunci da resign
 	//altfel se parseaza mutarea la consola  
 	
-	if(!book.Random_Piece(WHITE_MODE))
+	if (!book.randomPiece(WHITE_MODE))
 		resignCommand();
 	else {
-		char* initial = book.initial_position_func();
-		char* final = book.final_position_func();
+		char* initial = book.initialPosFunc();
+		char* final = book.finalPosFunc();
 		strcpy(movePiece, initial);
 		strcat(movePiece, final);
 		parseMove(movePiece);
@@ -31,7 +31,7 @@ void FromEnginetoXboard::resignCommand(void){
 	//scrie efectiv ca da resign culoarea pe care suntem setati 
 	//daca culoarea curenta este alb
 	
-	if(WHITE_MODE){
+	if (WHITE_MODE){
 		std::cout<<"0-1 {WHITE resigns}"<<std::endl;
 	}
 	
