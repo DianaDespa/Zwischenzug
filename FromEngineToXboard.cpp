@@ -1,7 +1,6 @@
 #include "FromEnginetoXboard.h"
 
 extern functii ChessBoard;
-extern FILE* f;
 
 void FromEnginetoXboard::parseMove(char* move){
 	//scrie efectiv mutarea pentru consola XBOARD
@@ -24,7 +23,6 @@ void FromEnginetoXboard::parseMovetoXboard(){
 		char* final = ChessBoard.finalPosFunc();	
 		strcpy(movePiece, initial);
 		strcat(movePiece, final);
-		fprintf(f,"%s\n", movePiece);
 		parseMove(movePiece);
 		WHITE_MOVING = !WHITE_MOVING;
 		BLACK_MOVING = !BLACK_MOVING;

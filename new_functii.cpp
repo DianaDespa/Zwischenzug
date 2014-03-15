@@ -10,7 +10,7 @@ char* ALPHA_NUMERIC_POSITIONS[64] = {"a1","b1","c1","d1","e1","f1","g1","h1",
 "a8","b8","c8","d8","e8","f8","g8","h8"};
 
 #include "new_functii.h"
-extern FILE* f;
+//extern FILE* f;
 
 functii::functii(){
 	initializeBitboard();
@@ -55,68 +55,9 @@ void functii::movePiece(int initial_pos, int final_pos){
 	table.occupied &= ~(1ULL << (initial_pos));
 	swap(&table.nametable[initial_pos].name, &table.nametable[final_pos].name);
 	//swap(&table.nametable[initial_pos].nextMoves, &table.nametable[final_pos].nextMoves);
-	fprintf(f,"swapping: %c %c\n", table.nametable[final_pos].name, table.nametable[initial_pos].name);
 
 	//pt ca le-am interschimbat verific ce e pe poz initiala
-	if (table.nametable[initial_pos].name == EMPTY_CODE) {
-		table.occupied |= 1ULL << (final_pos);
-
-		if (table.nametable[final_pos].name < 'a') {
-			switch (table.nametable[final_pos].name){
-			case 'P':
-				table.whitePawns &= ~(1ULL << initial_pos);
-				table.whitePawns |= 1ULL << final_pos;
-				break;
-			case 'R':
-				table.whiteRooks &= ~(1ULL << initial_pos);
-				table.whiteRooks |= 1ULL << final_pos;
-				break;
-			case 'N':
-				table.whiteKnights &= ~(1ULL << initial_pos);
-				table.whiteKnights |= 1ULL << final_pos;
-				break;
-			case 'B':
-				table.whiteBishops &= ~(1ULL << initial_pos);
-				table.whiteBishops |= 1ULL << final_pos;
-				break;
-			case 'Q':
-				table.whiteQueen = 1ULL << final_pos;
-				break;
-			case 'K':
-				table.whiteKing = 1ULL << final_pos;
-				break;
-			}
-			table.whitePieces &= ~(1ULL << initial_pos);
-			table.whitePieces |= 1ULL << final_pos;
-		}else {
-			switch(table.nametable[final_pos].name) {
-			case 'p':
-				table.blackPawns &= ~(1ULL << initial_pos);
-				table.blackPawns |= 1ULL << final_pos;
-				break;
-			case 'r':
-				table.blackRooks &= ~(1ULL << initial_pos);
-				table.blackRooks |= 1ULL << final_pos;
-				break;
-			case 'n':
-				table.blackKnights &= ~(1ULL << initial_pos);
-				table.blackKnights |= 1ULL << final_pos;
-				break;
-			case 'b':
-				table.blackBishops &= ~(1ULL << initial_pos);
-				table.blackBishops |= 1ULL << final_pos;
-				break;
-			case 'q':
-				table.blackQueen = 1ULL << final_pos;
-				break;
-			case 'k':
-				table.blackKing = 1ULL << final_pos;
-				break;
-			}
-			table.blackPieces &= ~(1ULL << initial_pos);
-			table.blackPieces |= 1ULL << final_pos;
-		}
-	} else {
+	if (table.nametable[initial_pos].name != EMPTY_CODE) {
 		if (table.nametable[initial_pos].name < 'a') {
 			switch (table.nametable[initial_pos].name){
 			case 'P':
@@ -161,17 +102,82 @@ void functii::movePiece(int initial_pos, int final_pos){
 				break;
 			}
 			table.blackPieces &= ~(1ULL << final_pos);
-
 		}
 		table.nametable[initial_pos].name = EMPTY_CODE;
-		//table.nametable[initial_pos].name = ?
-
+		//table.nametable[initial_pos].nextMoves = ?
 	}
+	else {
+		table.occupied |= 1ULL << (final_pos);
+	}
+	
+	if (table.nametable[final_pos].name < 'a') {
+		switch (table.nametable[final_pos].name){
+		case 'P':
+			table.whitePawns &= ~(1ULL << initial_pos);
+			table.whitePawns |= 1ULL << final_pos;
+			break;
+		case 'R':
+			table.whiteRooks &= ~(1ULL << initial_pos);
+			table.whiteRooks |= 1ULL << final_pos;
+			break;
+		case 'N':
+			table.whiteKnights &= ~(1ULL << initial_pos);
+			table.whiteKnights |= 1ULL << final_pos;
+			break;
+		case 'B':
+			table.whiteBishops &= ~(1ULL << initial_pos);
+			table.whiteBishops |= 1ULL << final_pos;
+			break;
+		case 'Q':
+			table.whiteQueen = 1ULL << final_pos;
+			break;
+		case 'K':
+			table.whiteKing = 1ULL << final_pos;
+			break;
+		}
+		table.whitePieces &= ~(1ULL << initial_pos);
+		table.whitePieces |= 1ULL << final_pos;
+	}else {
+		switch(table.nametable[final_pos].name) {
+		case 'p':
+			table.blackPawns &= ~(1ULL << initial_pos);
+			table.blackPawns |= 1ULL << final_pos;
+			break;
+		case 'r':
+			table.blackRooks &= ~(1ULL << initial_pos);
+			table.blackRooks |= 1ULL << final_pos;
+			break;
+		case 'n':
+			table.blackKnights &= ~(1ULL << initial_pos);
+			table.blackKnights |= 1ULL << final_pos;
+			break;
+		case 'b':
+			table.blackBishops &= ~(1ULL << initial_pos);
+			table.blackBishops |= 1ULL << final_pos;
+			break;
+		case 'q':
+			table.blackQueen = 1ULL << final_pos;
+			break;
+		case 'k':
+			table.blackKing = 1ULL << final_pos;
+			break;
+		}
+		table.blackPieces &= ~(1ULL << initial_pos);
+		table.blackPieces |= 1ULL << final_pos;
+	}
+
+	/*fprintf(f, "\nBLACK");
 	for (int i=0; i<64; i++){
 		if (i%8==0) fprintf(f, "\n");
 		fprintf(f, "%c", convertToBitString(table.blackPawns)[i]);
 	}
 	fprintf(f, "\n");
+	fprintf(f, "\nWHITE");
+	for (int i=0; i<64; i++){
+		if (i%8==0) fprintf(f, "\n");
+		fprintf(f, "%c", convertToBitString(table.whitePawns)[i]);
+	}
+	fprintf(f, "\n");*/
 }
 
 void functii::initializeBitboard(){

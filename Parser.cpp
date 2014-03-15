@@ -8,7 +8,7 @@
 	fclose(logFile);
 	}*/
 	
-FILE *f  = fopen("log","w");
+//FILE *f  = fopen("log","w");
 
 int Parser::interpretCommand(){
 
@@ -41,8 +41,6 @@ int Parser::interpretCommand(){
 	while (1) {
 		std::cin >> command;
 
-		fputs(command.data(), f);fputs("   comanda noua\n",f);
-
 		if (command.compare("quit") == 0){
 			XBOARD.quitCommand();
 		    break;
@@ -65,7 +63,6 @@ int Parser::interpretCommand(){
 		}
 		else if (command.compare("usermove") == 0){
 			std::cin >> command;
-			fputs(command.data(), f);fputs("\n",f);
 			char* cmd = strdup(command.c_str());
 			XBOARD.moveCommand(cmd);
 			if (!FORCE_MODE && ((BLACK_MODE == BLACK_MOVING) 
@@ -74,6 +71,6 @@ int Parser::interpretCommand(){
 			}
 		}
 	}
-	fclose(f);
+	//fclose(f);
 	return 0;	
 }
