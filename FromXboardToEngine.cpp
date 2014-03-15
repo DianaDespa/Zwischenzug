@@ -1,7 +1,5 @@
 #include "FromXboardtoEngine.h"
 
-extern functii ChessBoard;
-
 FromXboardtoEngine::FromXboardtoEngine(void) {
 }
 
@@ -16,7 +14,7 @@ void FromXboardtoEngine::newCommand(void) {
 	//Initialize board
 	//wait for white user to move
 	//set black
-	ChessBoard.initializeBitboard();
+	ChessBoard::initializeBitboard();
 	WHITE_MOVING = true;
 	BLACK_MOVING = false;
 	WHITE_MODE = false;
@@ -95,7 +93,7 @@ void FromXboardtoEngine::blackCommand(void) {
 
 void FromXboardtoEngine::moveCommand(char* command) {
 	if (!FORCE_MODE) {
-		ChessBoard.updateOpponentMove(command, BLACK_MODE);
+		ChessBoard::updateOpponentMove(command, BLACK_MODE);
 	} //else check valid
 	WHITE_MOVING = !WHITE_MOVING;
 	BLACK_MOVING = !BLACK_MOVING;

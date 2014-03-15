@@ -34,11 +34,13 @@ typedef struct {
 	char name;
 } piece;
 
-typedef struct {
+typedef struct board{
 	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns, 
 			 whiteRooks, blackRooks, whiteKnights, blackKnights, whiteBishops,
 			 blackBishops, whiteQueen, blackQueen, whiteKing, blackKing;
 	piece nametable[64];
-} board;
+	board() {
+	}
+};
 
 #endif

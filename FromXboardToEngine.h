@@ -5,7 +5,7 @@
 #include <string.h>
 //#include "Timer.h"
 #include "Modes.h"
-#include "new_functii.h"
+#include "ChessBoard.h"
 
 using namespace Modes;
 

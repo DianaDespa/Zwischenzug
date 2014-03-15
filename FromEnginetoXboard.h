@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string.h>
 #include "Modes.h"
-#include "new_functii.h"
+#include "ChessBoard.h"
 
 using namespace Modes;
 

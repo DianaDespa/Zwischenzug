@@ -4,8 +4,6 @@
 #include "Parser.h"
 //Timer t;
 
-functii ChessBoard;
-
 int main(int argc, char** argv){
 	
 	

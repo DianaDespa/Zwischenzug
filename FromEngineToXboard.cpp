@@ -1,7 +1,5 @@
 #include "FromEnginetoXboard.h"
 
-extern functii ChessBoard;
-
 void FromEnginetoXboard::parseMove(char* move){
 	//scrie efectiv mutarea pentru consola XBOARD
 	std::cout<<"move "<<move<<std::endl;
@@ -16,11 +14,11 @@ void FromEnginetoXboard::parseMovetoXboard(){
 	//daca nu poate atunci da resign
 	//altfel se parseaza mutarea la consola  
 	
-	if (!ChessBoard.randomPiece(WHITE_MODE))
+	if (!ChessBoard::randomPiece(WHITE_MODE))
 		resignCommand();
 	else {
-		char* initial = ChessBoard.initialPosFunc();
-		char* final = ChessBoard.finalPosFunc();	
+		char* initial = ChessBoard::initialPosFunc();
+		char* final = ChessBoard::finalPosFunc();	
 		strcpy(movePiece, initial);
 		strcat(movePiece, final);
 		parseMove(movePiece);
