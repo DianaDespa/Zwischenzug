@@ -7,8 +7,6 @@ void FromEnginetoXboard::parseMove(char* move){
 }
 
 void FromEnginetoXboard::parseMovetoXboard(){
-	
-	//board T;	
 	char movePiece[6];
 	//verifica daca poate muta vreo piesa
 	//daca nu poate atunci da resign

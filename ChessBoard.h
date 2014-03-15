@@ -1,13 +1,11 @@
-//VEZI COMENTARII CU EXPLICATII INAINTE DE int main() !!!!!!!!!!
 #ifndef _FUNC_H
 #define _FUNC_H
 
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <stdlib.h>
 #include <vector>
 #include <ctime>
+#include <stdlib.h>
 #include "constants.h"
 
 class ChessBoard {
@@ -19,9 +17,11 @@ private:
 	static bool generateValidPawnAttack(int pos, bool white);
 	static bool randomPositionPawn(bool white);
 	static std::string convertToBitString(long long value);
+
 public:
 	ChessBoard(void);
 	~ChessBoard(void);
+	
 	static void updateOpponentMove(char* positions, bool isWhite);
 	static void initializeBitboard(void);
 	static void movePiece(int initial_pos, int final_pos);

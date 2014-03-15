@@ -29,12 +29,12 @@
 #define EMPTY_CODE '0'
 typedef unsigned long long BITBOARD;
 
-typedef struct {
+struct piece{
 	BITBOARD nextMoves;
 	char name;
-} piece;
+};
 
-typedef struct board{
+struct board{
 	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns, 
 			 whiteRooks, blackRooks, whiteKnights, blackKnights, whiteBishops,
 			 blackBishops, whiteQueen, blackQueen, whiteKing, blackKing;

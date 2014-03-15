@@ -1,30 +1,20 @@
 #include "Parser.h"
-	
-	/*Parser::Parser(){
-	logFile = fopen("log","w");		
-	}
-	
-	Parser::~Parser(){
-	fclose(logFile);
-	}*/
-	
-//FILE *f  = fopen("log","w");
+
+using namespace FromXboardtoEngine;
+using namespace FromEnginetoXboard;
 
 int Parser::interpretCommand(){
 
-	FromXboardtoEngine XBOARD;
-	FromEnginetoXboard ENGINE;
-		
-	setbuf(stdout, NULL);
-	setbuf(stdin, NULL);	
-		
 	std::string command;
+
+	setbuf(stdout, NULL);
+	setbuf(stdin, NULL);
+
 	while (1){
-	
 		std::cin >> command;
 
 		if (command.compare("xboard") == 0){
-			XBOARD.xboardCommand();
+			xboardCommand();
 		}
 		else if (command.compare("protover") == 0){
 			std::cout<<"feature myname=\"Team\""<< std::endl;
@@ -33,7 +23,7 @@ int Parser::interpretCommand(){
 			std::cout<<"feature sigterm=0"<< std::endl;	
 		}
 		else if (command.compare("new") == 0){
-			XBOARD.newCommand();
+			newCommand();
 			break;
 		}
 	}
@@ -42,35 +32,35 @@ int Parser::interpretCommand(){
 		std::cin >> command;
 
 		if (command.compare("quit") == 0){
-			XBOARD.quitCommand();
+			quitCommand();
 		    break;
 		}
 		else if (command.compare("new") == 0){
-			XBOARD.newCommand();
+			newCommand();
 		}
 		else if (command.compare("force") == 0){
-			XBOARD.forceCommand();
+			forceCommand();
 		}
 		else if (command.compare("go") == 0){
-			XBOARD.goCommand();
-			ENGINE.parseMovetoXboard();
+			goCommand();
+			parseMovetoXboard();
 		}
 		else if (command.compare("white") == 0){
-			XBOARD.whiteCommand();
+			whiteCommand();
 		}
 		else if (command.compare("black") == 0){
-			XBOARD.blackCommand();
+			blackCommand();
 		}
 		else if (command.compare("usermove") == 0){
 			std::cin >> command;
 			char* cmd = strdup(command.c_str());
-			XBOARD.moveCommand(cmd);
+			moveCommand(cmd);
 			if (!FORCE_MODE && ((BLACK_MODE == BLACK_MOVING) 
 								&& (WHITE_MODE == WHITE_MOVING))) {
-				ENGINE.parseMovetoXboard();
+				parseMovetoXboard();
 			}
 		}
 	}
-	//fclose(f);
+
 	return 0;	
 }

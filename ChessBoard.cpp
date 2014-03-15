@@ -1,18 +1,17 @@
-//VEZI COMENTARII CU EXPLICATII INAINTE DE int main() !!!!!!!!!!
-
 #include "ChessBoard.h"
-//extern FILE* f;
 
 board* ChessBoard::table = new board();
-char* ChessBoard::ALPHA_NUMERIC_POSITIONS[64] = {"a1","b1","c1","d1","e1","f1","g1","h1",
-												"a2","b2","c2","d2","e2","f2","g2","h2",
-												"a3","b3","c3","d3","e3","f3","g3","h3",
-												"a4","b4","c4","d4","e4","f4","g4","h4",
-												"a5","b5","c5","d5","e5","f5","g5","h5",
-												"a6","b6","c6","d6","e6","f6","g6","h6",
-												"a7","b7","c7","d7","e7","f7","g7","h7",
-												"a8","b8","c8","d8","e8","f8","g8","h8"};
-int ChessBoard::initial_position = 0, ChessBoard::final_position = 0;
+int ChessBoard::initial_position = 0, 
+	ChessBoard::final_position = 0;
+char* ChessBoard::ALPHA_NUMERIC_POSITIONS[64] = 
+	{"a1","b1","c1","d1","e1","f1","g1","h1",
+	"a2","b2","c2","d2","e2","f2","g2","h2",
+	"a3","b3","c3","d3","e3","f3","g3","h3",
+	"a4","b4","c4","d4","e4","f4","g4","h4",
+	"a5","b5","c5","d5","e5","f5","g5","h5",
+	"a6","b6","c6","d6","e6","f6","g6","h6",
+	"a7","b7","c7","d7","e7","f7","g7","h7",
+	"a8","b8","c8","d8","e8","f8","g8","h8"};
 
 ChessBoard::ChessBoard(){
 }
@@ -164,19 +163,6 @@ void ChessBoard::movePiece(int initial_pos, int final_pos){
 		table->blackPieces &= ~(1ULL << initial_pos);
 		table->blackPieces |= 1ULL << final_pos;
 	}
-
-	/*fprintf(f, "\nBLACK");
-	for (int i=0; i<64; i++){
-		if (i%8==0) fprintf(f, "\n");
-		fprintf(f, "%c", convertToBitString(table->blackPawns)[i]);
-	}
-	fprintf(f, "\n");
-	fprintf(f, "\nWHITE");
-	for (int i=0; i<64; i++){
-		if (i%8==0) fprintf(f, "\n");
-		fprintf(f, "%c", convertToBitString(table->whitePawns)[i]);
-	}
-	fprintf(f, "\n");*/
 }
 
 void ChessBoard::initializeBitboard(){
@@ -304,8 +290,10 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 
 	if (isWhite){
 		if (pos % 8 == 0){
-			if (table->nametable[pos+9].name == BLACK_PAWN_CODE | table->nametable[pos+9].name == BLACK_ROOK_CODE |
-				table->nametable[pos+9].name == BLACK_KNIGHT_CODE | table->nametable[pos+9].name == BLACK_BISHOP_CODE |
+			if (table->nametable[pos+9].name == BLACK_PAWN_CODE |
+				table->nametable[pos+9].name == BLACK_ROOK_CODE |
+				table->nametable[pos+9].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos+9].name == BLACK_BISHOP_CODE |
 				table->nametable[pos+9].name == BLACK_QUEEN_CODE ){
 
 				movePiece(pos, pos + 9);
@@ -315,8 +303,10 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else if (pos % 8 == 7){
-			if (table->nametable[pos+7].name == BLACK_PAWN_CODE | table->nametable[pos+7].name == BLACK_ROOK_CODE |
-				table->nametable[pos+7].name == BLACK_KNIGHT_CODE | table->nametable[pos+7].name == BLACK_BISHOP_CODE |
+			if (table->nametable[pos+7].name == BLACK_PAWN_CODE |
+				table->nametable[pos+7].name == BLACK_ROOK_CODE |
+				table->nametable[pos+7].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos+7].name == BLACK_BISHOP_CODE |
 				table->nametable[pos+7].name == BLACK_QUEEN_CODE ){
 
 				movePiece(pos, pos + 7);
@@ -326,13 +316,17 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else{
-			if (table->nametable[pos+7].name == BLACK_PAWN_CODE | table->nametable[pos+7].name == BLACK_ROOK_CODE |
-				table->nametable[pos+7].name == BLACK_KNIGHT_CODE | table->nametable[pos+7].name == BLACK_BISHOP_CODE |
+			if (table->nametable[pos+7].name == BLACK_PAWN_CODE |
+				table->nametable[pos+7].name == BLACK_ROOK_CODE |
+				table->nametable[pos+7].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos+7].name == BLACK_BISHOP_CODE |
 				table->nametable[pos+7].name == BLACK_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table->nametable[pos+9].name == BLACK_PAWN_CODE | table->nametable[pos+9].name == BLACK_ROOK_CODE |
-				table->nametable[pos+9].name == BLACK_KNIGHT_CODE | table->nametable[pos+9].name == BLACK_BISHOP_CODE |
+			if (table->nametable[pos+9].name == BLACK_PAWN_CODE |
+				table->nametable[pos+9].name == BLACK_ROOK_CODE |
+				table->nametable[pos+9].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos+9].name == BLACK_BISHOP_CODE |
 				table->nametable[pos+9].name == BLACK_QUEEN_CODE ){
 				b2 = true;
 			}
@@ -364,8 +358,10 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 	}
 	else{
 		if (pos % 8 == 0){
-			if (table->nametable[pos-7].name == WHITE_PAWN_CODE | table->nametable[pos-7].name == WHITE_ROOK_CODE |
-				table->nametable[pos-7].name == WHITE_KNIGHT_CODE | table->nametable[pos-7].name == WHITE_BISHOP_CODE |
+			if (table->nametable[pos-7].name == WHITE_PAWN_CODE |
+				table->nametable[pos-7].name == WHITE_ROOK_CODE |
+				table->nametable[pos-7].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos-7].name == WHITE_BISHOP_CODE |
 				table->nametable[pos-7].name == WHITE_QUEEN_CODE ){
 
 				movePiece(pos, pos - 7);
@@ -375,8 +371,10 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else if (pos % 8 == 7) {
-			if (table->nametable[pos-9].name == WHITE_PAWN_CODE | table->nametable[pos-9].name == WHITE_ROOK_CODE |
-				table->nametable[pos-9].name == WHITE_KNIGHT_CODE | table->nametable[pos-9].name == WHITE_BISHOP_CODE |
+			if (table->nametable[pos-9].name == WHITE_PAWN_CODE |
+				table->nametable[pos-9].name == WHITE_ROOK_CODE |
+				table->nametable[pos-9].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos-9].name == WHITE_BISHOP_CODE |
 				table->nametable[pos-9].name == WHITE_QUEEN_CODE ){
 
 				movePiece(pos, pos - 9);
@@ -386,13 +384,17 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else{
-			if (table->nametable[pos-7].name == WHITE_PAWN_CODE | table->nametable[pos-7].name == WHITE_ROOK_CODE |
-				table->nametable[pos-7].name == WHITE_KNIGHT_CODE | table->nametable[pos-7].name == WHITE_BISHOP_CODE |
+			if (table->nametable[pos-7].name == WHITE_PAWN_CODE |
+				table->nametable[pos-7].name == WHITE_ROOK_CODE |
+				table->nametable[pos-7].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos-7].name == WHITE_BISHOP_CODE |
 				table->nametable[pos-7].name == WHITE_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table->nametable[pos-9].name == WHITE_PAWN_CODE | table->nametable[pos-9].name == WHITE_ROOK_CODE |
-				table->nametable[pos-9].name == WHITE_KNIGHT_CODE | table->nametable[pos-9].name == WHITE_BISHOP_CODE |
+			if (table->nametable[pos-9].name == WHITE_PAWN_CODE |
+				table->nametable[pos-9].name == WHITE_ROOK_CODE |
+				table->nametable[pos-9].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos-9].name == WHITE_BISHOP_CODE |
 				table->nametable[pos-9].name == WHITE_QUEEN_CODE ){
 				b2 = true;
 			}
@@ -483,56 +485,3 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite){
 
 	movePiece(initial_pos,final_pos);
 }
-
-/*
-int main() {
-	ChessBoard f;
-
-	f.initializeBitboard();
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.convertToBitString(f.table->occupied)[i];
-	}
-	std::cout<<std::endl;
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.convertToBitString(~f.table->occupied)[i];
-	}
-	std::cout<<std::endl;
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.convertToBitString(f.table->whitePawns)[i];
-	}
-	std::cout<<std::endl;
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.convertToBitString(f.table->blackPawns)[i];
-	}
-	std::cout<<std::endl;
-
-	f.movePiece(8,16);
-
-	for (int i=0; i<64; i++){
-		if (i%8 == 0)  std::cout<<std::endl;
-		std::cout << f.convertToBitString(f.table->whitePawns)[i];
-	}
-	std::cout<<std::endl;
-
-	char movePiece[6];
-	while(f.randomPiece(true)) {
-		char* initial = f.initialPosFunc();
-		char* final = f.finalPosFunc();
-		strcpy(movePiece, initial);
-		strcat(movePiece, final);
-		std::cout << movePiece <<std::endl;
-		for (int i=0; i<64; i++){
-			if (i%8 == 0)  std::cout<<std::endl;
-			std::cout << f.table->nametable[i].name;
-		}
-		std::cout<<std::endl;
-	}
-
-	char a[100];
-	std::cin >> a;
-	return 0;
-}*/

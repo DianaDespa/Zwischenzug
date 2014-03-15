@@ -1,26 +1,17 @@
 #ifndef _XBOARD_TO_ENGINE_H
 #define _XBOARD_TO_ENGINE_H
 
-#include <stdlib.h>
-#include <string.h>
-//#include "Timer.h"
+#include <string>
 #include "Modes.h"
 #include "ChessBoard.h"
+//#include "Timer.h"
 
 using namespace Modes;
 
-class FromXboardtoEngine {
-public:
-	//Timer whiteMove,blackMove;
-	
-	FromXboardtoEngine(void);
-	~FromXboardtoEngine(void);
-
+namespace FromXboardtoEngine {
 	void xboardCommand(void);
 	void newCommand(void);
 	void quitCommand(void);
-	//AM MODIFICAT resignCommand ---> FROMENGINETOXBOARD
-	//void resignCommand(void);
 	void forceCommand(void);
 	void goCommand(void);
 	void whiteCommand(void);

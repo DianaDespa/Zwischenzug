@@ -1,11 +1,5 @@
 #include "FromXboardtoEngine.h"
 
-FromXboardtoEngine::FromXboardtoEngine(void) {
-}
-
-FromXboardtoEngine::~FromXboardtoEngine(void) {
-}
-
 void FromXboardtoEngine::xboardCommand(void) {
 	XBOARD_MODE = true;
 }

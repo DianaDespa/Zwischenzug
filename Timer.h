@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <sys/timeb.h>
+#include <stdio.h>
 
 class Timer{
 	
@@ -14,5 +14,4 @@ class Timer{
 	void resetTimer();
 	void displayTime();
 	
-
 };
