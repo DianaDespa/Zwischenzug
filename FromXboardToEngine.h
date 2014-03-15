@@ -1,7 +1,7 @@
 #ifndef _XBOARD_TO_ENGINE_H
 #define _XBOARD_TO_ENGINE_H
 
-#include <string>
+#include <string.h>
 #include "Modes.h"
 #include "ChessBoard.h"
 //#include "Timer.h"

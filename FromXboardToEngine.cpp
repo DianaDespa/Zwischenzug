@@ -23,16 +23,6 @@ void FromXboardtoEngine::quitCommand(void) {
 	exit(0);
 }
 
-//AM MODIFICAT resignCommand ---> FROMENGINETOXBOARD
-/*void FromXboardtoEngine::resignCommand(void) {
-	//
-	/*char comm1[30]="1-0 {BLACK resigns}\n";
-	char comm2[30]="0-1 {WHITE resigns}\n";
-	if(joc.colorEngine==BLACK) giveCommandToXboard(comm1);
-         else
-             giveCommandToXboard(comm2);
-}*/
-
 void FromXboardtoEngine::forceCommand(void) {
 	FORCE_MODE = true;
 	WHITE_MODE = false;
