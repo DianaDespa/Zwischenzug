@@ -1,6 +1,6 @@
 // Zugzwang Chess Engine - stage 1
 
-#include "FromEnginetoXboard.h"
+#include "FromEngineToXboard.h"
 
 // Send move command to Xboard. Clear output buffer.
 void FromEnginetoXboard::parseMove(std::string move){

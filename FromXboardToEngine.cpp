@@ -1,6 +1,6 @@
 // Zugzwang Chess Engine - stage 1
 
-#include "FromXboardtoEngine.h"
+#include "FromXboardToEngine.h"
 
 // Start engine.
 void FromXboardtoEngine::xboardCommand(void) {

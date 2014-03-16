@@ -5,8 +5,8 @@
 
 #include <iostream>
 #include <cstring>
-#include "FromEnginetoXboard.h"
-#include "FromXboardtoEngine.h"
+#include "FromEngineToXboard.h"
+#include "FromXboardToEngine.h"
 
 // Class for the interpretation of Xboard commands.
 class Parser{
