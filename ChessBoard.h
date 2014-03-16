@@ -20,11 +20,15 @@ private:
 	static bool generateValidPawnMove(int pos, bool isWhite);
 	static bool generateValidPawnAttack(int pos, bool isWhite);
 	static bool randomPositionPawn(bool isWhite);
-	static std::string convertToBitString(long long value);
+	
+	static bool kingInDanger(bool isWhite);
+	
 
 public:
 	ChessBoard(void);
 	~ChessBoard(void);
+	static std::string convertToBitString(long long value);
+	static BITBOARD getAttacks(int pos);
 	
 	static void updateOpponentMove(char* positions);
 	static void initializeBitboard(void);

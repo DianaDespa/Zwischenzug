@@ -42,9 +42,10 @@ struct piece{
 
 // The characteristics of the board
 struct board{
-	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns, 
-			 whiteRooks, blackRooks, whiteKnights, blackKnights, whiteBishops,
-			 blackBishops, whiteQueen, blackQueen, whiteKing, blackKing;
+	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns,
+		 whiteRooks, blackRooks, whiteKnights, blackKnights,
+		 whiteBishops, blackBishops, whiteQueen, blackQueen, whiteKing,
+		 blackKing;
 	// Array with the codes for all pieces.
 	piece nametable[64];
 };

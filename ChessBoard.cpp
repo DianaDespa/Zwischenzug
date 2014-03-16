@@ -29,6 +29,192 @@ ChessBoard::~ChessBoard() {
 	delete table;
 }
 
+BITBOARD ChessBoard::getAttacks(int pos) {
+	BITBOARD temp = 0ULL;
+	int i;
+	
+	std::cout << table->nametable[pos].name << std::endl;
+	switch (table->nametable[pos].name) {
+	case 'P':
+		if (pos % 8 == 0) {
+			temp = 1ULL<<(pos + 9);
+		} else if (pos % 8 == 7) {
+			temp = 1ULL<<(pos + 7);
+		} else {
+			temp = (1ULL<<(pos + 9)) | (1ULL<<(pos + 7));
+		}
+		break;
+	case 'p':
+		if (pos % 8 == 0) {
+			temp = 1ULL<<(pos - 7);
+		} else if (pos % 8 == 7) {
+			temp = 1ULL<<(pos - 9);
+		} else {
+			temp = (1ULL<<(pos - 9)) | (1ULL<<(pos - 7));
+		}
+		break;
+	case 'R':
+	case 'r':
+		i = pos;
+		while (i < ((int)(pos / 8) + 1) * 8) {
+			temp |= 1ULL<< i;
+			i++;
+		}
+		i = pos;
+		while (i >= (int)(pos / 8) * 8) {
+			temp |= 1ULL<< i;
+			i--;
+		}
+		i = pos;
+		while (i <= 56 + pos % 8) {
+			temp |= 1ULL<< i;
+			i += 8; 
+		}
+		i = pos;
+		while (i >= pos % 8) {
+			temp |= 1ULL<< i;
+			i -= 8; 
+		}	
+		break;
+	case 'B':
+	case 'b':
+		i = pos;
+		while (i % 8 != 0 && i < 64) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i += 7;
+		}
+		if (i < 64) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 7 && i < 64) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i += 9;
+		}
+		if (i < 64) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 7 && i > 0) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i -= 7; 
+		}
+		if (i > 0) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 0 && i > 0) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i -= 9;
+		}
+		if (i > 0) temp |= 1ULL<< i;
+		break;
+	case 'N':
+	case 'n':
+		if (((pos + 15) % 8 == pos % 8 - 1) && (pos + 15 < 63)) {
+			temp |= 1ULL<<(pos + 15);
+		}
+		if (((pos + 17) % 8 == pos % 8 + 1) && (pos + 17 <= 63)) {
+			temp |= 1ULL<<(pos + 17);
+		}
+		if (((pos - 17) % 8 == pos % 8 - 1) && (pos - 17 >= 0)) {
+			temp |= 1ULL<<(pos - 17); 
+		}
+		if (((pos - 15) % 8 == pos % 8 + 1) && (pos - 15 > 0)) {
+			temp |= 1ULL<<(pos - 15);
+		}
+		if (((pos + 6) % 8 == pos % 8 - 2) && (pos / 8 + 1 == (pos + 6) / 8)
+			&& (pos + 6 < 64)) {
+			temp |= 1ULL<<(pos + 6);
+		}
+		if (((pos - 10) % 8 == pos % 8 - 2) && (pos / 8 - 1 == (pos - 10) / 8)
+			&& (pos - 10 >= 0)) {
+			temp |= 1ULL<<(pos - 10);
+		}
+		if (((pos + 10) % 8 == pos % 8 + 2) && (pos / 8 + 1 == (pos + 10) / 8)
+			&&(pos + 10 < 64)) {
+			temp |= 1ULL<<(pos + 10);
+		}
+		if (((pos - 6) % 8 == pos % 8 + 2) && (pos / 8 - 1 == (pos - 6) / 8)
+			&&(pos - 6 >= 0)) {
+			temp |= 1ULL<<(pos - 6);
+		}
+		break;
+	case 'Q':
+	case 'q':
+		i = pos;
+		while (i % 8 != 0 && i < 64) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i += 7;
+		}
+		if (i < 64) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 7 && i < 64) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i += 9;
+		}
+		if (i < 64) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 7 && i > 0) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i -= 7; 
+		}
+		if (i > 0) temp |= 1ULL<< i;
+		i = pos;
+		while (i % 8 != 0 && i > 0) {
+			temp |= 1ULL<< i;
+			std::cout << i << "\n";
+			i -= 9;
+		}
+		if (i > 0) temp |= 1ULL<< i;
+		i = pos;
+		while (i < ((int)(pos / 8) + 1) * 8) {
+			temp |= 1ULL<< i;
+			i++;
+		}
+		i = pos;
+		while (i >= (int)(pos / 8) * 8) {
+			temp |= 1ULL<< i;
+			i--;
+		}
+		i = pos;
+		while (i <= 56 + pos % 8) {
+			temp |= 1ULL<< i;
+			i += 8; 
+		}
+		i = pos;
+		while (i >= pos % 8) {
+			temp |= 1ULL<< i;
+			i -= 8; 
+		}	
+		break;
+	}
+	return temp;
+}
+
+bool ChessBoard::kingInDanger(bool isWhite) {
+	BITBOARD attacks = 0;
+	int i;
+	 
+	if (isWhite) {
+		for (i = 0; i < 63; i++) {
+			if (table->nametable[i].name > 'a') {
+				attacks |= getAttacks(i);
+			}
+		}
+		return !(attacks & table->whiteKing);
+	}
+	else {
+		for (i = 0; i < 63; i++) {
+			if (table->nametable[i].name < 'a') {
+				attacks |= getAttacks(i);
+			}
+		}
+		return !(attacks & table->blackKing);
+	}
+}
+
 // Returns a string consisting of the bits of the argument "value", sorted from
 // least significant to most significant.
 // For debugging purposes.
@@ -474,6 +660,7 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 	std::vector<int> v;
 	int p;
 	srand(time(NULL));
+	board* backup = new board();
 
 	// Keeps track of all available pawns, depending on the color of the engine
 	// in the vector v.
@@ -495,14 +682,27 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 		// update initial_position.
 		while (v.size() > 0){
 			p = rand() % v.size();
+			*backup = *table;
 			if (generateValidPawnAttack(v[p], isWhite)){
-				initial_position = v[p];
-				return true;
+				if (!kingInDanger(isWhite)) {
+					initial_position = v[p];
+					delete backup;
+					return true;
+				}
+				else {
+					*table = *backup;
+				}
 			}
 			else
 			if (generateValidPawnMove(v[p], isWhite)){
-				initial_position = v[p];
-				return true;
+				if (!kingInDanger(isWhite)) {
+					initial_position = v[p];
+					delete backup;
+					return true;
+				}
+				else {
+					*table = *backup;
+				}
 			}
 			v.erase(v.begin() + p);
 		}

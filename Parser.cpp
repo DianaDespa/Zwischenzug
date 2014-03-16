@@ -65,7 +65,7 @@ void Parser::interpretCommand(void){
 			char* cmd = strdup(command.c_str());
 			moveCommand(cmd);
 			if (!FORCE_MODE && ((BLACK_MODE == BLACK_MOVING) 
-								&& (WHITE_MODE == WHITE_MOVING))) {
+					&& (WHITE_MODE == WHITE_MOVING))) {
 				parseMovetoXboard();
 			}
 		}
