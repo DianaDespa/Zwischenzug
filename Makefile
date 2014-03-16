@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-O3 -funroll-loops -c -Wall
+CFLAGS=-O3 -funroll-loops -c -Wno-parentheses
 LDFLAGS=-O2 -lm
 
 SOURCES=$(wildcard *.cpp)

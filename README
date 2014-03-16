@@ -1,0 +1,31 @@
+Zugzwang Engine
+
+Contributors:
+	Diana Despa
+	Buse Elena Cristina
+	Orlando Mihail Alexandru
+	Rogoz Claudia-Rafaela
+
+Project details:
+
+Zugzwang is a Winboard/Xboard chess engine written in C++ developed as a university project. 
+
+Implementation details:
+
+For efficiency, Zugzwang engine uses as board representation - the bitboard.The main idea is to represent the board using a sequence of bits of 1 or 0 (in a 64 bits variable), each bit indicating the absence of the presence of some state about each place on the board. For this matter, our implementation contains a series of bitboards for white pieces, black pieces, and for each piece type.
+
+For the first stage of implementation, we used a couple of classes each of them with it's own purpose.
+
+The entry point of this project is the main function which initiates the comunication between Winboard/Xboard engine by calling the method interpretCommand from the Parser class. 
+
+With regards to the communication between Zugzwang engine and Xboard/Winboard, we used cin and cout for writing and reading from input to output. Also we used the line "setbuf(stdin, NULL)" to be sure that after each received comand, the command is instantly delivered to or from the engine. This is made by turning off the buffering. 
+
+Parser clas, as the name says, parses the commands given by Winboard/Xboard (such as move, quit, force, white, black, new, go) to other engine classes in order to be computed.
+
+The class FromXboardtoEngine receives the command to be implemented from the Parser class and computes the needed changes by setting flags or by calling methods within ChessBoard class.This class uses flags from "Modes.cpp".
+
+The class FromEnginetoXboard receives commands from ChessBoard class such as move or resign in order to parse them to Winboard/Xboard.
+
+The class Timer is to be implemented in further stages.It is used for keeping track of the remaining time in order to make a fast and efficient move.
+
+Finally, the ChessBoard class is used for making a valid move, or a valid attack, for updating the bitboard ( when move is made ) and for the initialization of the game. This class uses "constants.h". 
