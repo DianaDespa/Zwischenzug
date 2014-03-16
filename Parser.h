@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 1
+
 #ifndef _PARSER_H
 #define _PARSER_H
 
@@ -6,9 +8,10 @@
 #include "FromEnginetoXboard.h"
 #include "FromXboardtoEngine.h"
 
+// Class for the interpretation of Xboard commands.
 class Parser{
 	public:
-		static int interpretCommand();
+		static void interpretCommand(void);
 };
 
 #endif

@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 1
+
 #include "Timer.h"
 
 Timer::Timer(){

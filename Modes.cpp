@@ -1,10 +1,12 @@
+// Zugzwang Chess Engine - stage 1
+
 namespace Modes {
 	bool XBOARD_MODE = false;
 	bool FORCE_MODE = true;
-	// the playing colour
+	// the playing color
 	bool WHITE_MODE = false;
-	bool BLACK_MODE = true;
-	// the colour on the move
+	bool BLACK_MODE = false;
+	// the color on the move
 	bool WHITE_MOVING = false;
 	bool BLACK_MOVING = false;
 };

@@ -1,9 +1,15 @@
+// Zugzwang Chess Engine - stage 1
+
 #include "Parser.h"
 
 using namespace FromXboardtoEngine;
 using namespace FromEnginetoXboard;
 
-int Parser::interpretCommand(){
+// interpretCommand method "listens" for commands from the Xboard and calls
+// functions from the FromXboardToEngine namespaces accordingly. If a command
+// expects a reply, the method calls a function from the FromEngineToXboard
+// namespace to send the reply.
+void Parser::interpretCommand(void){
 
 	std::string command;
 
@@ -17,7 +23,8 @@ int Parser::interpretCommand(){
 			xboardCommand();
 		}
 		else if (command.compare("protover") == 0){
-			std::cout<<"feature myname=\"Team\""<< std::endl;
+			// Set the desired features to the Xboard.
+			std::cout<<"feature myname=\"Zugzwang\""<< std::endl;
 			std::cout<<"feature usermove=1"<< std::endl;
 			std::cout<<"feature sigint=0"<< std::endl;
 			std::cout<<"feature sigterm=0"<< std::endl;	
@@ -52,6 +59,8 @@ int Parser::interpretCommand(){
 			blackCommand();
 		}
 		else if (command.compare("usermove") == 0){
+			// Read the opponents move, update the board, and reply with a move,
+			// if in turn and not in force mode.
 			std::cin >> command;
 			char* cmd = strdup(command.c_str());
 			moveCommand(cmd);
@@ -61,6 +70,4 @@ int Parser::interpretCommand(){
 			}
 		}
 	}
-
-	return 0;	
 }

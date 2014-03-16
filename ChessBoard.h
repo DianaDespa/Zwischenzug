@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 1
+
 #ifndef _FUNC_H
 #define _FUNC_H
 
@@ -8,26 +10,28 @@
 #include <stdlib.h>
 #include "constants.h"
 
+// Class that implements the chess board's current state and functions for
+// generating moves and checking move validity.
 class ChessBoard {
 private:
-	static char* ALPHA_NUMERIC_POSITIONS[64];
+	static std::string ALPHA_NUMERIC_POSITIONS[64];
 	static board* table;
 	static int initial_position, final_position;
-	static bool generateValidPawnMove(int pos, bool white);
-	static bool generateValidPawnAttack(int pos, bool white);
-	static bool randomPositionPawn(bool white);
+	static bool generateValidPawnMove(int pos, bool isWhite);
+	static bool generateValidPawnAttack(int pos, bool isWhite);
+	static bool randomPositionPawn(bool isWhite);
 	static std::string convertToBitString(long long value);
 
 public:
 	ChessBoard(void);
 	~ChessBoard(void);
 	
-	static void updateOpponentMove(char* positions, bool isWhite);
+	static void updateOpponentMove(char* positions);
 	static void initializeBitboard(void);
 	static void movePiece(int initial_pos, int final_pos);
-	static bool randomPiece(bool white);
-	static char* finalPosFunc(void);
-	static char* initialPosFunc(void);
+	static bool randomPiece(bool isWhite);
+	static std::string finalPosFunc(void);
+	static std::string initialPosFunc(void);
 };
 
 #endif

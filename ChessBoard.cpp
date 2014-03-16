@@ -1,9 +1,16 @@
+//Zugzwang Chess Engine - stage 1
+
 #include "ChessBoard.h"
 
+// Keeps track of the board's current starte.
 board* ChessBoard::table = new board();
+
+// Positions from and to which a piece moves.
 int ChessBoard::initial_position = 0, 
 	ChessBoard::final_position = 0;
-char* ChessBoard::ALPHA_NUMERIC_POSITIONS[64] = 
+
+// Algebraic notation for each square of the board.
+std::string ChessBoard::ALPHA_NUMERIC_POSITIONS[64] =
 	{"a1","b1","c1","d1","e1","f1","g1","h1",
 	"a2","b2","c2","d2","e2","f2","g2","h2",
 	"a3","b3","c3","d3","e3","f3","g3","h3",
@@ -13,13 +20,18 @@ char* ChessBoard::ALPHA_NUMERIC_POSITIONS[64] =
 	"a7","b7","c7","d7","e7","f7","g7","h7",
 	"a8","b8","c8","d8","e8","f8","g8","h8"};
 
+// Constructor
 ChessBoard::ChessBoard(){
 }
 
+// Destructor
 ChessBoard::~ChessBoard() {
 	delete table;
 }
 
+// Returns a string consisting of the bits of the argument "value", sorted from
+// least significant to most significant.
+// For debugging purposes.
 std::string ChessBoard::convertToBitString(long long value){
 	std::string str(64, '0');
 
@@ -32,6 +44,7 @@ std::string ChessBoard::convertToBitString(long long value){
 	return str;
 }
 
+// Swap the values of two chars.
 void swap(char* a ,char* b ){
 	char aux;
 	aux = *a;
@@ -39,6 +52,7 @@ void swap(char* a ,char* b ){
 	*b = aux;
 }
 
+// Swap the values of two bitboards.
 void swap(BITBOARD* a, BITBOARD* b ){
 	BITBOARD aux;
 	aux = *a;
@@ -46,15 +60,24 @@ void swap(BITBOARD* a, BITBOARD* b ){
 	*b = aux;
 }
 
+// Move a piece across the board from initial_pos to final_pos.
+// Update the bitboards for the occupied squares, white pieces, black pieces,
+// and all the piece types, depending on the piece that moves and whether the
+// move is a capture.
 void ChessBoard::movePiece(int initial_pos, int final_pos){
 
+	// Set the bit for the initial position to 0.
 	table->occupied &= ~(1ULL << (initial_pos));
+
+	// Swap squares.
 	swap(&table->nametable[initial_pos].name,
 		&table->nametable[final_pos].name);
 	swap(&table->nametable[initial_pos].nextMoves, 
 		&table->nametable[final_pos].nextMoves);
 
-	//pt ca le-am interschimbat verific ce e pe poz initiala
+	// Check for capture. If there was a piece on the final position (which is
+	// now on the final position) the move is a capture, and the bitboards
+	// corresponding to the captures piece are updated.
 	if (table->nametable[initial_pos].name != EMPTY_CODE) {
 		if (table->nametable[initial_pos].name < 'a') {
 			switch (table->nametable[initial_pos].name){
@@ -72,9 +95,6 @@ void ChessBoard::movePiece(int initial_pos, int final_pos){
 				break;
 			case 'Q':
 				table->whiteQueen = 0ULL;
-				break;
-			case 'K':
-				table->whiteKing = 0ULL;
 				break;
 			}
 			table->whitePieces &= ~(1ULL << final_pos);
@@ -95,19 +115,20 @@ void ChessBoard::movePiece(int initial_pos, int final_pos){
 			case 'q':
 				table->blackQueen = 0ULL;
 				break;
-			case 'k':
-				table->blackKing = 0ULL;
-				break;
 			}
 			table->blackPieces &= ~(1ULL << final_pos);
 		}
 		table->nametable[initial_pos].name = EMPTY_CODE;
 		table->nametable[initial_pos].nextMoves = 0ULL;
 	}
+	
+	// If the move is not a capture, then uptade the bitboard for occupied
+	// squares.
 	else {
 		table->occupied |= 1ULL << (final_pos);
 	}
-	
+
+	// Update the bitboards corresponding to the moving piece.
 	if (table->nametable[final_pos].name < 'a') {
 		switch (table->nametable[final_pos].name){
 		case 'P':
@@ -128,9 +149,6 @@ void ChessBoard::movePiece(int initial_pos, int final_pos){
 			break;
 		case 'Q':
 			table->whiteQueen = 1ULL << final_pos;
-			break;
-		case 'K':
-			table->whiteKing = 1ULL << final_pos;
 			break;
 		}
 		table->whitePieces &= ~(1ULL << initial_pos);
@@ -156,15 +174,13 @@ void ChessBoard::movePiece(int initial_pos, int final_pos){
 		case 'q':
 			table->blackQueen = 1ULL << final_pos;
 			break;
-		case 'k':
-			table->blackKing = 1ULL << final_pos;
-			break;
 		}
 		table->blackPieces &= ~(1ULL << initial_pos);
 		table->blackPieces |= 1ULL << final_pos;
 	}
 }
 
+// Initialises all the bitboards and the board of piece codes.
 void ChessBoard::initializeBitboard(){
 
 	table->occupied = WHITE_PAWN | BLACK_PAWN | WHITE_ROOK | BLACK_ROOK
@@ -219,6 +235,10 @@ void ChessBoard::initializeBitboard(){
 		table->nametable[i].name = EMPTY_CODE;
 }
 
+// Checks if there is a valid move for the pawn on the pos position.
+// If there are more than one, chooses randomly, moves the pawn and updates
+// final_position.
+// Returns true if a valid move exists, false if not.
 bool ChessBoard::generateValidPawnMove(int pos, bool isWhite){
 	bool b1 = false;
 	bool b2 = false;
@@ -226,6 +246,9 @@ bool ChessBoard::generateValidPawnMove(int pos, bool isWhite){
 	srand(time(NULL));
 
 	if (isWhite){
+		// If playing white, check ahead 8 positions in array of codes, and
+		// check ahead 16 positions if pawn is in start position (second row)
+		// for existing pieces.
 		if	(table->nametable[pos + 8].name == EMPTY_CODE) {
 			b2 = true;
 			if (((15 - pos) * (pos - 8) >= 0) &&
@@ -254,6 +277,9 @@ bool ChessBoard::generateValidPawnMove(int pos, bool isWhite){
 		}
 	}
 	else{
+		// If playing black, check behind 8 positions in array of codes, and
+		// check behind 16 positions if pawn is in start position (second to
+		// last row) for existing pieces.
 		if (table->nametable[pos - 8].name == EMPTY_CODE) {
 			b2 = true;
 			if (((55 - pos) * (pos - 48) >= 0) &&
@@ -283,18 +309,27 @@ bool ChessBoard::generateValidPawnMove(int pos, bool isWhite){
 	}
 	return false;
 }
+
+// Checks if the pawn on the pos position can attack a neighboring piece.
+// A pawn captures diagonally, one square forward and to the left or right.
+// If there are more than one possible captures, chooses randomly, moves the
+// pawn and updates final_position.
+// Returns true if a capture is possible, false if not.
 bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 	bool b1 = false;
 	bool b2 = false;
 	srand(time(NULL));
 
 	if (isWhite){
+		// If playing white and pawn is on the margin of the board, checks ahead
+		// in the array of codes for existing pieces, depending on which margin
+		// the pawn is on.
 		if (pos % 8 == 0){
-			if (table->nametable[pos+9].name == BLACK_PAWN_CODE |
-				table->nametable[pos+9].name == BLACK_ROOK_CODE |
-				table->nametable[pos+9].name == BLACK_KNIGHT_CODE |
-				table->nametable[pos+9].name == BLACK_BISHOP_CODE |
-				table->nametable[pos+9].name == BLACK_QUEEN_CODE ){
+			if (table->nametable[pos + 9].name == BLACK_PAWN_CODE |
+				table->nametable[pos + 9].name == BLACK_ROOK_CODE |
+				table->nametable[pos + 9].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos + 9].name == BLACK_BISHOP_CODE |
+				table->nametable[pos + 9].name == BLACK_QUEEN_CODE ){
 
 				movePiece(pos, pos + 9);
 				final_position = pos + 9;
@@ -303,11 +338,11 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else if (pos % 8 == 7){
-			if (table->nametable[pos+7].name == BLACK_PAWN_CODE |
-				table->nametable[pos+7].name == BLACK_ROOK_CODE |
-				table->nametable[pos+7].name == BLACK_KNIGHT_CODE |
-				table->nametable[pos+7].name == BLACK_BISHOP_CODE |
-				table->nametable[pos+7].name == BLACK_QUEEN_CODE ){
+			if (table->nametable[pos + 7].name == BLACK_PAWN_CODE |
+				table->nametable[pos + 7].name == BLACK_ROOK_CODE |
+				table->nametable[pos + 7].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos + 7].name == BLACK_BISHOP_CODE |
+				table->nametable[pos + 7].name == BLACK_QUEEN_CODE ){
 
 				movePiece(pos, pos + 7);
 				final_position = pos + 7;
@@ -316,18 +351,20 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else{
-			if (table->nametable[pos+7].name == BLACK_PAWN_CODE |
-				table->nametable[pos+7].name == BLACK_ROOK_CODE |
-				table->nametable[pos+7].name == BLACK_KNIGHT_CODE |
-				table->nametable[pos+7].name == BLACK_BISHOP_CODE |
-				table->nametable[pos+7].name == BLACK_QUEEN_CODE ) {
+			// If playing white and pawn is not on the margin of the board,
+			// checks ahead for existing pieces in the array of codes.
+			if (table->nametable[pos + 7].name == BLACK_PAWN_CODE |
+				table->nametable[pos + 7].name == BLACK_ROOK_CODE |
+				table->nametable[pos + 7].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos + 7].name == BLACK_BISHOP_CODE |
+				table->nametable[pos + 7].name == BLACK_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table->nametable[pos+9].name == BLACK_PAWN_CODE |
-				table->nametable[pos+9].name == BLACK_ROOK_CODE |
-				table->nametable[pos+9].name == BLACK_KNIGHT_CODE |
-				table->nametable[pos+9].name == BLACK_BISHOP_CODE |
-				table->nametable[pos+9].name == BLACK_QUEEN_CODE ){
+			if (table->nametable[pos + 9].name == BLACK_PAWN_CODE |
+				table->nametable[pos + 9].name == BLACK_ROOK_CODE |
+				table->nametable[pos + 9].name == BLACK_KNIGHT_CODE |
+				table->nametable[pos + 9].name == BLACK_BISHOP_CODE |
+				table->nametable[pos + 9].name == BLACK_QUEEN_CODE ){
 				b2 = true;
 			}
 			if (b1 && b2){
@@ -357,12 +394,15 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 		}
 	}
 	else{
+		// If playing black and pawn is on the margin of the board, checks
+		// behind in the array of codes for existing pieces, depending on
+		// which margin the pawn is on.
 		if (pos % 8 == 0){
-			if (table->nametable[pos-7].name == WHITE_PAWN_CODE |
-				table->nametable[pos-7].name == WHITE_ROOK_CODE |
-				table->nametable[pos-7].name == WHITE_KNIGHT_CODE |
-				table->nametable[pos-7].name == WHITE_BISHOP_CODE |
-				table->nametable[pos-7].name == WHITE_QUEEN_CODE ){
+			if (table->nametable[pos - 7].name == WHITE_PAWN_CODE |
+				table->nametable[pos - 7].name == WHITE_ROOK_CODE |
+				table->nametable[pos - 7].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos - 7].name == WHITE_BISHOP_CODE |
+				table->nametable[pos - 7].name == WHITE_QUEEN_CODE ){
 
 				movePiece(pos, pos - 7);
 				final_position = pos - 7;
@@ -371,11 +411,11 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else if (pos % 8 == 7) {
-			if (table->nametable[pos-9].name == WHITE_PAWN_CODE |
-				table->nametable[pos-9].name == WHITE_ROOK_CODE |
-				table->nametable[pos-9].name == WHITE_KNIGHT_CODE |
-				table->nametable[pos-9].name == WHITE_BISHOP_CODE |
-				table->nametable[pos-9].name == WHITE_QUEEN_CODE ){
+			if (table->nametable[pos - 9].name == WHITE_PAWN_CODE |
+				table->nametable[pos - 9].name == WHITE_ROOK_CODE |
+				table->nametable[pos - 9].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos - 9].name == WHITE_BISHOP_CODE |
+				table->nametable[pos - 9].name == WHITE_QUEEN_CODE ){
 
 				movePiece(pos, pos - 9);
 				final_position = pos - 9;
@@ -384,18 +424,20 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 			return false;
 		}
 		else{
-			if (table->nametable[pos-7].name == WHITE_PAWN_CODE |
-				table->nametable[pos-7].name == WHITE_ROOK_CODE |
-				table->nametable[pos-7].name == WHITE_KNIGHT_CODE |
-				table->nametable[pos-7].name == WHITE_BISHOP_CODE |
-				table->nametable[pos-7].name == WHITE_QUEEN_CODE ) {
+			// If playing white and pawn is not on the margin of the board,
+			// checks behind for existing pieces in the array of codes.
+			if (table->nametable[pos - 7].name == WHITE_PAWN_CODE |
+				table->nametable[pos - 7].name == WHITE_ROOK_CODE |
+				table->nametable[pos - 7].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos - 7].name == WHITE_BISHOP_CODE |
+				table->nametable[pos - 7].name == WHITE_QUEEN_CODE ) {
 				b1 = true;
 			}
-			if (table->nametable[pos-9].name == WHITE_PAWN_CODE |
-				table->nametable[pos-9].name == WHITE_ROOK_CODE |
-				table->nametable[pos-9].name == WHITE_KNIGHT_CODE |
-				table->nametable[pos-9].name == WHITE_BISHOP_CODE |
-				table->nametable[pos-9].name == WHITE_QUEEN_CODE ){
+			if (table->nametable[pos - 9].name == WHITE_PAWN_CODE |
+				table->nametable[pos - 9].name == WHITE_ROOK_CODE |
+				table->nametable[pos - 9].name == WHITE_KNIGHT_CODE |
+				table->nametable[pos - 9].name == WHITE_BISHOP_CODE |
+				table->nametable[pos - 9].name == WHITE_QUEEN_CODE ){
 				b2 = true;
 			}
 			if (b1 && b2){
@@ -426,11 +468,15 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 	}
 }
 
+// Chooses a random available pawn to move on the board.
+// Returns true if there is a pawn that can be moved, false otherwise.
 bool ChessBoard::randomPositionPawn(bool isWhite){
 	std::vector<int> v;
 	int p;
 	srand(time(NULL));
 
+	// Keeps track of all available pawns, depending on the color of the engine
+	// in the vector v.
 	if (isWhite){
 		for (unsigned int i = 8 ; i < 56 ; i ++){
 			if (table->nametable[i].name == WHITE_PAWN_CODE)
@@ -445,9 +491,10 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 	}
 
 	if (v.size() > 0){
+		// Checks pawns for possible captures and moves. When one is found,
+		// update initial_position.
 		while (v.size() > 0){
 			p = rand() % v.size();
-			//cout<<"A ALES POZITIA INITIALA "<<v[p];
 			if (generateValidPawnAttack(v[p], isWhite)){
 				initial_position = v[p];
 				return true;
@@ -463,19 +510,24 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 	return false;
 }
 
+// Chooses a random available piece to move on the board.
+// Returns true if there is a piece that can be moved, false otherwise.
 bool ChessBoard::randomPiece(bool isWhite){
 	return randomPositionPawn(isWhite);
 }
 
-char* ChessBoard::finalPosFunc(){
-	return ALPHA_NUMERIC_POSITIONS[final_position];
-}
-
-char* ChessBoard::initialPosFunc(){
+// Returns the algebraic notation corresponding to initial_position.
+std::string ChessBoard::initialPosFunc(){
 	return ALPHA_NUMERIC_POSITIONS[initial_position];
 }
 
-void ChessBoard::updateOpponentMove(char* positions, bool isWhite){
+// Returns the algebraic notation corresponding to final_position.
+std::string ChessBoard::finalPosFunc(){
+	return ALPHA_NUMERIC_POSITIONS[final_position];
+}
+
+// Moves opponent's piece on the board.
+void ChessBoard::updateOpponentMove(char* positions){
 
 	int file1 = positions[0] - 97; int rank1 = positions[1] - 49;
 	int file2 = positions[2] - 97; int rank2 = positions[3] - 49;

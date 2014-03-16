@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 1
+
 #include <sys/timeb.h>
 #include <stdio.h>
 

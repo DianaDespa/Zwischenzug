@@ -1,6 +1,9 @@
+// Zugzwang Chess Engine - stage 1
+
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H
 
+// The starting positions of all pieces
 #define WHITE_PAWN 0x000000000000FF00ULL
 #define BLACK_PAWN 0x00FF000000000000ULL
 #define WHITE_ROOK 0x0000000000000081ULL
@@ -14,6 +17,7 @@
 #define WHITE_KING 0x0000000000000008ULL
 #define BLACK_KING 0x0800000000000000ULL
 
+// Codes for piece types
 #define WHITE_PAWN_CODE 'P'
 #define BLACK_PAWN_CODE 'p'
 #define WHITE_ROOK_CODE 'R'
@@ -27,20 +31,22 @@
 #define WHITE_KING_CODE 'K'
 #define BLACK_KING_CODE 'k'
 #define EMPTY_CODE '0'
+
 typedef unsigned long long BITBOARD;
 
+// The characteristics of a piece
 struct piece{
-	BITBOARD nextMoves;
+	BITBOARD nextMoves; //to be implemented
 	char name;
 };
 
+// The characteristics of the board
 struct board{
 	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns, 
 			 whiteRooks, blackRooks, whiteKnights, blackKnights, whiteBishops,
 			 blackBishops, whiteQueen, blackQueen, whiteKing, blackKing;
+	// Array with the codes for all pieces.
 	piece nametable[64];
-	board() {
-	}
 };
 
 #endif

@@ -1,41 +1,44 @@
+// Zugzwang Chess Engine - stage 1
+
 #include "FromXboardtoEngine.h"
 
+// Start engine.
 void FromXboardtoEngine::xboardCommand(void) {
 	XBOARD_MODE = true;
 }
 
+// Initialize board, white moves, set engine to play black.
+// Reset and stop clocks.
 void FromXboardtoEngine::newCommand(void) {
-	//Initialize board
-	//wait for white user to move
-	//set black
 	ChessBoard::initializeBitboard();
 	WHITE_MOVING = true;
 	BLACK_MOVING = false;
 	WHITE_MODE = false;
 	BLACK_MODE = true;
 	FORCE_MODE = false;
-	//reset & stop clocks
 	//whiteMove.resetTimer();
 	//blackMove.resetTimer();
 }
 
+// Exit program.
 void FromXboardtoEngine::quitCommand(void) {
 	exit(0);
 }
 
+// Set the engine to play neither color. Stop clocks.
 void FromXboardtoEngine::forceCommand(void) {
 	FORCE_MODE = true;
 	WHITE_MODE = false;
 	BLACK_MODE = false;
-	//stop clocks
 	//whiteMove.stopTimer();
 	//blackMove.stopTimer();
 }
 
+// Play color that is on the move. Associate the engine's clock with the color
+// that is on move, the opponent's clock with the color that is not on move.
+// Start the engine's clock.
 void FromXboardtoEngine::goCommand(void) {
 	FORCE_MODE = false;
-	//play color that is on the move
-	//associate clock with playing color
 	if (WHITE_MOVING) {
 		WHITE_MODE = true;
 		BLACK_MODE = false;
@@ -44,41 +47,34 @@ void FromXboardtoEngine::goCommand(void) {
 		WHITE_MODE = false;
 		BLACK_MODE = true;
 		//blackMove.startTimer();
-	}	
-
-	//start thinking & make moveistina7 Andy
-	//TODO se preia clasa Cristina& Andy
-	//se parseaza catre FromEnginetoXBoard
-	//Cum se face chestia asta???? cum declar board????
-
+	}
 }
 
+// Set White on move. Set the engine to play Black. Stop clocks.
 void FromXboardtoEngine::whiteCommand(void) {
-	//Set White on move. Set the engine to play Black. Stop clocks.
 	WHITE_MOVING = true;
 	BLACK_MOVING = false;
 	WHITE_MODE = false;
 	BLACK_MODE = true;
-	//clock stops;
 	//whiteMove.stopTimer();
 	//blackMove.stopTimer();
 }
 
+// Set Black on move. Set the engine to play White. Stop clocks.
 void FromXboardtoEngine::blackCommand(void) {
-	//Set Black on move. Set the engine to play White. Stop clocks.
 	WHITE_MOVING = false;
 	BLACK_MOVING = true;
 	WHITE_MODE = true;
 	BLACK_MODE = false;
-	//stop clocks;
 	//whiteMove.stopTimer();
 	//blackMove.stopTimer();
 }
 
+// Update board with opponent's move. Set engine on move.
 void FromXboardtoEngine::moveCommand(char* command) {
 	if (!FORCE_MODE) {
-		ChessBoard::updateOpponentMove(command, BLACK_MODE);
-	} //else check valid
+		ChessBoard::updateOpponentMove(command);
+	}
 	WHITE_MOVING = !WHITE_MOVING;
 	BLACK_MOVING = !BLACK_MOVING;
 }
