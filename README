@@ -29,3 +29,7 @@ The class FromEnginetoXboard receives commands from ChessBoard class such as mov
 The class Timer is to be implemented in further stages. It is used for keeping track of the remaining time in order to make a fast and efficient move.
 
 Finally, the ChessBoard class is used for making a valid move, or a valid attack, for updating the bitboard ( when move is made ) and for the initialization of the game. This class uses "constants.h". 
+
+At this stage we've managed to generate all the "next-move" bitboards for each piece (all the possible moves one piece can go to in order to attack the opponent)
+This was used in order to know whether the king is in danger or not. 
+However, at this stage we couldn't manage to make the version stable so there may be some bugs when the king is attacked. 
