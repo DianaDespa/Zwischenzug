@@ -41,6 +41,7 @@ public:
 	static board* table;
 	static bool generateValidKnightMove(int pos, bool isWhite);
 	static bool generateValidBishopMove(int pos, bool isWhite);
+	static bool generateValidRookMove(int pos, bool isWhite);
 };
 
 #endif
