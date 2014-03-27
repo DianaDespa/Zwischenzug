@@ -738,6 +738,297 @@ void ChessBoard::updateOpponentMove(char* positions){
 	movePiece(initial_pos,final_pos);
 }
 
+bool ChessBoard::generateValidQueenMove(int pos, bool isWhite){
+	std::vector<int> available_positions;
+	int final_pos;
+//	bool ok = false;
+	if (isWhite){
+		
+		for(int i = 1; i < 8-pos%8; i++){
+			final_pos = pos + 9*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+//		ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos - 9*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos + 7*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i < 8-pos%8; i++){
+			final_pos = pos - 7*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE  ) {
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+		
+		for(int i = 1; i < 8-pos%8; i++){
+			final_pos = pos + i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+//		ok = false;
+		for(int i = 1; i < 8 - pos/8; i++){
+			final_pos = pos + 8*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos /8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= pos/8; i++){
+			final_pos = pos - 8*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos /8 != 7 ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos - i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE  ) {
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0){
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+
+	}
+	else{
+		//Nu am tratat cazul in care calul da sah regelui 
+		for(int i = 1; i < 8-pos%8; i++){
+			final_pos = pos + 9*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0)
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+//		ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos - 9*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos + 7*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) > 0){
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i < 8-pos%8; i++){
+			final_pos = pos - 7*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE  ) {
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+		
+		for(int i = 1; i < 8-pos/8; i++){
+			final_pos = pos + 8*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0)
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"1 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+//		ok = false;
+		for(int i = 1; i <= pos/8; i++){
+			final_pos = pos - 8*i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos /8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"2 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= 8-pos%8; i++){
+			final_pos = pos + i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 0  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE ) {
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) > 0){
+					std::cout<<"3 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+	//	ok = false;
+		for(int i = 1; i <= pos%8; i++){
+			final_pos = pos - i;
+			if(table->nametable[final_pos].name != EMPTY_CODE && ( ( table->nametable[final_pos].name - 96) * (123 - table->nametable[final_pos].name) )  > 0 )
+				break;
+			if( final_pos * ( 63 - final_pos) >=0 && final_pos %8 != 7  ) {
+				if( table->nametable[final_pos].name == EMPTY_CODE  ) {
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+				}
+				if(( (91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0){
+					std::cout<<"4 "<<final_pos<<'\n';
+					available_positions.push_back(final_pos);
+					break;
+				}
+			}
+		}
+
+	}
+	std::cout<<"vezi"<<'\n';
+	for(int i = 0; i < available_positions.size(); i++) {
+		std::cout<<available_positions[i]<<'\n';
+	}
+	srand(time(NULL));
+	final_position = rand() % available_positions.size();
+	movePiece(pos, available_positions[final_position]);
+}
+
 bool ChessBoard::generateValidKnightMove(int pos, bool isWhite){
 	int offset [] = { 10 , 17, 15, 6, -10, -17, -15, -6};
 	std::vector<int> available_positions;
@@ -841,7 +1132,7 @@ bool ChessBoard::generateValidBishopMove(int pos, bool isWhite){
 				}
 			}
 		}
-		
+
 	}
 	else{
 		//Nu am tratat cazul in care calul da sah regelui 
@@ -923,7 +1214,7 @@ bool ChessBoard::generateValidRookMove(int pos, bool isWhite){
 	int final_pos;
 //	bool ok = false;
 	if (isWhite){
-		//Nu am tratat cazul in care calul da sah regelui 
+		 
 		for(int i = 1; i < 8-pos%8; i++){
 			final_pos = pos + i;
 			if(table->nametable[final_pos].name != EMPTY_CODE && ((91 - table->nametable[final_pos].name) * (table->nametable[final_pos].name - 64) ) > 0 )
@@ -991,7 +1282,7 @@ bool ChessBoard::generateValidRookMove(int pos, bool isWhite){
 				}
 			}
 		}
-		
+
 	}
 	else{
 		//Nu am tratat cazul in care calul da sah regelui 
@@ -1133,9 +1424,9 @@ bool ChessBoard::randomPositionKnight(bool isWhite){
 int main(){
 	ChessBoard c;
 	c.initializeBitboard();
-	c.movePiece(63,21);
-	c.movePiece(13,40);
-	c.generateValidRookMove(21, false);
+	c.movePiece(3,27);
+	//c.movePiece(10,42);
+	c.generateValidQueenMove(27, true);
 	for(int j =7 ; j>=0 ; j--){ 
 	for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
 
@@ -1145,4 +1436,3 @@ int main(){
 	}
 	return 0;
 }
-
