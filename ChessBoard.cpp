@@ -29,11 +29,12 @@ ChessBoard::~ChessBoard() {
 	delete table;
 }
 
+// Get the bitboard with the possible attack directions for the piece located
+// on the pos position.
 BITBOARD ChessBoard::getAttacks(int pos) {
 	BITBOARD temp = 0ULL;
 	int i;
 	
-	std::cout << table->nametable[pos].name << std::endl;
 	switch (table->nametable[pos].name) {
 	case 'P':
 		if (pos % 8 == 0) {
@@ -81,28 +82,24 @@ BITBOARD ChessBoard::getAttacks(int pos) {
 		i = pos;
 		while (i % 8 != 0 && i < 64) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i += 7;
 		}
 		if (i < 64) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 7 && i < 64) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i += 9;
 		}
 		if (i < 64) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 7 && i > 0) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i -= 7; 
 		}
 		if (i > 0) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 0 && i > 0) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i -= 9;
 		}
 		if (i > 0) temp |= 1ULL<< i;
@@ -143,28 +140,24 @@ BITBOARD ChessBoard::getAttacks(int pos) {
 		i = pos;
 		while (i % 8 != 0 && i < 64) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i += 7;
 		}
 		if (i < 64) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 7 && i < 64) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i += 9;
 		}
 		if (i < 64) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 7 && i > 0) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i -= 7; 
 		}
 		if (i > 0) temp |= 1ULL<< i;
 		i = pos;
 		while (i % 8 != 0 && i > 0) {
 			temp |= 1ULL<< i;
-			std::cout << i << "\n";
 			i -= 9;
 		}
 		if (i > 0) temp |= 1ULL<< i;
@@ -193,12 +186,13 @@ BITBOARD ChessBoard::getAttacks(int pos) {
 	return temp;
 }
 
+// Checks if the king is in danger in the current state of the board.
 bool ChessBoard::kingInDanger(bool isWhite) {
 	BITBOARD attacks = 0;
 	int i;
 	 
 	if (isWhite) {
-		for (i = 0; i < 63; i++) {
+		for (i = 0; i < 64; i++) {
 			if (table->nametable[i].name > 'a') {
 				attacks |= getAttacks(i);
 			}
@@ -206,7 +200,7 @@ bool ChessBoard::kingInDanger(bool isWhite) {
 		return !(attacks & table->whiteKing);
 	}
 	else {
-		for (i = 0; i < 63; i++) {
+		for (i = 0; i < 64; i++) {
 			if (table->nametable[i].name < 'a') {
 				attacks |= getAttacks(i);
 			}
@@ -684,6 +678,7 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 			p = rand() % v.size();
 			*backup = *table;
 			if (generateValidPawnAttack(v[p], isWhite)){
+				// Doesn't make the move if the king will be in danger
 				if (!kingInDanger(isWhite)) {
 					initial_position = v[p];
 					delete backup;
@@ -737,3 +732,4 @@ void ChessBoard::updateOpponentMove(char* positions){
 
 	movePiece(initial_pos,final_pos);
 }
+
