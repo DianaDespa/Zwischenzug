@@ -3,6 +3,8 @@
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H
 
+#include <vector>
+
 // The starting positions of all pieces
 #define WHITE_PAWN 0x000000000000FF00ULL
 #define BLACK_PAWN 0x00FF000000000000ULL
@@ -12,10 +14,10 @@
 #define BLACK_KNIGHT 0x4200000000000000ULL
 #define WHITE_BISHOP 0x0000000000000024ULL
 #define BLACK_BISHOP 0x2400000000000000ULL
-#define WHITE_QUEEN 0x0000000000000010ULL
-#define BLACK_QUEEN 0x1000000000000000ULL
-#define WHITE_KING 0x0000000000000008ULL
-#define BLACK_KING 0x0800000000000000ULL
+#define WHITE_QUEEN 0x0000000000000008ULL
+#define BLACK_QUEEN 0x0800000000000000ULL
+#define WHITE_KING 0x0000000000000010ULL
+#define BLACK_KING 0x1000000000000000ULL
 
 // Codes for piece types
 #define WHITE_PAWN_CODE 'P'
@@ -36,18 +38,19 @@ typedef unsigned long long BITBOARD;
 
 // The characteristics of a piece
 struct piece{
-	BITBOARD nextMoves; //to be implemented
+	BITBOARD nextAttacks, nextMoves; //to be implemented
 	char name;
 };
 
 // The characteristics of the board
 struct board{
+	// Array with the codes for all pieces.
+	piece pieces[64];
 	BITBOARD occupied, whitePieces, blackPieces, whitePawns, blackPawns,
 		 whiteRooks, blackRooks, whiteKnights, blackKnights,
-		 whiteBishops, blackBishops, whiteQueen, blackQueen, whiteKing,
+		 whiteBishops, blackBishops, whiteQueens, blackQueens, whiteKing,
 		 blackKing;
-	// Array with the codes for all pieces.
-	piece nametable[64];
+	std::vector<char> whiteLostPieces, blackLostPieces;
 };
 
 #endif
