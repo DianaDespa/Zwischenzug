@@ -29,10 +29,25 @@ void FromEnginetoXboard::parseMovetoXboard(){
 // Send resign command for the engine, for the corresponding color.
 void FromEnginetoXboard::resignCommand(void){
 	if (WHITE_MODE){
-		std::cout<<"0-1 {WHITE resigns}"<<std::endl;
+		std::cout << "0-1 {WHITE resigns}" << std::endl;
 	}
 	else{
-		std::cout<<"1-0 {BLACK resigns}"<<std::endl;
+		std::cout << "1-0 {BLACK resigns}" << std::endl;
 	}
+	setbuf(stdout, NULL);
+}
+
+void FromEnginetoXboard::checkmateCommand(void){
+	if (WHITE_MODE){
+		std::cout << "1-0 {WHITE mates}" << std::endl;
+	}
+	else{
+		std::cout << "0-1 {BLACK mates}" << std::endl;
+	}
+	setbuf(stdout, NULL);
+}
+
+void FromEnginetoXboard::stalemateCommand(void){
+	std::cout << "1/2-1/2 {Stalemate}" << std::endl;
 	setbuf(stdout, NULL);
 }

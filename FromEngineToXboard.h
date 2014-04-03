@@ -16,5 +16,7 @@ namespace FromEnginetoXboard{
 	void parseMove(std::string move);
 	void resignCommand(void);
 	void parseMovetoXboard();
+	void checkmateCommand();
+	void stalemateCommand();
 };
 #endif
