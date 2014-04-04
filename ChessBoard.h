@@ -24,8 +24,6 @@ private:
 	static bool generateValidPawnMove(int pos, bool isWhite);
 	static bool generateValidPawnAttack(int pos, bool isWhite);
 	static bool randomPositionPawn(bool isWhite);
-	//static bool kingInDanger(bool isWhite);
-	//static bool randomPositionKnight(bool isWhite);
 	static void updateBoard(void);
 
 

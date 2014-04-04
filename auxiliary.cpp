@@ -19,7 +19,6 @@ std::vector<int> Auxiliary::getOneBits(BITBOARD x) {
 	std::vector<int> res;
 	for (int i = 0; i < 64; ++i) {
 		if ((1ULL << i) & x) {
-			//std::cout<<i<<" ";
 			res.push_back(i);
 		}
 	}

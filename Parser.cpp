@@ -27,7 +27,8 @@ void Parser::interpretCommand(void){
 			std::cout<<"feature myname=\"Zugzwang\""<< std::endl;
 			std::cout<<"feature usermove=1"<< std::endl;
 			std::cout<<"feature sigint=0"<< std::endl;
-			std::cout<<"feature sigterm=0"<< std::endl;	
+			std::cout<<"feature sigterm=0"<< std::endl;
+			std::cout<<"feature done=1"<< std::endl;
 		}
 		else if (command.compare("new") == 0){
 			newCommand();
