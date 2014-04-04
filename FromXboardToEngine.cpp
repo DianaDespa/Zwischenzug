@@ -72,9 +72,9 @@ void FromXboardtoEngine::blackCommand(void) {
 
 // Update board with opponent's move. Set engine on move.
 void FromXboardtoEngine::moveCommand(char* command) {
-	if (!FORCE_MODE) {
+	//if (!FORCE_MODE) {
 		ChessBoard::updateOpponentMove(command, WHITE_MODE);
-	}
+	//}
 	WHITE_MOVING = !WHITE_MOVING;
 	BLACK_MOVING = !BLACK_MOVING;
 }

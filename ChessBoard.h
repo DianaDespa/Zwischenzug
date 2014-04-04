@@ -30,6 +30,7 @@ private:
 public:
 	ChessBoard(void);
 	~ChessBoard(void);
+	static void displayTable(bool isWhite);
     static int kingInDanger(bool isWhite);
 	static int kingIsSafe(bool isWhite);
 	static int white_en_passant, black_en_passant, final_pos_opponent;
