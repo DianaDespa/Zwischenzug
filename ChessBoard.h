@@ -30,7 +30,6 @@ private:
 public:
 	ChessBoard(void);
 	~ChessBoard(void);
-	static void displayTable(bool isWhite);
     static int kingInDanger(bool isWhite);
 	static int kingIsSafe(bool isWhite);
 	static int white_en_passant, black_en_passant, final_pos_opponent;
@@ -38,7 +37,7 @@ public:
 	static void updateOpponentMove(char* positions, bool isWhite);
 	static void initializeBitboard(void);
 	static void movePiece(int initial_pos, int final_pos);
-	static bool randomPiece(bool isWhite);
+	static int randomPiece(bool isWhite);
 	static std::string finalPosFunc(void);
 	static std::string initialPosFunc(void);
 	static void en_passant_recognition(bool isWhite);

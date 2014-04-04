@@ -66,1559 +66,3230 @@ recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
 StartChildProcess (dir="/home/diana/github/Zwischenzug/") /home/diana/github/Zwischenzug/ZugzwangEngine
-625 >first : xboard
+592 >first : xboard
 protover 2
 shuffleOpenings = 0
-645 <first : feature myname="Zugzwang"
-645 >first : accepted myname
-645 <first : feature usermove=1
-645 >first : accepted usermove
-645 <first : feature sigint=0
-646 >first : accepted sigint
-646 <first : feature sigterm=0
-646 >first : accepted sigterm
-646 <first : feature done=1
-646 >first : accepted done
-647 >first : new
+615 <first : feature myname="Zugzwang"
+615 >first : accepted myname
+626 <first : feature usermove=1
+626 >first : accepted usermove
+626 <first : feature sigint=0
+626 >first : accepted sigint
+626 <first : feature sigterm=0
+626 >first : accepted sigterm
+626 <first : feature done=1
+626 >first : accepted done
+627 >first : new
 random
-647 >first : level 40 5 0
-647 >first : post
-647 >first : hard
-3514 >first : force
+627 >first : level 40 5 0
+627 >first : post
+627 >first : hard
+5960 >first : force
 StartChildProcess (dir="/home/diana/github/Zwischenzug/") /home/diana/github/Zwischenzug/ZugzwangEngine
-3515 >second: xboard
+5961 >second: xboard
 protover 2
-3517 <second: feature myname="Zugzwang"
-3517 >second: accepted myname
-3517 <second: feature usermove=1
-3517 >second: accepted usermove
-3517 <second: feature sigint=0
-3517 >second: accepted sigint
-3517 <second: feature sigterm=0
-3517 >second: accepted sigterm
-3517 <second: feature done=1
-3517 >second: accepted done
-3518 >second: new
+5964 <second: feature myname="Zugzwang"
+5964 >second: accepted myname
+5964 <second: feature usermove=1
+5964 >second: accepted usermove
+5964 <second: feature sigint=0
+5964 >second: accepted sigint
+5964 <second: feature sigterm=0
+5964 >second: accepted sigterm
+5964 <second: feature done=1
+5964 >second: accepted done
+5965 >second: new
 random
-3518 >second: level 40 5 0
-3518 >second: post
-3518 >second: hard
-3518 >second: force
+5965 >second: level 40 5 0
+5965 >second: post
+5965 >second: hard
+5965 >second: force
 New game (0): Zugzwang-Zugzwang (w)
-3530 >first : computer
-3530 >second: computer
-3530 >first : black
-3530 >first : time 30000
-3530 >first : otim 30000
-3530 >first : white
+5977 >first : computer
+5977 >second: computer
+5977 >first : black
+5977 >first : time 30000
+5977 >first : otim 30000
+5977 >first : white
 book hit = (NULL)
-3530 >first : go
+5977 >first : go
 nps: w=-1, b=-1
-3531 <first : move b1c3
-3531 >second: time 30000
-3531 >second: otim 30000
-book hit = (NULL)
-3531 >second: usermove 3531 >second: b1c3
-3531 >second: black
-3531 >second: go
-3635 <second: move b8c6
-3636 >first : time 30000
-3636 >first : otim 29989
-book hit = (NULL)
-3636 >first : usermove 3636 >first : b8c6
-3740 <first : move g1f3
-3741 >second: time 29989
-3741 >second: otim 29989
-book hit = (NULL)
-3741 >second: usermove 3741 >second: g1f3
-3849 <second: move g8h6
-3849 >first : time 29989
-3849 >first : otim 29978
-book hit = (NULL)
-3849 >first : usermove 3849 >first : g8h6
-3957 <first : move f3g1
-3958 >second: time 29978
-3958 >second: otim 29978
-book hit = (NULL)
-3958 >second: usermove 3958 >second: f3g1
-4065 <second: move h8g8
-4065 >first : time 29978
-4065 >first : otim 29968
-book hit = (NULL)
-4066 >first : usermove 4066 >first : h8g8
-4148 <first : move g1h3
-4149 >second: time 29968
-4149 >second: otim 29970
-book hit = (NULL)
-4149 >second: usermove 4149 >second: g1h3
-4255 <second: move h6f5
-4255 >first : time 29970
-4255 >first : otim 29957
-book hit = (NULL)
-4255 >first : usermove 4255 >first : h6f5
-4356 <first : move h3g1
-4356 >second: time 29957
-4356 >second: otim 29960
-book hit = (NULL)
-4356 >second: usermove 4356 >second: h3g1
-4463 <second: move f5h6
-4463 >first : time 29960
-4463 >first : otim 29946
-book hit = (NULL)
-4463 >first : usermove 4463 >first : f5h6
-4572 <first : move g1h3
-4572 >second: time 29946
-4572 >second: otim 29949
-book hit = (NULL)
-4572 >second: usermove 4572 >second: g1h3
-4678 <second: move b7b6
-4679 >first : time 29949
-4679 >first : otim 29936
-book hit = (NULL)
-4679 >first : usermove 4679 >first : b7b6
-4762 <first : move h1g1
-4762 >second: time 29936
-4762 >second: otim 29940
-book hit = (NULL)
-4762 >second: usermove 4762 >second: h1g1
-4847 <second: move c8b7
-4847 >first : time 29940
-4847 >first : otim 29927
-book hit = (NULL)
-4847 >first : usermove 4847 >first : c8b7
-4932 <first : move c3b5
-4933 >second: time 29927
-4933 >second: otim 29932
-book hit = (NULL)
-4933 >second: usermove 4933 >second: c3b5
-5040 <second: move a8c8
-5040 >first : time 29932
-5040 >first : otim 29916
-book hit = (NULL)
-5040 >first : usermove 5040 >first : a8c8
-5125 <first : move c2c3
-5125 >second: time 29916
-5125 >second: otim 29923
-book hit = (NULL)
-5125 >second: usermove 5125 >second: c2c3
-5209 <second: move b7a8
-5210 >first : time 29923
-5210 >first : otim 29908
-book hit = (NULL)
-5210 >first : usermove 5210 >first : b7a8
-5296 <first : move d1a4
-5296 >second: time 29908
-5296 >second: otim 29915
-book hit = (NULL)
-5296 >second: usermove 5296 >second: d1a4
-5402 <second: move a8b7
-5403 >first : time 29915
-5403 >first : otim 29897
-book hit = (NULL)
-5403 >first : usermove 5403 >first : a8b7
-5488 <first : move a4c4
-5488 >second: time 29897
-5488 >second: otim 29906
-book hit = (NULL)
-5488 >second: usermove 5488 >second: a4c4
-5571 <second: move b7a8
-5571 >first : time 29906
-5571 >first : otim 29889
-book hit = (NULL)
-5571 >first : usermove 5571 >first : b7a8
-5656 <first : move a1b1
-5656 >second: time 29889
-5656 >second: otim 29898
-book hit = (NULL)
-5656 >second: usermove 5656 >second: a1b1
-5737 <second: move a8b7
-5737 >first : time 29898
-5737 >first : otim 29881
-book hit = (NULL)
-5737 >first : usermove 5737 >first : a8b7
-5823 <first : move g1h1
-5824 >second: time 29881
-5824 >second: otim 29889
-book hit = (NULL)
-5824 >second: usermove 5824 >second: g1h1
-5908 <second: move b7a6
-5909 >first : time 29889
-5909 >first : otim 29872
-book hit = (NULL)
-5909 >first : usermove 5909 >first : b7a6
-5992 <first : move b5d4
-5993 >second: time 29872
-5993 >second: otim 29881
-book hit = (NULL)
-5993 >second: usermove 5993 >second: b5d4
-6099 <second: move a6c4
-6100 >first : time 29881
-6100 >first : otim 29861
-book hit = (NULL)
-6100 >first : usermove 6100 >first : a6c4
-6207 <first : move h1g1
-6207 >second: time 29861
-6207 >second: otim 29870
-book hit = (NULL)
-6207 >second: usermove 6207 >second: h1g1
-6291 <second: move g8h8
-6291 >first : time 29870
-6291 >first : otim 29853
-book hit = (NULL)
-6291 >first : usermove 6291 >first : g8h8
-6383 <first : move e1d1
-6384 >second: time 29853
-6384 >second: otim 29861
-book hit = (NULL)
-6384 >second: usermove 6384 >second: e1d1
-6477 <second: move h6g8
-6477 >first : time 29861
-6477 >first : otim 29844
-book hit = (NULL)
-6477 >first : usermove 6477 >first : h6g8
-6590 <first : move d4c2
-6590 >second: time 29844
-6590 >second: otim 29850
-book hit = (NULL)
-6590 >second: usermove 6590 >second: d4c2
-6717 <second: move c8b8
-6717 >first : time 29850
-6717 >first : otim 29831
-book hit = (NULL)
-6717 >first : usermove 6717 >first : c8b8
-6811 <first : move h3g5
-6811 >second: time 29831
-6811 >second: otim 29840
-book hit = (NULL)
-6811 >second: usermove 6811 >second: h3g5
-6925 <second: move d8c8
-6925 >first : time 29840
-6925 >first : otim 29820
-book hit = (NULL)
-6925 >first : usermove 6925 >first : d8c8
-7016 <first : move c2e3
-7016 >second: time 29820
-7016 >second: otim 29831
-book hit = (NULL)
-7016 >second: usermove 7016 >second: c2e3
-7121 <second: move e8d8
-7121 >first : time 29831
-7121 >first : otim 29809
-book hit = (NULL)
-7121 >first : usermove 7121 >first : e8d8
-7207 <first : move g5e6
-7207 >second: time 29809
-7207 >second: otim 29822
-book hit = (NULL)
-7207 >second: usermove 7207 >second: g5e6
-7316 <second: move c4e6
-7316 >first : time 29822
-7316 >first : otim 29798
-book hit = (NULL)
-7316 >first : usermove 7316 >first : c4e6
-7422 <first : move g1h1
-7422 >second: time 29798
-7423 >second: otim 29812
-book hit = (NULL)
-7423 >second: usermove 7423 >second: g1h1
-7506 <second: move g7g5
-7507 >first : time 29812
-7507 >first : otim 29790
-book hit = (NULL)
-7507 >first : usermove 7507 >first : g7g5
-7592 <first : move d1e1
-7593 >second: time 29790
-7593 >second: otim 29803
-book hit = (NULL)
-7593 >second: usermove 7593 >second: d1e1
-7678 <second: move d7d6
-7678 >first : time 29803
-7678 >first : otim 29781
-book hit = (NULL)
-7678 >first : usermove 7678 >first : d7d6
-7763 <first : move e3c2
-7763 >second: time 29781
-7763 >second: otim 29795
-book hit = (NULL)
-7763 >second: usermove 7763 >second: e3c2
-7870 <second: move c8a6
-7871 >first : time 29795
-7871 >first : otim 29770
-book hit = (NULL)
-7871 >first : usermove 7871 >first : c8a6
-7976 <first : move c2b4
-7977 >second: time 29770
-7977 >second: otim 29784
-book hit = (NULL)
-7977 >second: usermove 7977 >second: c2b4
-8083 <second: move f7f5
-8083 >first : time 29784
-8083 >first : otim 29760
-book hit = (NULL)
-8083 >first : usermove 8083 >first : f7f5
-8167 <first : move b4d5
-8168 >second: time 29760
-8168 >second: otim 29776
-book hit = (NULL)
-8168 >second: usermove 8168 >second: b4d5
-8273 <second: move d8d7
-8273 >first : time 29776
-8273 >first : otim 29749
-book hit = (NULL)
-8273 >first : usermove 8273 >first : d8d7
-8355 <first : move d5e7
-8356 >second: time 29749
-8356 >second: otim 29768
-book hit = (NULL)
-8356 >second: usermove 8356 >second: d5e7
-8461 <second: move g5g4
-8461 >first : time 29768
-8461 >first : otim 29739
-book hit = (NULL)
-8461 >first : usermove 8461 >first : g5g4
-8544 <first : move e7f5
-8545 >second: time 29739
-8545 >second: otim 29759
-book hit = (NULL)
-8545 >second: usermove 8545 >second: e7f5
-8649 <second: move g8f6
-8649 >first : time 29759
-8649 >first : otim 29728
-book hit = (NULL)
-8649 >first : usermove 8649 >first : g8f6
-8755 <first : move e1d1
-8756 >second: time 29728
-8756 >second: otim 29749
-book hit = (NULL)
-8756 >second: usermove 8756 >second: e1d1
-8840 <second: move e6c4
-8840 >first : time 29749
-8840 >first : otim 29720
-book hit = (NULL)
-8840 >first : usermove 8840 >first : e6c4
-8945 <first : move d1e1
-8946 >second: time 29720
-8946 >second: otim 29738
-book hit = (NULL)
-8946 >second: usermove 8946 >second: d1e1
-9032 <second: move c6a5
-9032 >first : time 29738
-9032 >first : otim 29711
-book hit = (NULL)
-9032 >first : usermove 9032 >first : c6a5
-9140 <first : move e1d1
-9141 >second: time 29711
-9141 >second: otim 29727
-book hit = (NULL)
-9141 >second: usermove 9141 >second: e1d1
-9226 <second: move c7c6
-9226 >first : time 29727
-9226 >first : otim 29702
-book hit = (NULL)
-9226 >first : usermove 9226 >first : c7c6
-9308 <first : move f5g3
-9309 >second: time 29702
-9309 >second: otim 29719
-book hit = (NULL)
-9309 >second: usermove 9309 >second: f5g3
-9418 <second: move c6c5
-9418 >first : time 29719
-9418 >first : otim 29692
-book hit = (NULL)
-9418 >first : usermove 9418 >first : c6c5
-9503 <first : move g3h5
-9503 >second: time 29692
-9503 >second: otim 29710
-book hit = (NULL)
-9503 >second: usermove 9503 >second: g3h5
-9610 <second: move a6b5
-9611 >first : time 29710
-9611 >first : otim 29681
-book hit = (NULL)
-9611 >first : usermove 9611 >first : a6b5
-9694 <first : move d1c2
-9695 >second: time 29681
-9695 >second: otim 29702
-book hit = (NULL)
-9695 >second: usermove 9695 >second: d1c2
-9781 <second: move b5a6
-9781 >first : time 29702
-9781 >first : otim 29672
-book hit = (NULL)
-9781 >first : usermove 9781 >first : b5a6
-9865 <first : move c2d1
-9866 >second: time 29672
-9866 >second: otim 29694
-book hit = (NULL)
-9866 >second: usermove 9866 >second: c2d1
-9951 <second: move g4g3
-9951 >first : time 29694
-9951 >first : otim 29664
-book hit = (NULL)
-9951 >first : usermove 9951 >first : g4g3
-10035 <first : move b1a1
-10036 >second: time 29664
-10036 >second: otim 29685
-book hit = (NULL)
-10036 >second: usermove 10036 >second: b1a1
-10120 <second: move b6b5
-10121 >first : time 29685
-10121 >first : otim 29655
-book hit = (NULL)
-10121 >first : usermove 10121 >first : b6b5
-10205 <first : move e2e3
-10206 >second: time 29655
-10206 >second: otim 29676
-book hit = (NULL)
-10206 >second: usermove 10206 >second: e2e3
-10291 <second: move a6b7
-10292 >first : time 29676
-10292 >first : otim 29647
-book hit = (NULL)
-10292 >first : usermove 10292 >first : a6b7
-10376 <first : move a1b1
-10376 >second: time 29647
-10376 >second: otim 29668
-book hit = (NULL)
-10376 >second: usermove 10376 >second: a1b1
-10463 <second: move d7c7
-10463 >first : time 29668
-10463 >first : otim 29638
-book hit = (NULL)
-10463 >first : usermove 10463 >first : d7c7
-10547 <first : move h5f4
-10547 >second: time 29638
-10547 >second: otim 29660
-book hit = (NULL)
-10547 >second: usermove 10547 >second: h5f4
-10655 <second: move a5b3
-10655 >first : time 29660
-10655 >first : otim 29627
-book hit = (NULL)
-10655 >first : usermove 10655 >first : a5b3
-10762 <first : move h1g1
-10763 >second: time 29627
-10763 >second: otim 29649
-book hit = (NULL)
-10763 >second: usermove 10763 >second: h1g1
-10847 <second: move b3d2
-10847 >first : time 29649
-10847 >first : otim 29619
-book hit = (NULL)
-10847 >first : usermove 10847 >first : b3d2
-10954 <first : move g1h1
-10954 >second: time 29619
-10954 >second: otim 59638
-book hit = (NULL)
-10954 >second: usermove 10954 >second: g1h1
-11037 <second: move h8g8
-11038 >first : time 59638
-11038 >first : otim 59610
-book hit = (NULL)
-11038 >first : usermove 11038 >first : h8g8
-11122 <first : move a2a3
-11122 >second: time 59610
-11122 >second: otim 59630
-book hit = (NULL)
-11122 >second: usermove 11122 >second: a2a3
-11208 <second: move b7f3
-11208 >first : time 59630
-11208 >first : otim 59602
-book hit = (NULL)
-11208 >first : usermove 11208 >first : b7f3
-11317 <first : move g2f3
-11318 >second: time 59602
-11318 >second: otim 59619
-book hit = (NULL)
-11318 >second: usermove 11318 >second: g2f3
-11400 <second: move b8b6
-11400 >first : time 59619
-11400 >first : otim 59593
-book hit = (NULL)
-11400 >first : usermove 11400 >first : b8b6
-11482 <first : move d1e1
-11483 >second: time 59593
-11483 >second: otim 59611
-book hit = (NULL)
-11483 >second: usermove 11483 >second: d1e1
-11568 <second: move c7d7
-11568 >first : time 59611
-11568 >first : otim 59585
-book hit = (NULL)
-11568 >first : usermove 11568 >first : c7d7
-11652 <first : move b1a1
-11652 >second: time 59585
-11652 >second: otim 59602
-book hit = (NULL)
-11652 >second: usermove 11652 >second: b1a1
-11737 <second: move d7e7
-11738 >first : time 59602
-11738 >first : otim 59576
-book hit = (NULL)
-11738 >first : usermove 11738 >first : d7e7
-11824 <first : move f1e2
-11824 >second: time 59576
-11825 >second: otim 59594
-book hit = (NULL)
-11825 >second: usermove 11825 >second: f1e2
-11909 <second: move d2f1
-11910 >first : time 59594
-11910 >first : otim 59568
-book hit = (NULL)
-11910 >first : usermove 11910 >first : d2f1
-12018 <first : move f4h3
-12018 >second: time 59568
-12018 >second: otim 59583
-book hit = (NULL)
-12018 >second: usermove 12018 >second: f4h3
-12126 <second: move c4f7
-12126 >first : time 59583
-12126 >first : otim 59557
-book hit = (NULL)
-12126 >first : usermove 12126 >first : c4f7
-12234 <first : move c1d2
-12234 >second: time 59557
-12234 >second: otim 59572
-book hit = (NULL)
-12234 >second: usermove 12234 >second: c1d2
-12320 <second: move g3h2
-12320 >first : time 59572
-12320 >first : otim 59548
-book hit = (NULL)
-12320 >first : usermove 12320 >first : g3h2
-12404 <first : move e1f1
-12405 >second: time 59548
-12405 >second: otim 59564
-book hit = (NULL)
-12405 >second: usermove 12405 >second: e1f1
-12490 <second: move e7e8
-12490 >first : time 59564
-12490 >first : otim 59540
-book hit = (NULL)
-12490 >first : usermove 12490 >first : e7e8
-12577 <first : move a1a2
-12577 >second: time 59540
-12577 >second: otim 59555
-book hit = (NULL)
-12577 >second: usermove 12577 >second: a1a2
-12665 <second: move f8g7
-12665 >first : time 59555
-12665 >first : otim 59531
-book hit = (NULL)
-12665 >first : usermove 12665 >first : f8g7
-12755 <first : move h3f4
-12756 >second: time 59531
-12756 >second: otim 59546
-book hit = (NULL)
-12756 >second: usermove 12756 >second: h3f4
-12879 <second: move f7b3
-12879 >first : time 59546
-12879 >first : otim 59519
-book hit = (NULL)
-12879 >first : usermove 12879 >first : f7b3
-13000 <first : move a3a4
-13001 >second: time 59519
-13001 >second: otim 59534
-book hit = (NULL)
-13001 >second: usermove 13001 >second: a3a4
-13099 <second: move g7f8
-13100 >first : time 59534
-13100 >first : otim 59509
-book hit = (NULL)
-13100 >first : usermove 13100 >first : g7f8
-13189 <first : move f1e1
-13189 >second: time 59509
-13191 >second: otim 59525
-book hit = (NULL)
-13191 >second: usermove 13191 >second: f1e1
-13288 <second: move b6c6
-13288 >first : time 59525
-13288 >first : otim 59499
-book hit = (NULL)
-13288 >first : usermove 13288 >first : b6c6
-13379 <first : move c3c4
-13379 >second: time 59499
-13379 >second: otim 59516
-book hit = (NULL)
-13379 >second: usermove 13379 >second: c3c4
-13469 <second: move f6d7
-13469 >first : time 59516
-13469 >first : otim 59490
-book hit = (NULL)
-13469 >first : usermove 13469 >first : f6d7
-13588 <first : move f4d5
-13588 >second: time 59490
-13588 >second: otim 59504
-book hit = (NULL)
-13589 >second: usermove 13589 >second: f4d5
-13701 <second: move f8h6
-13701 >first : time 59504
-13701 >first : otim 59478
-book hit = (NULL)
-13701 >first : usermove 13701 >first : f8h6
-13817 <first : move e2d1
-13818 >second: time 59478
-13818 >second: otim 59492
-book hit = (NULL)
-13818 >second: usermove 13818 >second: e2d1
-13911 <second: move a7a6
-13911 >first : time 59492
-13911 >first : otim 59469
-book hit = (NULL)
-13911 >first : usermove 13911 >first : a7a6
-14000 <first : move e1e2
-14001 >second: time 59469
-14001 >second: otim 59483
-book hit = (NULL)
-14001 >second: usermove 14001 >second: e1e2
-14088 <second: move b3a4
-14088 >first : time 59483
-14088 >first : otim 59460
-book hit = (NULL)
-14088 >first : usermove 14088 >first : b3a4
-14180 <first : move a2a3
-14180 >second: time 59460
-14180 >second: otim 59474
-book hit = (NULL)
-14180 >second: usermove 14180 >second: a2a3
-14272 <second: move e8d8
-14273 >first : time 59474
-14273 >first : otim 59451
-book hit = (NULL)
-14273 >first : usermove 14273 >first : e8d8
-14372 <first : move b2b3
-14373 >second: time 59451
-14373 >second: otim 59464
-book hit = (NULL)
-14373 >second: usermove 14373 >second: b2b3
-14467 <second: move d7b8
-14468 >first : time 59464
-14468 >first : otim 59442
-book hit = (NULL)
-14468 >first : usermove 14468 >first : d7b8
-14579 <first : move d1c2
-14579 >second: time 59442
-14579 >second: otim 59453
-book hit = (NULL)
-14579 >second: usermove 14579 >second: d1c2
-14681 <second: move b8d7
-14681 >first : time 59453
-14681 >first : otim 59431
-book hit = (NULL)
-14681 >first : usermove 14681 >first : b8d7
-14799 <first : move h1e1
-14800 >second: time 59431
-14800 >second: otim 59441
-book hit = (NULL)
-14800 >second: usermove 14800 >second: h1e1
-14917 <second: move a4b3
-14917 >first : time 59441
-14918 >first : otim 59420
-book hit = (NULL)
-14918 >first : usermove 14918 >first : a4b3
-15015 <first : move e2f1
-15016 >second: time 59420
-15016 >second: otim 59431
-book hit = (NULL)
-15016 >second: usermove 15016 >second: e2f1
-15106 <second: move b5c4
-15106 >first : time 59431
-15106 >first : otim 59411
-book hit = (NULL)
-15106 >first : usermove 15106 >first : b5c4
-15203 <first : move f1e2
-15204 >second: time 59411
-15204 >second: otim 59421
-book hit = (NULL)
-15204 >second: usermove 15204 >second: f1e2
-15299 <second: move c4c3
-15300 >first : time 59421
-15300 >first : otim 59401
-book hit = (NULL)
-15300 >first : usermove 15300 >first : c4c3
-15396 <first : move d5e7
-15397 >second: time 59401
-15397 >second: otim 59412
-book hit = (NULL)
-15397 >second: usermove 15397 >second: d5e7
-15517 <second: move h6f8
-15518 >first : time 59412
-15518 >first : otim 59389
-book hit = (NULL)
-15518 >first : usermove 15518 >first : h6f8
-15636 <first : move f3f4
-15636 >second: time 59389
-15636 >second: otim 59400
-book hit = (NULL)
-15636 >second: usermove 15636 >second: f3f4
-15732 <second: move d8e7
-15733 >first : time 59400
-15733 >first : otim 59379
-book hit = (NULL)
-15733 >first : usermove 15733 >first : d8e7
-15822 <first : move a3a4
-15823 >second: time 59379
-15823 >second: otim 59391
-book hit = (NULL)
-15823 >second: usermove 15823 >second: a3a4
-15920 <second: move e7d8
-15921 >first : time 59391
-15921 >first : otim 59369
-book hit = (NULL)
-15921 >first : usermove 15921 >first : e7d8
-16011 <first : move c2b1
-16011 >second: time 59369
-16011 >second: otim 59382
-book hit = (NULL)
-16011 >second: usermove 16011 >second: c2b1
-16093 <second: move d8c8
-16094 >first : time 59382
-16094 >first : otim 59361
-book hit = (NULL)
-16094 >first : usermove 16094 >first : d8c8
-16178 <first : move f4f5
-16178 >second: time 59361
-16178 >second: otim 59373
-book hit = (NULL)
-16178 >second: usermove 16178 >second: f4f5
-16263 <second: move b3a4
-16263 >first : time 59373
-16263 >first : otim 59353
-book hit = (NULL)
-16263 >first : usermove 16263 >first : b3a4
-16348 <first : move e1d1
-16349 >second: time 59353
-16349 >second: otim 59365
-book hit = (NULL)
-16349 >second: usermove 16349 >second: e1d1
-16431 <second: move d7e5
-16431 >first : time 59365
-16431 >first : otim 59344
-book hit = (NULL)
-16431 >first : usermove 16431 >first : d7e5
-16540 <first : move d1e1
-16540 >second: time 59344
-16540 >second: otim 59354
-book hit = (NULL)
-16540 >second: usermove 16540 >second: d1e1
-16626 <second: move a4d1
-16626 >first : time 59354
-16626 >first : otim 59336
-book hit = (NULL)
-16626 >first : usermove 16626 >first : a4d1
-16733 <first : move e1d1
-16734 >second: time 59336
-16734 >second: otim 59343
-book hit = (NULL)
-16734 >second: usermove 16734 >second: e1d1
-16819 <second: move f8h6
-16819 >first : time 59343
-16819 >first : otim 59327
-book hit = (NULL)
-16819 >first : usermove 16819 >first : f8h6
-16925 <first : move d2c3
-16926 >second: time 59327
-16926 >second: otim 59332
-book hit = (NULL)
-16926 >second: usermove 16926 >second: d2c3
-17011 <second: move h6f4
-17012 >first : time 59332
-17012 >first : otim 59319
-book hit = (NULL)
-17012 >first : usermove 17012 >first : h6f4
-17122 <first : move c3d4
-17122 >second: time 59319
-17122 >second: otim 59321
-book hit = (NULL)
-17122 >second: usermove 17122 >second: c3d4
-17205 <second: move c8b8
-17205 >first : time 59321
-17205 >first : otim 59310
-book hit = (NULL)
-17205 >first : usermove 17205 >first : c8b8
-17291 <first : move b1c2
-17292 >second: time 59310
-17292 >second: otim 59313
-book hit = (NULL)
-17292 >second: usermove 17292 >second: b1c2
-17373 <second: move c6c8
-17374 >first : time 59313
-17374 >first : otim 59302
-book hit = (NULL)
-17374 >first : usermove 17374 >first : c6c8
-17458 <first : move d1d3
-17458 >second: time 59302
-17458 >second: otim 59304
-book hit = (NULL)
-17458 >second: usermove 17458 >second: d1d3
-17541 <second: move c8f8
-17542 >first : time 59304
-17542 >first : otim 59294
-book hit = (NULL)
-17542 >first : usermove 17542 >first : c8f8
-17649 <first : move d4e5
-17649 >second: time 59294
-17649 >second: otim 59294
-book hit = (NULL)
-17649 >second: usermove 17649 >second: d4e5
-17735 <second: move b8c8
-17735 >first : time 59294
-17735 >first : otim 59285
-book hit = (NULL)
-17735 >first : usermove 17735 >first : b8c8
-17819 <first : move e2f1
-17819 >second: time 59285
-17819 >second: otim 59285
-book hit = (NULL)
-17819 >second: usermove 17819 >second: e2f1
-17903 <second: move h2h1
-17903 >first : time 59285
-17903 >first : otim 59277
-book hit = (NULL)
-17903 >first : usermove 17903 >first : h2h1q
-17988 <first : move f1e2
-17988 >second: time 59277
-17988 >second: otim 59277
-book hit = (NULL)
-17988 >second: usermove 17988 >second: f1e2
-18073 <second: move f8f6
-18073 >first : time 59277
-18073 >first : otim 59268
-book hit = (NULL)
-18073 >first : usermove 18073 >first : f8f6
-18160 <first : move d3d5
-18160 >second: time 59268
-18160 >second: otim 59268
-book hit = (NULL)
-18160 >second: usermove 18160 >second: d3d5
-18245 <second: move f4e5
-18245 >first : time 59268
-18245 >first : otim 59260
-book hit = (NULL)
-18245 >first : usermove 18245 >first : f4e5
-18328 <first : move f2f4
-18328 >second: time 59260
-18328 >second: otim 59260
-book hit = (NULL)
-18328 >second: usermove 18328 >second: f2f4
-18410 <second: move h1a1
-18410 >first : time 59260
-18410 >first : otim 59251
-book hit = (NULL)
-18410 >first : usermove 18410 >first : h1a1
-18515 <first : move d5d2
-18515 >second: time 59251
-18515 >second: otim 89249
-book hit = (NULL)
-18516 >second: usermove 18516 >second: d5d2
-18621 <second: move c8b7
-18622 >first : time 89249
-18622 >first : otim 89241
-book hit = (NULL)
-18622 >first : usermove 18622 >first : c8b7
-18705 <first : move c2b1
-18705 >second: time 89241
-18705 >second: otim 89241
-book hit = (NULL)
-18705 >second: usermove 18705 >second: c2b1
-18791 <second: move b7c6
-18791 >first : time 89241
-18791 >first : otim 89232
-book hit = (NULL)
-18791 >first : usermove 18791 >first : b7c6
-18876 <first : move b1c2
-18876 >second: time 89232
-18876 >second: otim 89232
-book hit = (NULL)
-18877 >second: usermove 18877 >second: b1c2
-18960 <second: move g8g4
-18960 >first : time 89232
-18960 >first : otim 89224
-book hit = (NULL)
-18960 >first : usermove 18960 >first : g8g4
-19064 <first : move c2e4
-19064 >second: time 89224
-19064 >second: otim 89222
-book hit = (NULL)
-19064 >second: usermove 19064 >second: c2e4
-19170 <second: move c6c7
-19171 >first : time 89222
-19171 >first : otim 89213
-book hit = (NULL)
-19171 >first : usermove 19171 >first : c6c7
-19254 <first : move e4g2
-19255 >second: time 89213
-19255 >second: otim 89214
-book hit = (NULL)
-19255 >second: usermove 19255 >second: e4g2
-19362 <second: move f6e6
-19362 >first : time 89214
-19363 >first : otim 89202
-book hit = (NULL)
-19363 >first : usermove 19363 >first : f6e6
-19448 <first : move g2f1
-19448 >second: time 89202
-19448 >second: otim 89205
-book hit = (NULL)
-19448 >second: usermove 19448 >second: g2f1
-19533 <second: move c5c4
-19533 >first : time 89205
-19533 >first : otim 89194
-book hit = (NULL)
-19533 >first : usermove 19533 >first : c5c4
-19618 <first : move e2f2
-19619 >second: time 89194
-19619 >second: otim 89196
-book hit = (NULL)
-19619 >second: usermove 19619 >second: e2f2
-19703 <second: move e6g6
-19703 >first : time 89196
-19703 >first : otim 89185
-book hit = (NULL)
-19703 >first : usermove 19703 >first : e6g6
-19788 <first : move f1e2
-19789 >second: time 89185
-19789 >second: otim 89188
-book hit = (NULL)
-19789 >second: usermove 19789 >second: f1e2
-19873 <second: move e5c3
-19873 >first : time 89188
-19873 >first : otim 89177
-book hit = (NULL)
-19873 >first : usermove 19873 >first : e5c3
-19980 <first : move e2d3
-19981 >second: time 89177
-19981 >second: otim 89177
-book hit = (NULL)
-19981 >second: usermove 19981 >second: e2d3
-20065 <second: move c7b7
-20065 >first : time 89177
-20065 >first : otim 89168
-book hit = (NULL)
-20065 >first : usermove 20066 >first : c7b7
-20149 <first : move d2d1
-20149 >second: time 89168
-20149 >second: otim 89169
-book hit = (NULL)
-20149 >second: usermove 20149 >second: d2d1
-20231 <second: move a1b1
-20231 >first : time 89169
-20231 >first : otim 89160
-book hit = (NULL)
-20231 >first : usermove 20231 >first : a1b1
-20314 <first : move e3e4
-20315 >second: time 89160
-20315 >second: otim 89161
-book hit = (NULL)
-20315 >second: usermove 20315 >second: e3e4
-20399 <second: move h7h6
-20399 >first : time 89161
-20399 >first : otim 89152
-book hit = (NULL)
-20399 >first : usermove 20399 >first : h7h6
-20483 <first : move d3b1
-20484 >second: time 89152
-20484 >second: otim 89152
-book hit = (NULL)
-20484 >second: usermove 20484 >second: d3b1
-20588 <second: move g6g8
-20589 >first : time 89152
-20589 >first : otim 89141
-book hit = (NULL)
-20589 >first : usermove 20589 >first : g6g8
-20673 <first : move f2e2
-20674 >second: time 89141
-20674 >second: otim 89144
-book hit = (NULL)
-20674 >second: usermove 20674 >second: f2e2
-20761 <second: move g4f4
-20761 >first : time 89144
-20761 >first : otim 89133
-book hit = (NULL)
-20761 >first : usermove 20761 >first : g4f4
-20843 <first : move b1d3
-20843 >second: time 89133
-20843 >second: otim 89135
-book hit = (NULL)
-20843 >second: usermove 20843 >second: b1d3
-20950 <second: move f4f2
-20950 >first : time 89135
-20950 >first : otim 89122
-book hit = (NULL)
-20950 >first : usermove 20950 >first : f4f2
-21035 <first : move e2f2
-21035 >second: time 89122
-21035 >second: otim 89127
-book hit = (NULL)
-21035 >second: usermove 21035 >second: e2f2
-21118 <second: move g8g1
-21118 >first : time 89127
-21118 >first : otim 89114
-book hit = (NULL)
-21118 >first : usermove 21118 >first : g8g1
-21224 <first : move d3f1
-21224 >second: time 89114
-21224 >second: otim 89116
-book hit = (NULL)
-21224 >second: usermove 21224 >second: d3f1
-21331 <second: move d6d5
-21331 >first : time 89116
-21332 >first : otim 89103
-book hit = (NULL)
-21332 >first : usermove 21332 >first : d6d5
-21418 <first : move d1d2
-21418 >second: time 89103
-21418 >second: otim 89108
-book hit = (NULL)
-21418 >second: usermove 21418 >second: d1d2
-21503 <second: move d5e4
-21503 >first : time 89108
-21503 >first : otim 89094
-book hit = (NULL)
-21503 >first : usermove 21503 >first : d5e4
-21589 <first : move d2d7
-21589 >second: time 89094
-21590 >second: otim 89099
-book hit = (NULL)
-21590 >second: usermove 21590 >second: d2d7
-21699 <second: move b7c6
-21699 >first : time 89099
-21699 >first : otim 89083
-book hit = (NULL)
-21699 >first : usermove 21700 >first : b7c6
-21789 <first : move f2g1
-21790 >second: time 89083
-21790 >second: otim 89090
-book hit = (NULL)
-21790 >second: usermove 21790 >second: f2g1
-21886 <second: move a6a5
-21887 >first : time 89090
-21887 >first : otim 89074
-book hit = (NULL)
-21887 >first : usermove 21887 >first : a6a5
-21968 <first : move f5f6
-21968 >second: time 89074
-21968 >second: otim 89082
-book hit = (NULL)
-21968 >second: usermove 21968 >second: f5f6
-22051 <second: move c3f6
-22052 >first : time 89082
-22052 >first : otim 89065
-book hit = (NULL)
-22052 >first : usermove 22052 >first : c3f6
-22159 <first : move f1e2
-22160 >second: time 89065
-22160 >second: otim 89071
-book hit = (NULL)
-22160 >second: usermove 22160 >second: f1e2
-22244 <second: move f6d4
-22244 >first : time 89071
-22244 >first : otim 89057
-book hit = (NULL)
-22244 >first : usermove 22244 >first : f6d4
-22346 <first : move d7d4
-22347 >second: time 89057
-22347 >second: otim 89061
-book hit = (NULL)
-22347 >second: usermove 22347 >second: d7d4
-22453 <second: move c6b7
-22453 >first : time 89061
-22454 >first : otim 89046
-book hit = (NULL)
-22454 >first : usermove 22454 >first : c6b7
-22538 <first : move e2d3
-22538 >second: time 89046
-22538 >second: otim 89052
-book hit = (NULL)
-22538 >second: usermove 22538 >second: e2d3
-22623 <second: move b7c8
-22624 >first : time 89052
-22624 >first : otim 89038
-book hit = (NULL)
-22624 >first : usermove 22624 >first : b7c8
-22711 <first : move d4d8
-22711 >second: time 89038
-22711 >second: otim 89043
-book hit = (NULL)
-22711 >second: usermove 22711 >second: d4d8
-22819 <second: move c8d8
-22819 >first : time 89043
-22819 >first : otim 89027
-book hit = (NULL)
-22819 >first : usermove 22819 >first : c8d8
-22903 <first : move d3e2
-22903 >second: time 89027
-22903 >second: otim 89035
-book hit = (NULL)
-22903 >second: usermove 22903 >second: d3e2
-22987 <second: move d8c7
-22987 >first : time 89035
-22987 >first : otim 89018
-book hit = (NULL)
-22987 >first : usermove 22987 >first : d8c7
-23072 <first : move g1h2
-23072 >second: time 89018
-23072 >second: otim 89027
-book hit = (NULL)
-23072 >second: usermove 23072 >second: g1h2
-23157 <second: move c7b7
-23158 >first : time 89027
-23158 >first : otim 89010
-book hit = (NULL)
-23158 >first : usermove 23158 >first : c7b7
-23242 <first : move h2g2
-23242 >second: time 89010
-23242 >second: otim 89018
-book hit = (NULL)
-23243 >second: usermove 23243 >second: h2g2
-23329 <second: move b7a6
-23329 >first : time 89018
-23329 >first : otim 89001
-book hit = (NULL)
-23329 >first : usermove 23329 >first : b7a6
-23413 <first : move e2f3
-23413 >second: time 89001
-23413 >second: otim 89010
-book hit = (NULL)
-23413 >second: usermove 23413 >second: e2f3
-23498 <second: move a6b6
-23499 >first : time 89010
-23499 >first : otim 88993
-book hit = (NULL)
-23499 >first : usermove 23499 >first : a6b6
-23583 <first : move g2h3
-23583 >second: time 88993
-23584 >second: otim 89001
-book hit = (NULL)
-23584 >second: usermove 23584 >second: g2h3
-23665 <second: move b6a7
-23665 >first : time 89001
-23665 >first : otim 88984
-book hit = (NULL)
-23665 >first : usermove 23665 >first : b6a7
-23747 <first : move h3g4
-23748 >second: time 88984
-23748 >second: otim 88993
-book hit = (NULL)
-23748 >second: usermove 23748 >second: h3g4
-23830 <second: move c4c3
-23830 >first : time 88993
-23830 >first : otim 88976
-book hit = (NULL)
-23830 >first : usermove 23830 >first : c4c3
-23914 <first : move g4h5
-23914 >second: time 88976
-23914 >second: otim 88985
-book hit = (NULL)
-23914 >second: usermove 23914 >second: g4h5
-23999 <second: move a7a6
-23999 >first : time 88985
-23999 >first : otim 88968
-book hit = (NULL)
-23999 >first : usermove 23999 >first : a7a6
-24084 <first : move f3g2
-24084 >second: time 88968
-24084 >second: otim 88976
-book hit = (NULL)
-24084 >second: usermove 24084 >second: f3g2
-24166 <second: move a6b6
-24166 >first : time 88976
-24166 >first : otim 88959
-book hit = (NULL)
-24166 >first : usermove 24166 >first : a6b6
-24247 <first : move h5h4
-24247 >second: time 88959
-24247 >second: otim 88968
-book hit = (NULL)
-24247 >second: usermove 24247 >second: h5h4
-24328 <second: move b6a6
-24329 >first : time 88968
-24329 >first : otim 88951
-book hit = (NULL)
-24329 >first : usermove 24329 >first : b6a6
-24411 <first : move g2f1
-24411 >second: time 88951
-24411 >second: otim 88960
-book hit = (NULL)
-24411 >second: usermove 24411 >second: g2f1
-24493 <second: move a6b6
-24493 >first : time 88960
-24493 >first : otim 88943
-book hit = (NULL)
-24493 >first : usermove 24493 >first : a6b6
-24573 <first : move h4g3
-24573 >second: time 88943
-24573 >second: otim 88952
-book hit = (NULL)
-24573 >second: usermove 24573 >second: h4g3
-24652 <second: move e4e3
-24652 >first : time 88952
-24652 >first : otim 88935
-book hit = (NULL)
-24652 >first : usermove 24652 >first : e4e3
-24734 <first : move g3f4
-24734 >second: time 88935
-24734 >second: otim 88944
-book hit = (NULL)
-24734 >second: usermove 24734 >second: g3f4
-24819 <second: move b6c7
-24819 >first : time 88944
-24819 >first : otim 88927
-book hit = (NULL)
-24819 >first : usermove 24819 >first : b6c7
-24900 <first : move f4g4
-24901 >second: time 88927
-24901 >second: otim 88935
-book hit = (NULL)
-24901 >second: usermove 24901 >second: f4g4
-24981 <second: move c7d8
-24981 >first : time 88935
-24981 >first : otim 88919
-book hit = (NULL)
-24981 >first : usermove 24981 >first : c7d8
-25061 <first : move f1e2
-25061 >second: time 88919
-25061 >second: otim 88927
-book hit = (NULL)
-25061 >second: usermove 25061 >second: f1e2
-25142 <second: move d8c8
-25142 >first : time 88927
-25142 >first : otim 88911
-book hit = (NULL)
-25142 >first : usermove 25142 >first : d8c8
-25223 <first : move e2d3
-25224 >second: time 88911
-25224 >second: otim 88919
-book hit = (NULL)
-25224 >second: usermove 25224 >second: e2d3
-25304 <second: move a5a4
-25304 >first : time 88919
-25304 >first : otim 88903
-book hit = (NULL)
-25304 >first : usermove 25304 >first : a5a4
-25387 <first : move g4h3
-25387 >second: time 88903
-25387 >second: otim 88911
-book hit = (NULL)
-25387 >second: usermove 25387 >second: g4h3
-25470 <second: move c8d7
-25470 >first : time 88911
-25470 >first : otim 88894
-book hit = (NULL)
-25470 >first : usermove 25470 >first : c8d7
-25550 <first : move h3g4
-25550 >second: time 88894
-25550 >second: otim 118903
-book hit = (NULL)
-25550 >second: usermove 25550 >second: h3g4
-25631 <second: move a4a3
-25631 >first : time 118903
-25631 >first : otim 118886
-book hit = (NULL)
-25631 >first : usermove 25631 >first : a4a3
-25712 <first : move d3b5
-25713 >second: time 118886
-25713 >second: otim 118895
-book hit = (NULL)
-25713 >second: usermove 25713 >second: d3b5
-25821 <second: move d7d6
-25821 >first : time 118895
-25821 >first : otim 118875
-book hit = (NULL)
-25821 >first : usermove 25821 >first : d7d6
-25904 <first : move g4f4
-25904 >second: time 118875
-25904 >second: otim 118887
-book hit = (NULL)
-25904 >second: usermove 25904 >second: g4f4
-25985 <second: move d6c7
-25985 >first : time 118887
-25985 >first : otim 118867
-book hit = (NULL)
-25985 >first : usermove 25985 >first : d6c7
-26069 <first : move f4f3
-26069 >second: time 118867
-26069 >second: otim 118878
-book hit = (NULL)
-26069 >second: usermove 26069 >second: f4f3
-26152 <second: move c7d6
-26152 >first : time 118878
-26152 >first : otim 118859
-book hit = (NULL)
-26152 >first : usermove 26152 >first : c7d6
-26233 <first : move f3e4
-26233 >second: time 118859
-26233 >second: otim 118870
-book hit = (NULL)
-26233 >second: usermove 26233 >second: f3e4
-26314 <second: move e3e2
-26314 >first : time 118870
-26314 >first : otim 118851
-book hit = (NULL)
-26314 >first : usermove 26314 >first : e3e2
-26395 <first : move e4f5
-26396 >second: time 118851
-26396 >second: otim 118862
-book hit = (NULL)
-26396 >second: usermove 26396 >second: e4f5
-26479 <second: move a3a2
-26479 >first : time 118862
-26479 >first : otim 118842
-book hit = (NULL)
-26479 >first : usermove 26479 >first : a3a2
-26559 <first : move b5c6
-26560 >second: time 118842
-26560 >second: otim 118854
-book hit = (NULL)
-26560 >second: usermove 26560 >second: b5c6
-26644 <second: move h6h5
-26644 >first : time 118854
-26644 >first : otim 118834
-book hit = (NULL)
-26644 >first : usermove 26644 >first : h6h5
-26726 <first : move f5e4
-26726 >second: time 118834
-26726 >second: otim 118846
-book hit = (NULL)
-26726 >second: usermove 26726 >second: f5e4
-26807 <second: move c3c2
-26807 >first : time 118846
-26807 >first : otim 118826
-book hit = (NULL)
-26807 >first : usermove 26807 >first : c3c2
-26889 <first : move c6b5
-26889 >second: time 118826
-26889 >second: otim 118837
-book hit = (NULL)
-26889 >second: usermove 26889 >second: c6b5
-26970 <second: move d6e7
-26970 >first : time 118837
-26970 >first : otim 118818
-book hit = (NULL)
-26970 >first : usermove 26970 >first : d6e7
-27054 <first : move e4e5
-27054 >second: time 118818
-27054 >second: otim 118829
-book hit = (NULL)
-27054 >second: usermove 27054 >second: e4e5
-27136 <second: move h5h4
-27136 >first : time 118829
-27136 >first : otim 118810
-book hit = (NULL)
-27136 >first : usermove 27136 >first : h5h4
-27220 <first : move e5d4
-27220 >second: time 118810
-27220 >second: otim 118821
-book hit = (NULL)
-27220 >second: usermove 27220 >second: e5d4
-27305 <second: move e7f8
-27305 >first : time 118821
-27305 >first : otim 118801
-book hit = (NULL)
-27305 >first : usermove 27305 >first : e7f8
-27389 <first : move d4e3
-27389 >second: time 118801
-27389 >second: otim 118812
-book hit = (NULL)
-27389 >second: usermove 27389 >second: d4e3
-27471 <second: move f8g7
-27471 >first : time 118812
-27471 >first : otim 118793
-book hit = (NULL)
-27471 >first : usermove 27471 >first : f8g7
-27557 <first : move e3d4
-27558 >second: time 118793
-27558 >second: otim 118804
-book hit = (NULL)
-27558 >second: usermove 27558 >second: e3d4
-27655 <second: move g7f8
-27655 >first : time 118804
-27655 >first : otim 118783
-book hit = (NULL)
-27655 >first : usermove 27655 >first : g7f8
-27755 <first : move b5e2
-27755 >second: time 118783
-27755 >second: otim 118794
-book hit = (NULL)
-27755 >second: usermove 27755 >second: b5e2
-27866 <second: move h4h3
-27866 >first : time 118794
-27866 >first : otim 118772
-book hit = (NULL)
-27866 >first : usermove 27866 >first : h4h3
-27960 <first : move d4d3
-27960 >second: time 118772
-27960 >second: otim 118784
-book hit = (NULL)
-27960 >second: usermove 27960 >second: d4d3
-28048 <second: move f8e8
-28048 >first : time 118784
-28048 >first : otim 118763
-book hit = (NULL)
-28048 >first : usermove 28048 >first : f8e8
-28134 <first : move d3c3
-28134 >second: time 118763
-28134 >second: otim 118776
-book hit = (NULL)
-28134 >second: usermove 28134 >second: d3c3
-28221 <second: move e8d8
-28221 >first : time 118776
-28221 >first : otim 118754
-book hit = (NULL)
-28221 >first : usermove 28221 >first : e8d8
-28321 <first : move e2f3
-28321 >second: time 118754
-28323 >second: otim 118766
-book hit = (NULL)
-28323 >second: usermove 28323 >second: e2f3
-28410 <second: move d8e7
-28410 >first : time 118766
-28410 >first : otim 118746
-book hit = (NULL)
-28410 >first : usermove 28410 >first : d8e7
-28498 <first : move c3b4
-28498 >second: time 118746
-28498 >second: otim 118757
-book hit = (NULL)
-28498 >second: usermove 28498 >second: c3b4
-28583 <second: move e7d7
-28583 >first : time 118757
-28583 >first : otim 118737
-book hit = (NULL)
-28583 >first : usermove 28583 >first : e7d7
-28671 <first : move f3e2
-28671 >second: time 118737
-28671 >second: otim 118748
-book hit = (NULL)
-28671 >second: usermove 28671 >second: f3e2
-28771 <second: move d7c7
-28771 >first : time 118748
-28771 >first : otim 118727
-book hit = (NULL)
-28771 >first : usermove 28771 >first : d7c7
-28860 <first : move b4c5
-28860 >second: time 118727
-28860 >second: otim 118739
-book hit = (NULL)
-28860 >second: usermove 28860 >second: b4c5
-28947 <second: move c7b7
-28947 >first : time 118739
-28947 >first : otim 118718
-book hit = (NULL)
-28947 >first : usermove 28947 >first : c7b7
-29031 <first : move c5d5
-29031 >second: time 118718
-29031 >second: otim 118731
-book hit = (NULL)
-29031 >second: usermove 29031 >second: c5d5
-29116 <second: move c2c1
-29116 >first : time 118731
-29116 >first : otim 118710
-book hit = (NULL)
-29116 >first : usermove 29116 >first : c2c1q
-29198 <first : move d5e4
-29198 >second: time 118710
-29198 >second: otim 118723
-book hit = (NULL)
-29198 >second: usermove 29198 >second: d5e4
-29283 <second: move a2a1
-29283 >first : time 118723
-29283 >first : otim 118701
-book hit = (NULL)
-29283 >first : usermove 29283 >first : a2a1q
-29371 <first : move e2f3
-29372 >second: time 118701
-29372 >second: otim 118714
-book hit = (NULL)
-29372 >second: usermove 29372 >second: e2f3
-29471 <second: move a1f6
-29471 >first : time 118714
-29471 >first : otim 118691
-book hit = (NULL)
-29471 >first : usermove 29471 >first : a1f6
-29583 <first : move e4d5
-29583 >second: time 118691
-29583 >second: otim 118702
-book hit = (NULL)
-29583 >second: usermove 29583 >second: e4d5
-29677 <second: move b7a8
-29677 >first : time 118702
-29677 >first : otim 118682
-book hit = (NULL)
-29677 >first : usermove 29677 >first : b7a8
-29767 <first : move f3h1
-29767 >second: time 118682
-29767 >second: otim 118693
-book hit = (NULL)
-29767 >second: usermove 29767 >second: f3h1
-29882 <second: move h3h2
-29882 >first : time 118693
-29882 >first : otim 118671
-book hit = (NULL)
-29882 >first : usermove 29882 >first : h3h2
-29966 <first : move d5e4
-29966 >second: time 118671
-29966 >second: otim 118685
-book hit = (NULL)
-29966 >second: usermove 29966 >second: d5e4
-30048 <second: move a8b7
-30048 >first : time 118685
-30048 >first : otim 118662
-book hit = (NULL)
-30048 >first : usermove 30048 >first : a8b7
-30131 <first : move h1g2
-30131 >second: time 118662
-30131 >second: otim 118677
-book hit = (NULL)
-30131 >second: usermove 30131 >second: h1g2
-30216 <second: move h2h1
-30216 >first : time 118677
-30216 >first : otim 118654
-book hit = (NULL)
-30216 >first : usermove 30216 >first : h2h1q
-30299 <first : move e4d3
-30299 >second: time 118654
-30299 >second: otim 118668
-book hit = (NULL)
-30299 >second: usermove 30299 >second: e4d3
-30380 <second: move h1g2
-30380 >first : usermove 30380 >first : h1g2
-GameEnds(27, Xboard adjudication: Stalemate, 4)
-30381 >first : result 1/2-1/2 {Xboard adjudication: Stalemate}
-30381 >second: result 1/2-1/2 {Xboard adjudication: Stalemate}
-30383 >first : force
-30383 >second: force
+5977 <first : move g1h3
+5977 >second: time 30000
+5977 >second: otim 30000
+book hit = (NULL)
+5977 >second: usermove 5977 >second: g1h3
+5977 >second: black
+5977 >second: go
+6082 <second: move c7c5
+6082 >first : time 30000
+6082 >first : otim 29989
+book hit = (NULL)
+6082 >first : usermove 6082 >first : c7c5
+6163 <first : move h3g1
+6163 >second: time 29989
+6163 >second: otim 29991
+book hit = (NULL)
+6163 >second: usermove 6163 >second: h3g1
+6267 <second: move d8c7
+6268 >first : time 29991
+6268 >first : otim 29979
+book hit = (NULL)
+6268 >first : usermove 6268 >first : d8c7
+6353 <first : move g1h3
+6354 >second: time 29979
+6354 >second: otim 29983
+book hit = (NULL)
+6354 >second: usermove 6354 >second: g1h3
+6483 <second: move c7g3
+6483 >first : time 29983
+6483 >first : otim 29966
+book hit = (NULL)
+6483 >first : usermove 6483 >first : c7g3
+6606 <first : move h2g3
+6606 >second: time 29966
+6606 >second: otim 29971
+book hit = (NULL)
+6606 >second: usermove 6606 >second: h2g3
+6701 <second: move g8h6
+6701 >first : time 29971
+6702 >first : otim 29956
+book hit = (NULL)
+6702 >first : usermove 6702 >first : g8h6
+6815 <first : move h3g5
+6815 >second: time 29956
+6815 >second: otim 29959
+book hit = (NULL)
+6815 >second: usermove 6815 >second: h3g5
+6939 <second: move b8a6
+6939 >first : time 29959
+6940 >first : otim 29944
+book hit = (NULL)
+6940 >first : usermove 6940 >first : b8a6
+7068 <first : move g5e6
+7068 >second: time 29944
+7068 >second: otim 29946
+book hit = (NULL)
+7069 >second: usermove 7069 >second: g5e6
+7183 <second: move h8g8
+7184 >first : time 29946
+7184 >first : otim 29932
+book hit = (NULL)
+7184 >first : usermove 7184 >first : h8g8
+7279 <first : move e6g7
+7279 >second: time 29932
+7279 >second: otim 29937
+book hit = (NULL)
+7279 >second: usermove 7279 >second: e6g7
+7396 <second: move f8g7
+7397 >first : time 29937
+7397 >first : otim 29920
+book hit = (NULL)
+7397 >first : usermove 7397 >first : f8g7
+7493 <first : move b1c3
+7494 >second: time 29920
+7494 >second: otim 29927
+book hit = (NULL)
+7494 >second: usermove 7494 >second: b1c3
+7609 <second: move g8f8
+7610 >first : time 29927
+7610 >first : otim 29909
+book hit = (NULL)
+7610 >first : usermove 7610 >first : g8f8
+7709 <first : move c3a4
+7709 >second: time 29909
+7709 >second: otim 29917
+book hit = (NULL)
+7709 >second: usermove 7709 >second: c3a4
+7821 <second: move f8g8
+7821 >first : time 29917
+7821 >first : otim 29898
+book hit = (NULL)
+7821 >first : usermove 7821 >first : f8g8
+7917 <first : move a4b6
+7918 >second: time 29898
+7918 >second: otim 29907
+book hit = (NULL)
+7918 >second: usermove 7918 >second: a4b6
+8031 <second: move g7c3
+8032 >first : time 29907
+8032 >first : otim 29886
+book hit = (NULL)
+8032 >first : usermove 8032 >first : g7c3
+8148 <first : move a2a3
+8148 >second: time 29886
+8148 >second: otim 29896
+book hit = (NULL)
+8148 >second: usermove 8148 >second: a2a3
+8242 <second: move c3a5
+8242 >first : time 29896
+8242 >first : otim 29877
+book hit = (NULL)
+8242 >first : usermove 8242 >first : c3a5
+8356 <first : move b6a8
+8356 >second: time 29877
+8356 >second: otim 29884
+book hit = (NULL)
+8356 >second: usermove 8356 >second: b6a8
+8480 <second: move e7e5
+8481 >first : time 29884
+8481 >first : otim 29864
+book hit = (NULL)
+8481 >first : usermove 8481 >first : e7e5
+8575 <first : move a1b1
+8575 >second: time 29864
+8575 >second: otim 29875
+book hit = (NULL)
+8575 >second: usermove 8575 >second: a1b1
+8664 <second: move h6f5
+8664 >first : time 29875
+8664 >first : otim 29855
+book hit = (NULL)
+8664 >first : usermove 8664 >first : h6f5
+8780 <first : move c2c3
+8780 >second: time 29855
+8780 >second: otim 29863
+book hit = (NULL)
+8780 >second: usermove 8780 >second: c2c3
+8871 <second: move e5e4
+8872 >first : time 29863
+8872 >first : otim 29846
+book hit = (NULL)
+8872 >first : usermove 8872 >first : e5e4
+8975 <first : move d1c2
+8976 >second: time 29846
+8976 >second: otim 29853
+book hit = (NULL)
+8976 >second: usermove 8976 >second: d1c2
+9063 <second: move g8g5
+9063 >first : time 29853
+9063 >first : otim 29838
+book hit = (NULL)
+9064 >first : usermove 9064 >first : g8g5
+9180 <first : move f2f4
+9181 >second: time 29838
+9181 >second: otim 29841
+book hit = (NULL)
+9181 >second: usermove 9181 >second: f2f4
+9271 <second: move a5b4
+9271 >first : time 29841
+9271 >first : otim 29828
+book hit = (NULL)
+9271 >first : usermove 9271 >first : a5b4
+9375 <first : move a8c7
+9376 >second: time 29828
+9376 >second: otim 29831
+book hit = (NULL)
+9376 >second: usermove 9376 >second: a8c7
+9490 <second: move a6c7
+9490 >first : time 29831
+9490 >first : otim 29817
+book hit = (NULL)
+9490 >first : usermove 9490 >first : a6c7
+9603 <first : move e1d1
+9603 >second: time 29817
+9603 >second: otim 29819
+book hit = (NULL)
+9603 >second: usermove 9603 >second: e1d1
+9687 <second: move b4a3
+9688 >first : time 29819
+9688 >first : otim 29809
+book hit = (NULL)
+9688 >first : usermove 9688 >first : b4a3
+9769 <first : move h1h3
+9770 >second: time 29809
+9770 >second: otim 29811
+book hit = (NULL)
+9770 >second: usermove 9770 >second: h1h3
+9853 <second: move f5g3
+9854 >first : time 29811
+9854 >first : otim 29800
+book hit = (NULL)
+9854 >first : usermove 9854 >first : f5g3
+9960 <first : move h3h7
+9961 >second: time 29800
+9961 >second: otim 29800
+book hit = (NULL)
+9961 >second: usermove 9961 >second: h3h7
+10070 <second: move g5d5
+10071 >first : time 29800
+10071 >first : otim 29789
+book hit = (NULL)
+10071 >first : usermove 10071 >first : g5d5
+10178 <first : move h7h3
+10178 >second: time 29789
+10178 >second: otim 29790
+book hit = (NULL)
+10178 >second: usermove 10178 >second: h7h3
+10285 <second: move a7a6
+10285 >first : time 29790
+10285 >first : otim 29779
+book hit = (NULL)
+10285 >first : usermove 10285 >first : a7a6
+10370 <first : move h3h4
+10371 >second: time 29779
+10371 >second: otim 29781
+book hit = (NULL)
+10371 >second: usermove 10371 >second: h3h4
+10456 <second: move c7a8
+10456 >first : time 29781
+10456 >first : otim 29770
+book hit = (NULL)
+10457 >first : usermove 10457 >first : c7a8
+10564 <first : move h4h7
+10565 >second: time 29770
+10565 >second: otim 29770
+book hit = (NULL)
+10565 >second: usermove 10565 >second: h4h7
+10673 <second: move a3b2
+10673 >first : time 29770
+10673 >first : otim 29759
+book hit = (NULL)
+10673 >first : usermove 10673 >first : a3b2
+10756 <first : move c2d3
+10757 >second: time 29759
+10757 >second: otim 29762
+book hit = (NULL)
+10757 >second: usermove 10757 >second: c2d3
+10842 <second: move b2c1
+10843 >first : time 29762
+10843 >first : otim 29751
+book hit = (NULL)
+10843 >first : usermove 10843 >first : b2c1
+10924 <first : move h7h1
+10924 >second: time 29751
+10924 >second: otim 29754
+book hit = (NULL)
+10924 >second: usermove 10924 >second: h7h1
+11032 <second: move d5f5
+11032 >first : time 29754
+11032 >first : otim 29740
+book hit = (NULL)
+11032 >first : usermove 11032 >first : d5f5
+11118 <first : move e2e3
+11118 >second: time 29740
+11118 >second: otim 29745
+book hit = (NULL)
+11118 >second: usermove 11118 >second: e2e3
+11202 <second: move c1d2
+11202 >first : time 29745
+11202 >first : otim 29732
+book hit = (NULL)
+11202 >first : usermove 11203 >first : c1d2
+11806 <first : move c3c4
+11807 >second: time 29732
+11807 >second: otim 29685
+book hit = (NULL)
+11807 >second: usermove 11807 >second: c3c4
+11887 <second: move d2a5
+11888 >first : time 29685
+11888 >first : otim 29723
+book hit = (NULL)
+11888 >first : usermove 11888 >first : d2a5
+11993 <first : move h1h2
+11994 >second: time 29723
+11994 >second: otim 29674
+book hit = (NULL)
+11994 >second: usermove 11994 >second: h1h2
+12078 <second: move g3h5
+12078 >first : time 29674
+12078 >first : otim 29715
+book hit = (NULL)
+12078 >first : usermove 12078 >first : g3h5
+12184 <first : move d3c2
+12185 >second: time 29715
+12185 >second: otim 29663
+book hit = (NULL)
+12185 >second: usermove 12185 >second: d3c2
+12269 <second: move a5b6
+12269 >first : time 29663
+12269 >first : otim 29706
+book hit = (NULL)
+12269 >first : usermove 12269 >first : a5b6
+12356 <first : move f1e2
+12356 >second: time 29706
+12356 >second: otim 29655
+book hit = (NULL)
+12356 >second: usermove 12356 >second: f1e2
+12441 <second: move a8c7
+12442 >first : time 29655
+12442 >first : otim 29698
+book hit = (NULL)
+12442 >first : usermove 12442 >first : a8c7
+12548 <first : move g2g4
+12549 >second: time 29698
+12549 >second: otim 29644
+book hit = (NULL)
+12549 >second: usermove 12549 >second: g2g4
+12633 <second: move f5e5
+12633 >first : time 29644
+12633 >first : otim 29690
+book hit = (NULL)
+12633 >first : usermove 12633 >first : f5e5
+12719 <first : move b1b4
+12719 >second: time 29690
+12719 >second: otim 29635
+book hit = (NULL)
+12719 >second: usermove 12719 >second: b1b4
+12829 <second: move f7f6
+12829 >first : time 29635
+12829 >first : otim 29679
+book hit = (NULL)
+12829 >first : usermove 12829 >first : f7f6
+12914 <first : move c2b3
+12914 >second: time 29679
+12914 >second: otim 29627
+book hit = (NULL)
+12915 >second: usermove 12915 >second: c2b3
+12999 <second: move b6a5
+13000 >first : time 29627
+13000 >first : otim 29670
+book hit = (NULL)
+13000 >first : usermove 13000 >first : b6a5
+13084 <first : move b3a2
+13085 >second: time 29670
+13085 >second: otim 29618
+book hit = (NULL)
+13085 >second: usermove 13085 >second: b3a2
+13171 <second: move b7b5
+13171 >first : time 29618
+13171 >first : otim 29661
+book hit = (NULL)
+13171 >first : usermove 13171 >first : b7b5
+13256 <first : move g4h5
+13256 >second: time 29661
+13256 >second: otim 29610
+book hit = (NULL)
+13256 >second: usermove 13256 >second: g4h5
+13340 <second: move c8b7
+13341 >first : time 29610
+13341 >first : otim 29653
+book hit = (NULL)
+13341 >first : usermove 13341 >first : c8b7
+13423 <first : move d1c1
+13424 >second: time 29653
+13424 >second: otim 29602
+book hit = (NULL)
+13424 >second: usermove 13424 >second: d1c1
+13508 <second: move c5b4
+13508 >first : time 29602
+13508 >first : otim 29644
+book hit = (NULL)
+13508 >first : usermove 13508 >first : c5b4
+13593 <first : move e2f1
+13593 >second: time 29644
+13593 >second: otim 29593
+book hit = (NULL)
+13593 >second: usermove 13593 >second: e2f1
+13679 <second: move a5b6
+13679 >first : time 29593
+13679 >first : otim 29636
+book hit = (NULL)
+13679 >first : usermove 13679 >first : a5b6
+13761 <first : move a2a5
+13761 >second: time 29636
+13761 >second: otim 29585
+book hit = (NULL)
+13761 >second: usermove 13761 >second: a2a5
+13870 <second: move c7a8
+13870 >first : time 29585
+13870 >first : otim 29625
+book hit = (NULL)
+13870 >first : usermove 13870 >first : c7a8
+13979 <first : move f1d3
+13979 >second: time 29625
+13979 >second: otim 29574
+book hit = (NULL)
+13979 >second: usermove 13979 >second: f1d3
+14087 <second: move b6d4
+14088 >first : time 29574
+14088 >first : otim 29614
+book hit = (NULL)
+14088 >first : usermove 14088 >first : b6d4
+14194 <first : move c4b5
+14194 >second: time 29614
+14194 >second: otim 59563
+book hit = (NULL)
+14194 >second: usermove 14194 >second: c4b5
+14279 <second: move d4e3
+14280 >first : time 59563
+14280 >first : otim 59605
+book hit = (NULL)
+14280 >first : usermove 14280 >first : d4e3
+14365 <first : move c1b2
+14365 >second: time 59605
+14365 >second: otim 59555
+book hit = (NULL)
+14365 >second: usermove 14365 >second: c1b2
+14447 <second: move e4d3
+14447 >first : time 59555
+14447 >first : otim 59597
+book hit = (NULL)
+14447 >first : usermove 14447 >first : e4d3
+14533 <first : move h2h3
+14534 >second: time 59597
+14534 >second: otim 59546
+book hit = (NULL)
+14534 >second: usermove 14534 >second: h2h3
+14619 <second: move b7f3
+14619 >first : time 59546
+14619 >first : otim 59589
+book hit = (NULL)
+14619 >first : usermove 14619 >first : b7f3
+14726 <first : move h3h2
+14726 >second: time 59589
+14727 >second: otim 59535
+book hit = (NULL)
+14727 >second: usermove 14727 >second: h3h2
+14810 <second: move e5f5
+14811 >first : time 59535
+14811 >first : otim 59580
+book hit = (NULL)
+14811 >first : usermove 14811 >first : e5f5
+14895 <first : move h5h6
+14895 >second: time 59580
+14895 >second: otim 59527
+book hit = (NULL)
+14895 >second: usermove 14895 >second: h5h6
+14980 <second: move f3d5
+14981 >first : time 59527
+14981 >first : otim 59572
+book hit = (NULL)
+14981 >first : usermove 14981 >first : f3d5
+15088 <first : move a5a3
+15088 >second: time 59572
+15088 >second: otim 59516
+book hit = (NULL)
+15088 >second: usermove 15088 >second: a5a3
+15181 <second: move b4a3
+15181 >first : time 59516
+15181 >first : otim 59562
+book hit = (NULL)
+15181 >first : usermove 15181 >first : b4a3
+15275 <first : move b2a3
+15276 >second: time 59562
+15276 >second: otim 59507
+book hit = (NULL)
+15276 >second: usermove 15276 >second: b2a3
+15363 <second: move d3d2
+15363 >first : time 59507
+15365 >first : otim 59554
+book hit = (NULL)
+15365 >first : usermove 15365 >first : d3d2
+15451 <first : move h2e2
+15451 >second: time 59554
+15451 >second: otim 59498
+book hit = (NULL)
+15451 >second: usermove 15451 >second: h2e2
+15568 <second: move d2d1
+15568 >first : time 59498
+15568 >first : otim 59542
+book hit = (NULL)
+15568 >first : usermove 15568 >first : d2d1q
+15659 <first : move a3b2
+15659 >second: time 59542
+15659 >second: otim 59489
+book hit = (NULL)
+15659 >second: usermove 15659 >second: a3b2
+15747 <second: move f5h5
+15747 >first : time 59489
+15747 >first : otim 59533
+book hit = (NULL)
+15748 >first : usermove 15748 >first : f5h5
+15844 <first : move f4f5
+15844 >second: time 59533
+15844 >second: otim 59479
+book hit = (NULL)
+15844 >second: usermove 15844 >second: f4f5
+15942 <second: move d5h1
+15942 >first : time 59479
+15942 >first : otim 59523
+book hit = (NULL)
+15942 >first : usermove 15943 >first : d5h1
+16056 <first : move b2a3
+16056 >second: time 59523
+16056 >second: otim 59468
+book hit = (NULL)
+16056 >second: usermove 16056 >second: b2a3
+16153 <second: move d1d5
+16154 >first : time 59468
+16154 >first : otim 59514
+book hit = (NULL)
+16154 >first : usermove 16154 >first : d1d5
+16273 <first : move a3b4
+16273 >second: time 59514
+16273 >second: otim 59456
+book hit = (NULL)
+16273 >second: usermove 16273 >second: a3b4
+16365 <second: move d5d4
+16365 >first : time 59456
+16365 >first : otim 59504
+book hit = (NULL)
+16365 >first : usermove 16365 >first : d5d4
+16450 <first : move b4a5
+16450 >second: time 59504
+16450 >second: otim 59447
+book hit = (NULL)
+16450 >second: usermove 16450 >second: b4a5
+16534 <second: move a8c7
+16535 >first : time 59447
+16535 >first : otim 59496
+book hit = (NULL)
+16535 >first : usermove 16535 >first : a8c7
+16644 <first : 1/2-1/2 {Stalemate}
+GameEnds(27, Stalemate, 5)
+16645 >first : result 1/2-1/2 {Stalemate}
+16645 >second: result 1/2-1/2 {Stalemate}
+16645 >first : force
+16645 >second: force
+BackwardInner(103), current 104, forward 104
+BackwardInner(102), current 103, forward 104
+ForwardInner(103), current 102, forward 104
+ForwardInner(104), current 103, forward 104
 Reset(1, 1) from gameMode 8
 recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
-42283 >first : new
+62464 >first : new
 random
-42283 >first : level 40 5 0
-42283 >first : post
-42283 >first : hard
-43809 >first : force
-43809 >second: new
+62464 >first : level 40 5 0
+62464 >first : post
+62464 >first : hard
+63362 >first : force
+63362 >second: new
 random
-43809 >second: level 40 5 0
-43809 >second: post
-43809 >second: hard
-43809 >second: force
+63362 >second: level 40 5 0
+63362 >second: post
+63362 >second: hard
+63362 >second: force
 New game (0): Zugzwang-Zugzwang (w)
-43820 >first : computer
-43820 >second: computer
-43820 >first : black
-43820 >first : time 30000
-43820 >first : otim 30000
-43820 >first : white
+63373 >first : computer
+63373 >second: computer
+63373 >first : black
+63373 >first : time 30000
+63373 >first : otim 30000
+63373 >first : white
 book hit = (NULL)
-43820 >first : go
+63373 >first : go
 nps: w=-1, b=-1
-GameEnds(28, xboard exit, 2)
-GE(28, xboard exit, 2) bare king k=16 color=22
-46400 >first : result * {xboard exit}
-46400 >second: result * {xboard exit}
-46401 >first : force
-46401 >second: force
-46401 >first : quit
-49053 >second: quit
+63373 <first : move b1a3
+63373 >second: time 30000
+63373 >second: otim 30000
+book hit = (NULL)
+63373 >second: usermove 63373 >second: b1a3
+63373 >second: black
+63373 >second: go
+63493 <second: move b8c6
+63493 >first : time 30000
+63493 >first : otim 29988
+book hit = (NULL)
+63493 >first : usermove 63493 >first : b8c6
+63616 <first : move a3c4
+63616 >second: time 29988
+63616 >second: otim 29987
+book hit = (NULL)
+63616 >second: usermove 63616 >second: a3c4
+63732 <second: move g8h6
+63732 >first : time 29987
+63732 >first : otim 29976
+book hit = (NULL)
+63732 >first : usermove 63732 >first : g8h6
+63851 <first : move c4b6
+63851 >second: time 29976
+63851 >second: otim 29975
+book hit = (NULL)
+63851 >second: usermove 63851 >second: c4b6
+63979 <second: move c6b4
+63979 >first : time 29975
+63979 >first : otim 29963
+book hit = (NULL)
+63979 >first : usermove 63979 >first : c6b4
+64099 <first : move h2h4
+64100 >second: time 29963
+64100 >second: otim 29963
+book hit = (NULL)
+64100 >second: usermove 64100 >second: h2h4
+64193 <second: move a8b8
+64194 >first : time 29963
+64194 >first : otim 29954
+book hit = (NULL)
+64194 >first : usermove 64194 >first : a8b8
+64282 <first : move e2e3
+64282 >second: time 29954
+64282 >second: otim 29954
+book hit = (NULL)
+64282 >second: usermove 64282 >second: e2e3
+64371 <second: move h6g8
+64371 >first : time 29954
+64371 >first : otim 29945
+book hit = (NULL)
+64371 >first : usermove 64371 >first : h6g8
+64495 <first : move a1b1
+64495 >second: time 29945
+64495 >second: otim 29942
+book hit = (NULL)
+64495 >second: usermove 64495 >second: a1b1
+64593 <second: move b8a8
+64594 >first : time 29942
+64594 >first : otim 29935
+book hit = (NULL)
+64594 >first : usermove 64594 >first : b8a8
+64682 <first : move b2b3
+64682 >second: time 29935
+64682 >second: otim 29933
+book hit = (NULL)
+64683 >second: usermove 64683 >second: b2b3
+64771 <second: move g8h6
+64771 >first : time 29933
+64772 >first : otim 29926
+book hit = (NULL)
+64772 >first : usermove 64772 >first : g8h6
+64899 <first : move g1e2
+64900 >second: time 29926
+64900 >second: otim 29920
+book hit = (NULL)
+64900 >second: usermove 64900 >second: g1e2
+65024 <second: move h8g8
+65024 >first : time 29920
+65024 >first : otim 29914
+book hit = (NULL)
+65024 >first : usermove 65024 >first : h8g8
+65128 <first : move d2d3
+65129 >second: time 29914
+65129 >second: otim 29910
+book hit = (NULL)
+65129 >second: usermove 65129 >second: d2d3
+65227 <second: move g8h8
+65227 >first : time 29910
+65227 >first : otim 29904
+book hit = (NULL)
+65227 >first : usermove 65227 >first : g8h8
+65314 <first : move b1b2
+65315 >second: time 29904
+65315 >second: otim 29901
+book hit = (NULL)
+65315 >second: usermove 65315 >second: b1b2
+65405 <second: move b4d5
+65405 >first : time 29901
+65405 >first : otim 29895
+book hit = (NULL)
+65405 >first : usermove 65405 >first : b4d5
+65528 <first : move g2g3
+65528 >second: time 29895
+65528 >second: otim 29889
+book hit = (NULL)
+65528 >second: usermove 65528 >second: g2g3
+65630 <second: move d5b4
+65631 >first : time 29889
+65631 >first : otim 29885
+book hit = (NULL)
+65631 >first : usermove 65631 >first : d5b4
+65748 <first : move d1d2
+65749 >second: time 29885
+65749 >second: otim 29877
+book hit = (NULL)
+65749 >second: usermove 65749 >second: d1d2
+65845 <second: move f7f6
+65845 >first : time 29877
+65845 >first : otim 29875
+book hit = (NULL)
+65845 >first : usermove 65845 >first : f7f6
+65939 <first : move f1g2
+65939 >second: time 29875
+65939 >second: otim 29868
+book hit = (NULL)
+65939 >second: usermove 65939 >second: f1g2
+66030 <second: move h6f5
+66030 >first : time 29868
+66030 >first : otim 29866
+book hit = (NULL)
+66030 >first : usermove 66030 >first : h6f5
+66148 <first : move b6d5
+66149 >second: time 29866
+66149 >second: otim 29856
+book hit = (NULL)
+66149 >second: usermove 66149 >second: b6d5
+66266 <second: move a8b8
+66267 >first : time 29856
+66267 >first : otim 29854
+book hit = (NULL)
+66267 >first : usermove 66267 >first : a8b8
+66360 <first : move d2b4
+66361 >second: time 29854
+66361 >second: otim 29846
+book hit = (NULL)
+66361 >second: usermove 66361 >second: d2b4
+66478 <second: move b8a8
+66479 >first : time 29846
+66479 >first : otim 29842
+book hit = (NULL)
+66479 >first : usermove 66479 >first : b8a8
+66577 <first : move g2f1
+66577 >second: time 29842
+66577 >second: otim 29837
+book hit = (NULL)
+66577 >second: usermove 66577 >second: g2f1
+66666 <second: move f5d6
+66666 >first : time 29837
+66666 >first : otim 29833
+book hit = (NULL)
+66666 >first : usermove 66666 >first : f5d6
+66787 <first : move h1h2
+66787 >second: time 29833
+66787 >second: otim 29825
+book hit = (NULL)
+66787 >second: usermove 66787 >second: h1h2
+66882 <second: move h8g8
+66883 >first : time 29825
+66883 >first : otim 29824
+book hit = (NULL)
+66883 >first : usermove 66883 >first : h8g8
+66978 <first : move g3g4
+66979 >second: time 29824
+66979 >second: otim 29815
+book hit = (NULL)
+66979 >second: usermove 66979 >second: g3g4
+67076 <second: move d6c4
+67077 >first : time 29815
+67077 >first : otim 29814
+book hit = (NULL)
+67077 >first : usermove 67077 >first : d6c4
+67188 <first : move d5f6
+67189 >second: time 29814
+67189 >second: otim 29804
+book hit = (NULL)
+67189 >second: usermove 67189 >second: d5f6
+67310 <second: move e7f6
+67310 >first : time 29804
+67310 >first : otim 29802
+book hit = (NULL)
+67310 >first : usermove 67310 >first : e7f6
+67403 <first : move c2c3
+67404 >second: time 29802
+67404 >second: otim 29794
+book hit = (NULL)
+67404 >second: usermove 67404 >second: c2c3
+67492 <second: move f8d6
+67493 >first : time 29794
+67493 >first : otim 29793
+book hit = (NULL)
+67493 >first : usermove 67493 >first : f8d6
+67604 <first : move g4g5
+67605 >second: time 29793
+67605 >second: otim 29783
+book hit = (NULL)
+67605 >second: usermove 67605 >second: g4g5
+67702 <second: move d6g3
+67703 >first : time 29783
+67703 >first : otim 29783
+book hit = (NULL)
+67703 >first : usermove 67703 >first : d6g3
+67816 <first : move c1d2
+67816 >second: time 29783
+67816 >second: otim 29772
+book hit = (NULL)
+67816 >second: usermove 67816 >second: c1d2
+67911 <second: move c4d6
+67911 >first : time 29772
+67911 >first : otim 29774
+book hit = (NULL)
+67911 >first : usermove 67911 >first : c4d6
+68024 <first : move b4a4
+68024 >second: time 29774
+68024 >second: otim 29760
+book hit = (NULL)
+68024 >second: usermove 68025 >second: b4a4
+68129 <second: move a8b8
+68129 >first : time 29760
+68129 >first : otim 29763
+book hit = (NULL)
+68129 >first : usermove 68129 >first : a8b8
+68221 <first : move a4b5
+68222 >second: time 29763
+68222 >second: otim 29751
+book hit = (NULL)
+68222 >second: usermove 68222 >second: a4b5
+68314 <second: move d6f7
+68314 >first : time 29751
+68315 >first : otim 29754
+book hit = (NULL)
+68315 >first : usermove 68315 >first : d6f7
+68436 <first : move e2g1
+68437 >second: time 29754
+68437 >second: otim 29739
+book hit = (NULL)
+68437 >second: usermove 68437 >second: e2g1
+68549 <second: move g8h8
+68549 >first : time 29739
+68549 >first : otim 29742
+book hit = (NULL)
+68549 >first : usermove 68549 >first : g8h8
+68643 <first : move f1e2
+68644 >second: time 29742
+68644 >second: otim 29730
+book hit = (NULL)
+68644 >second: usermove 68644 >second: f1e2
+68732 <second: move g3f4
+68732 >first : time 29730
+68732 >first : otim 29734
+book hit = (NULL)
+68732 >first : usermove 68732 >first : g3f4
+68821 <first : move d3d4
+68822 >second: time 29734
+68822 >second: otim 29721
+book hit = (NULL)
+68822 >second: usermove 68822 >second: d3d4
+68920 <second: move h8f8
+68920 >first : time 29721
+68920 >first : otim 29724
+book hit = (NULL)
+68921 >first : usermove 68921 >first : h8f8
+69010 <first : move b5a4
+69011 >second: time 29724
+69011 >second: otim 29712
+book hit = (NULL)
+69011 >second: usermove 69011 >second: b5a4
+69098 <second: move f7e5
+69099 >first : time 29712
+69099 >first : otim 29715
+book hit = (NULL)
+69099 >first : usermove 69099 >first : f7e5
+69215 <first : move g1h3
+69215 >second: time 29715
+69216 >second: otim 29700
+book hit = (NULL)
+69216 >second: usermove 69216 >second: g1h3
+69335 <second: move e5g6
+69335 >first : time 29700
+69335 >first : otim 29703
+book hit = (NULL)
+69335 >first : usermove 69335 >first : e5g6
+69455 <first : move h3f4
+69455 >second: time 29703
+69455 >second: otim 29688
+book hit = (NULL)
+69455 >second: usermove 69455 >second: h3f4
+69583 <second: move f8f7
+69584 >first : time 29688
+69584 >first : otim 29690
+book hit = (NULL)
+69584 >first : usermove 69584 >first : f8f7
+69682 <first : move e3e4
+69683 >second: time 29690
+69683 >second: otim 29678
+book hit = (NULL)
+69683 >second: usermove 69683 >second: e3e4
+69771 <second: move g6f4
+69772 >first : time 29678
+69772 >first : otim 29681
+book hit = (NULL)
+69772 >first : usermove 69772 >first : g6f4
+69893 <first : move e1d1
+69894 >second: time 29681
+69894 >second: otim 29666
+book hit = (NULL)
+69894 >second: usermove 69894 >second: e1d1
+69984 <second: move g7g6
+69984 >first : time 29666
+69984 >first : otim 29672
+book hit = (NULL)
+69984 >first : usermove 69984 >first : g7g6
+70081 <first : move d1e1
+70081 >second: time 29672
+70081 >second: otim 29656
+book hit = (NULL)
+70081 >second: usermove 70081 >second: d1e1
+70171 <second: move d8e7
+70172 >first : time 29656
+70172 >first : otim 29663
+book hit = (NULL)
+70172 >first : usermove 70172 >first : d8e7
+70271 <first : move a4d7
+70271 >second: time 29663
+70271 >second: otim 29646
+book hit = (NULL)
+70271 >second: usermove 70271 >second: a4d7
+70389 <second: move e7d7
+70390 >first : time 29646
+70390 >first : otim 29651
+book hit = (NULL)
+70390 >first : usermove 70390 >first : e7d7
+70487 <first : move e2d3
+70487 >second: time 29651
+70487 >second: otim 29636
+book hit = (NULL)
+70487 >second: usermove 70487 >second: e2d3
+70577 <second: move f4d3
+70577 >first : time 29636
+70577 >first : otim 29642
+book hit = (NULL)
+70577 >first : usermove 70577 >first : f4d3
+70689 <first : move e1d1
+70689 >second: time 29642
+70689 >second: otim 29625
+book hit = (NULL)
+70689 >second: usermove 70689 >second: e1d1
+70787 <second: move f7f8
+70787 >first : time 29625
+70787 >first : otim 29633
+book hit = (NULL)
+70787 >first : usermove 70787 >first : f7f8
+70876 <first : move d2f4
+70876 >second: time 29633
+70876 >second: otim 29616
+book hit = (NULL)
+70876 >second: usermove 70876 >second: d2f4
+70989 <second: move d3f2
+70990 >first : time 29616
+70990 >first : otim 29621
+book hit = (NULL)
+70990 >first : usermove 70990 >first : d3f2
+71110 <first : move b2f2
+71110 >second: time 29621
+71110 >second: otim 29604
+book hit = (NULL)
+71110 >second: usermove 71110 >second: b2f2
+71235 <second: move d7d6
+71235 >first : time 29604
+71235 >first : otim 29609
+book hit = (NULL)
+71235 >first : usermove 71235 >first : d7d6
+71331 <first : move f4c1
+71332 >second: time 29609
+71332 >second: otim 29595
+book hit = (NULL)
+71332 >second: usermove 71332 >second: f4c1
+71449 <second: move d6d8
+71450 >first : time 29595
+71450 >first : otim 29597
+book hit = (NULL)
+71450 >first : usermove 71450 >first : d6d8
+71543 <first : move a2a3
+71544 >second: time 29597
+71544 >second: otim 59585
+book hit = (NULL)
+71544 >second: usermove 71544 >second: a2a3
+71631 <second: move d8e7
+71631 >first : time 59585
+71631 >first : otim 59588
+book hit = (NULL)
+71631 >first : usermove 71631 >first : d8e7
+71721 <first : move e4e5
+71722 >second: time 59588
+71722 >second: otim 59576
+book hit = (NULL)
+71722 >second: usermove 71722 >second: e4e5
+71820 <second: move e8f7
+71820 >first : time 59576
+71820 >first : otim 59578
+book hit = (NULL)
+71820 >first : usermove 71820 >first : e8f7
+71904 <first : move f2e2
+71905 >second: time 59578
+71905 >second: otim 59568
+book hit = (NULL)
+71905 >second: usermove 71905 >second: f2e2
+71999 <second: move e7e6
+71999 >first : time 59568
+71999 >first : otim 59569
+book hit = (NULL)
+71999 >first : usermove 71999 >first : e7e6
+72093 <first : move e2c2
+72094 >second: time 59569
+72094 >second: otim 59558
+book hit = (NULL)
+72094 >second: usermove 72094 >second: e2c2
+72183 <second: move f7e7
+72184 >first : time 59558
+72184 >first : otim 59560
+book hit = (NULL)
+72184 >first : usermove 72184 >first : f7e7
+72282 <first : move a3a4
+72282 >second: time 59560
+72283 >second: otim 59548
+book hit = (NULL)
+72283 >second: usermove 72283 >second: a3a4
+72377 <second: move e6f7
+72378 >first : time 59548
+72378 >first : otim 59550
+book hit = (NULL)
+72378 >first : usermove 72378 >first : e6f7
+72477 <first : move g5f6
+72477 >second: time 59550
+72477 >second: otim 59538
+book hit = (NULL)
+72477 >second: usermove 72477 >second: g5f6
+72566 <second: move f7f6
+72567 >first : time 59538
+72567 >first : otim 59541
+book hit = (NULL)
+72567 >first : usermove 72567 >first : f7f6
+72655 <first : move e5f6
+72655 >second: time 59541
+72655 >second: otim 59529
+book hit = (NULL)
+72655 >second: usermove 72655 >second: e5f6
+72755 <second: move e7f6
+72755 >first : time 59529
+72755 >first : otim 59531
+book hit = (NULL)
+72755 >first : usermove 72755 >first : e7f6
+72848 <first : move d1d2
+72848 >second: time 59531
+72848 >second: otim 59520
+book hit = (NULL)
+72848 >second: usermove 72848 >second: d1d2
+72938 <second: move b8a8
+72938 >first : time 59520
+72938 >first : otim 59522
+book hit = (NULL)
+72938 >first : usermove 72938 >first : b8a8
+73037 <first : move c1b2
+73038 >second: time 59522
+73038 >second: otim 59510
+book hit = (NULL)
+73038 >second: usermove 73038 >second: c1b2
+73127 <second: move c8f5
+73128 >first : time 59510
+73128 >first : otim 59514
+book hit = (NULL)
+73128 >first : usermove 73128 >first : c8f5
+73241 <first : move b2a1
+73241 >second: time 59514
+73241 >second: otim 59499
+book hit = (NULL)
+73241 >second: usermove 73241 >second: b2a1
+73346 <second: move f5c2
+73346 >first : time 59499
+73346 >first : otim 59503
+book hit = (NULL)
+73346 >first : usermove 73346 >first : f5c2
+73466 <first : move h2f2
+73466 >second: time 59503
+73466 >second: otim 59487
+book hit = (NULL)
+73466 >second: usermove 73466 >second: h2f2
+73560 <second: move f6e7
+73561 >first : time 59487
+73561 >first : otim 59494
+book hit = (NULL)
+73561 >first : usermove 73561 >first : f6e7
+73647 <first : move f2e2
+73648 >second: time 59494
+73648 >second: otim 59478
+book hit = (NULL)
+73648 >second: usermove 73648 >second: f2e2
+73734 <second: move e7d8
+73734 >first : time 59478
+73734 >first : otim 59485
+book hit = (NULL)
+73734 >first : usermove 73734 >first : e7d8
+73821 <first : move d2e1
+73821 >second: time 59485
+73821 >second: otim 59469
+book hit = (NULL)
+73821 >second: usermove 73821 >second: d2e1
+73914 <second: move d8d7
+73914 >first : time 59469
+73914 >first : otim 59476
+book hit = (NULL)
+73915 >first : usermove 73915 >first : d8d7
+74005 <first : move a1b2
+74005 >second: time 59476
+74005 >second: otim 59460
+book hit = (NULL)
+74005 >second: usermove 74005 >second: a1b2
+74103 <second: move h7h6
+74103 >first : time 59460
+74103 >first : otim 59466
+book hit = (NULL)
+74103 >first : usermove 74103 >first : h7h6
+74193 <first : move b2c1
+74194 >second: time 59466
+74194 >second: otim 59451
+book hit = (NULL)
+74194 >second: usermove 74194 >second: b2c1
+74280 <second: move d7c8
+74280 >first : time 59451
+74280 >first : otim 59457
+book hit = (NULL)
+74280 >first : usermove 74280 >first : d7c8
+74366 <first : move e2e8
+74366 >second: time 59457
+74366 >second: otim 59443
+book hit = (NULL)
+74367 >second: usermove 74367 >second: e2e8
+74487 <second: move f8e8
+74487 >first : time 59443
+74487 >first : otim 59445
+book hit = (NULL)
+74487 >first : usermove 74487 >first : f8e8
+74577 <first : move e1d2
+74577 >second: time 59445
+74577 >second: otim 59434
+book hit = (NULL)
+74577 >second: usermove 74577 >second: e1d2
+74666 <second: move h6h5
+74666 >first : time 59434
+74666 >first : otim 59436
+book hit = (NULL)
+74666 >first : usermove 74666 >first : h6h5
+74755 <first : move c1b2
+74755 >second: time 59436
+74755 >second: otim 59425
+book hit = (NULL)
+74755 >second: usermove 74755 >second: c1b2
+74843 <second: move c2d3
+74844 >first : time 59425
+74844 >first : otim 59427
+book hit = (NULL)
+74844 >first : usermove 74844 >first : c2d3
+74931 <first : move b2a1
+74931 >second: time 59427
+74931 >second: otim 59416
+book hit = (NULL)
+74931 >second: usermove 74931 >second: b2a1
+75021 <second: move d3b1
+75022 >first : time 59416
+75022 >first : otim 59418
+book hit = (NULL)
+75022 >first : usermove 75022 >first : d3b1
+75143 <first : move a1b2
+75143 >second: time 59418
+75144 >second: otim 59404
+book hit = (NULL)
+75144 >second: usermove 75144 >second: a1b2
+75235 <second: move c8d8
+75235 >first : time 59404
+75235 >first : otim 59409
+book hit = (NULL)
+75235 >first : usermove 75235 >first : c8d8
+75331 <first : move b2c1
+75331 >second: time 59409
+75331 >second: otim 59394
+book hit = (NULL)
+75331 >second: usermove 75331 >second: b2c1
+75421 <second: move b1d3
+75421 >first : time 59394
+75421 >first : otim 59400
+book hit = (NULL)
+75421 >first : usermove 75421 >first : b1d3
+75545 <first : move c1a3
+75546 >second: time 59400
+75546 >second: otim 59382
+book hit = (NULL)
+75546 >second: usermove 75546 >second: c1a3
+75667 <second: move b7b6
+75667 >first : time 59382
+75667 >first : otim 59388
+book hit = (NULL)
+75667 >first : usermove 75667 >first : b7b6
+75766 <first : move a3c5
+75767 >second: time 59388
+75767 >second: otim 59372
+book hit = (NULL)
+75767 >second: usermove 75767 >second: a3c5
+75877 <second: move a7a6
+75877 >first : time 59372
+75878 >first : otim 59377
+book hit = (NULL)
+75878 >first : usermove 75878 >first : a7a6
+75971 <first : move c5b6
+75971 >second: time 59377
+75971 >second: otim 59362
+book hit = (NULL)
+75971 >second: usermove 75971 >second: c5b6
+76062 <second: move d3c4
+76062 >first : time 59362
+76062 >first : otim 59368
+book hit = (NULL)
+76062 >first : usermove 76062 >first : d3c4
+76160 <first : move b6c7
+76160 >second: time 59368
+76160 >second: otim 59353
+book hit = (NULL)
+76160 >second: usermove 76160 >second: b6c7
+76250 <second: move d8c7
+76251 >first : time 59353
+76251 >first : otim 59359
+book hit = (NULL)
+76251 >first : usermove 76251 >first : d8c7
+76337 <first : move d2d1
+76337 >second: time 59359
+76337 >second: otim 59344
+book hit = (NULL)
+76337 >second: usermove 76337 >second: d2d1
+76436 <second: move a8d8
+76436 >first : time 59344
+76436 >first : otim 59349
+book hit = (NULL)
+76436 >first : usermove 76436 >first : a8d8
+76551 <first : move d4d5
+76551 >second: time 59349
+76551 >second: otim 59333
+book hit = (NULL)
+76551 >second: usermove 76551 >second: d4d5
+76648 <second: move c7d6
+76648 >first : time 59333
+76648 >first : otim 59339
+book hit = (NULL)
+76648 >first : usermove 76648 >first : c7d6
+76738 <first : move b3c4
+76739 >second: time 59339
+76739 >second: otim 59324
+book hit = (NULL)
+76739 >second: usermove 76739 >second: b3c4
+76843 <second: move g6g5
+76843 >first : time 59324
+76844 >first : otim 59329
+book hit = (NULL)
+76844 >first : usermove 76844 >first : g6g5
+76930 <first : move d1d2
+76930 >second: time 59329
+76930 >second: otim 59315
+book hit = (NULL)
+76930 >second: usermove 76930 >second: d1d2
+77022 <second: move d6d7
+77022 >first : time 59315
+77022 >first : otim 59319
+book hit = (NULL)
+77022 >first : usermove 77022 >first : d6d7
+77120 <first : move h4g5
+77120 >second: time 59319
+77120 >second: otim 59305
+book hit = (NULL)
+77120 >second: usermove 77120 >second: h4g5
+77210 <second: move d7e7
+77210 >first : time 59305
+77210 >first : otim 59310
+book hit = (NULL)
+77210 >first : usermove 77210 >first : d7e7
+77298 <first : move g5g6
+77298 >second: time 59310
+77298 >second: otim 59296
+book hit = (NULL)
+77298 >second: usermove 77298 >second: g5g6
+77388 <second: move e7d6
+77388 >first : time 59296
+77388 >first : otim 59301
+book hit = (NULL)
+77388 >first : usermove 77388 >first : e7d6
+77487 <first : move d2d1
+77487 >second: time 59301
+77487 >second: otim 59286
+book hit = (NULL)
+77487 >second: usermove 77487 >second: d2d1
+77577 <second: move d6d7
+77577 >first : time 59286
+77577 >first : otim 59292
+book hit = (NULL)
+77577 >first : usermove 77577 >first : d6d7
+77666 <first : move d1d2
+77666 >second: time 59292
+77666 >second: otim 59277
+book hit = (NULL)
+77666 >second: usermove 77666 >second: d1d2
+77755 <second: move d7c8
+77755 >first : time 59277
+77755 >first : otim 59283
+book hit = (NULL)
+77755 >first : usermove 77755 >first : d7c8
+77847 <first : move d2d1
+77847 >second: time 59283
+77847 >second: otim 59268
+book hit = (NULL)
+77847 >second: usermove 77848 >second: d2d1
+77938 <second: move c8d7
+77939 >first : time 59268
+77939 >first : otim 59274
+book hit = (NULL)
+77939 >first : usermove 77939 >first : c8d7
+78036 <first : move d1d2
+78036 >second: time 59274
+78036 >second: otim 59259
+book hit = (NULL)
+78036 >second: usermove 78036 >second: d1d2
+78126 <second: move h5h4
+78126 >first : time 59259
+78126 >first : otim 59265
+book hit = (NULL)
+78126 >first : usermove 78126 >first : h5h4
+78214 <first : move d2d1
+78214 >second: time 59265
+78215 >second: otim 59250
+book hit = (NULL)
+78215 >second: usermove 78215 >second: d2d1
+78305 <second: move d8c8
+78305 >first : time 59250
+78305 >first : otim 59256
+book hit = (NULL)
+78305 >first : usermove 78305 >first : d8c8
+78410 <first : move d1c1
+78410 >second: time 59256
+78410 >second: otim 59239
+book hit = (NULL)
+78410 >second: usermove 78410 >second: d1c1
+78497 <second: move d7d8
+78497 >first : time 59239
+78497 >first : otim 59247
+book hit = (NULL)
+78497 >first : usermove 78497 >first : d7d8
+78589 <first : move c1b1
+78589 >second: time 59247
+78589 >second: otim 59230
+book hit = (NULL)
+78589 >second: usermove 78589 >second: c1b1
+78686 <second: move e8e7
+78687 >first : time 59230
+78687 >first : otim 59238
+book hit = (NULL)
+78687 >first : usermove 78687 >first : e8e7
+78777 <first : move b1a1
+78777 >second: time 59238
+78777 >second: otim 59221
+book hit = (NULL)
+78777 >second: usermove 78777 >second: b1a1
+78865 <second: move d8c7
+78866 >first : time 59221
+78866 >first : otim 59229
+book hit = (NULL)
+78866 >first : usermove 78866 >first : d8c7
+78962 <first : move a1b2
+78962 >second: time 59229
+78962 >second: otim 59211
+book hit = (NULL)
+78962 >second: usermove 78962 >second: a1b2
+79060 <second: move a6a5
+79061 >first : time 59211
+79061 >first : otim 59219
+book hit = (NULL)
+79061 >first : usermove 79061 >first : a6a5
+79150 <first : move b2a2
+79151 >second: time 59219
+79151 >second: otim 89202
+book hit = (NULL)
+79151 >second: usermove 79151 >second: b2a2
+79239 <second: move c7d7
+79239 >first : time 89202
+79239 >first : otim 89210
+book hit = (NULL)
+79239 >first : usermove 79239 >first : c7d7
+79331 <first : move a2b2
+79331 >second: time 89210
+79331 >second: otim 89193
+book hit = (NULL)
+79331 >second: usermove 79331 >second: a2b2
+79422 <second: move d7c7
+79422 >first : time 89193
+79422 >first : otim 89201
+book hit = (NULL)
+79422 >first : usermove 79423 >first : d7c7
+79521 <first : move g6g7
+79521 >second: time 89201
+79521 >second: otim 89183
+book hit = (NULL)
+79522 >second: usermove 79522 >second: g6g7
+79610 <second: move h4h3
+79610 >first : time 89183
+79610 >first : otim 89192
+book hit = (NULL)
+79610 >first : usermove 79610 >first : h4h3
+79698 <first : move b2a2
+79699 >second: time 89192
+79699 >second: otim 89175
+book hit = (NULL)
+79699 >second: usermove 79699 >second: b2a2
+79788 <second: move h3h2
+79788 >first : time 89175
+79788 >first : otim 89183
+book hit = (NULL)
+79788 >first : usermove 79788 >first : h3h2
+79882 <first : move a2a3
+79882 >second: time 89183
+79882 >second: otim 89165
+book hit = (NULL)
+79882 >second: usermove 79882 >second: a2a3
+79971 <second: move e7e5
+79972 >first : time 89165
+79972 >first : otim 89174
+book hit = (NULL)
+79972 >first : usermove 79972 >first : e7e5
+80071 <first : move a3a2
+80072 >second: time 89174
+80072 >second: otim 89155
+book hit = (NULL)
+80072 >second: usermove 80072 >second: a3a2
+80166 <second: move h2h1
+80166 >first : time 89155
+80167 >first : otim 89165
+book hit = (NULL)
+80167 >first : usermove 80167 >first : h2h1q
+80255 <first : move a2a3
+80255 >second: time 89165
+80255 >second: otim 89146
+book hit = (NULL)
+80255 >second: usermove 80255 >second: a2a3
+80348 <second: move h1h6
+80348 >first : time 89146
+80348 >first : otim 89155
+book hit = (NULL)
+80348 >first : usermove 80348 >first : h1h6
+80465 <first : move a3a2
+80466 >second: time 89155
+80466 >second: otim 89134
+book hit = (NULL)
+80466 >second: usermove 80466 >second: a3a2
+80560 <second: move e5e1
+80560 >first : time 89134
+80560 >first : otim 89146
+book hit = (NULL)
+80560 >first : usermove 80560 >first : e5e1
+80679 <first : move c4c5
+80679 >second: time 89146
+80679 >second: otim 89123
+book hit = (NULL)
+80679 >second: usermove 80679 >second: c4c5
+80771 <second: move c7b8
+80771 >first : time 89123
+80771 >first : otim 89137
+book hit = (NULL)
+80771 >first : usermove 80771 >first : c7b8
+80860 <first : move a2b2
+80860 >second: time 89137
+80860 >second: otim 89114
+book hit = (NULL)
+80860 >second: usermove 80860 >second: a2b2
+80950 <second: move c8f8
+80950 >first : time 89114
+80950 >first : otim 89128
+book hit = (NULL)
+80950 >first : usermove 80950 >first : c8f8
+81061 <first : move b2a2
+81062 >second: time 89128
+81062 >second: otim 89102
+book hit = (NULL)
+81062 >second: usermove 81062 >second: b2a2
+81166 <second: move b8b7
+81166 >first : time 89102
+81166 >first : otim 89117
+book hit = (NULL)
+81166 >first : usermove 81166 >first : b8b7
+81255 <first : move a2b2
+81256 >second: time 89117
+81256 >second: otim 89094
+book hit = (NULL)
+81256 >second: usermove 81256 >second: a2b2
+81354 <second: move h6h1
+81355 >first : time 89094
+81355 >first : otim 89107
+book hit = (NULL)
+81355 >first : usermove 81355 >first : h6h1
+81467 <first : move b2a3
+81467 >second: time 89107
+81467 >second: otim 89082
+book hit = (NULL)
+81467 >second: usermove 81467 >second: b2a3
+81566 <second: move b7a6
+81566 >first : time 89082
+81566 >first : otim 89097
+book hit = (NULL)
+81566 >first : usermove 81566 >first : b7a6
+81660 <first : move a3b2
+81660 >second: time 89097
+81660 >second: otim 89073
+book hit = (NULL)
+81660 >second: usermove 81660 >second: a3b2
+81750 <second: move f8d8
+81750 >first : time 89073
+81750 >first : otim 89088
+book hit = (NULL)
+81750 >first : usermove 81750 >first : f8d8
+81838 <first : move c5c6
+81839 >second: time 89088
+81839 >second: otim 89064
+book hit = (NULL)
+81839 >second: usermove 81839 >second: c5c6
+81943 <second: move h1e4
+81943 >first : time 89064
+81943 >first : otim 89078
+book hit = (NULL)
+81943 >first : usermove 81943 >first : h1e4
+82057 <first : move b2b3
+82058 >second: time 89078
+82058 >second: otim 89053
+book hit = (NULL)
+82058 >second: usermove 82058 >second: b2b3
+82155 <second: move d8b8
+82155 >first : time 89053
+82155 >first : otim 89068
+book hit = (NULL)
+82155 >first : usermove 82155 >first : d8b8
+82260 <first : move b3a2
+82260 >second: time 89068
+82261 >second: otim 89042
+book hit = (NULL)
+82261 >second: usermove 82261 >second: b3a2
+82345 <second: move e4a4
+82345 >first : time 89042
+82345 >first : otim 89060
+book hit = (NULL)
+82345 >first : usermove 82345 >first : e4a4
+82449 <first : 0-1 {BLACK mates}
+GameEnds(26, BLACK mates, 5)
+82449 >first : result 0-1 {BLACK mates}
+82449 >second: result 0-1 {BLACK mates}
+82450 >first : force
+82450 >second: force
+Reset(1, 1) from gameMode 8
+recognized 'normal' (-1) as variant normal
+GameEnds(0, (null), 2)
+shuffleOpenings = 0
+123655 >first : new
+random
+123655 >first : level 40 5 0
+123655 >first : post
+123655 >first : hard
+124553 >first : force
+124553 >second: new
+random
+124553 >second: level 40 5 0
+124553 >second: post
+124553 >second: hard
+124553 >second: force
+New game (0): Zugzwang-Zugzwang (w)
+124564 >first : computer
+124564 >second: computer
+124564 >first : black
+124564 >first : time 30000
+124564 >first : otim 30000
+124564 >first : white
+book hit = (NULL)
+124564 >first : go
+nps: w=-1, b=-1
+124564 <first : move g1f3
+124564 >second: time 30000
+124564 >second: otim 30000
+book hit = (NULL)
+124564 >second: usermove 124564 >second: g1f3
+124564 >second: black
+124564 >second: go
+124678 <second: move b8c6
+124678 >first : time 30000
+124678 >first : otim 29988
+book hit = (NULL)
+124678 >first : usermove 124678 >first : b8c6
+124800 <first : move f3g1
+124800 >second: time 29988
+124800 >second: otim 29987
+book hit = (NULL)
+124800 >second: usermove 124800 >second: f3g1
+124925 <second: move g8f6
+124925 >first : time 29987
+124926 >first : otim 29976
+book hit = (NULL)
+124926 >first : usermove 124926 >first : g8f6
+125039 <first : move b1a3
+125039 >second: time 29976
+125039 >second: otim 29976
+book hit = (NULL)
+125039 >second: usermove 125039 >second: b1a3
+125144 <second: move h8g8
+125144 >first : time 29976
+125144 >first : otim 29965
+book hit = (NULL)
+125144 >first : usermove 125144 >first : h8g8
+125228 <first : move g1h3
+125228 >second: time 29965
+125228 >second: otim 29968
+book hit = (NULL)
+125228 >second: usermove 125228 >second: g1h3
+125336 <second: move g8h8
+125336 >first : time 29968
+125337 >first : otim 29954
+book hit = (NULL)
+125337 >first : usermove 125337 >first : g8h8
+125421 <first : move b2b4
+125421 >second: time 29954
+125421 >second: otim 29959
+book hit = (NULL)
+125421 >second: usermove 125421 >second: b2b4
+125504 <second: move h8g8
+125504 >first : time 29959
+125504 >first : otim 29946
+book hit = (NULL)
+125504 >first : usermove 125504 >first : h8g8
+125589 <first : move h1g1
+125589 >second: time 29946
+125589 >second: otim 29951
+book hit = (NULL)
+125589 >second: usermove 125589 >second: h1g1
+125674 <second: move f6h5
+125674 >first : time 29951
+125674 >first : otim 29938
+book hit = (NULL)
+125674 >first : usermove 125674 >first : f6h5
+125782 <first : move f2f3
+125782 >second: time 29938
+125782 >second: otim 29940
+book hit = (NULL)
+125782 >second: usermove 125782 >second: f2f3
+125866 <second: move a8b8
+125867 >first : time 29940
+125867 >first : otim 29929
+book hit = (NULL)
+125867 >first : usermove 125867 >first : a8b8
+125951 <first : move c1b2
+125951 >second: time 29929
+125951 >second: otim 29931
+book hit = (NULL)
+125951 >second: usermove 125951 >second: c1b2
+126036 <second: move d7d5
+126037 >first : time 29931
+126037 >first : otim 29921
+book hit = (NULL)
+126037 >first : usermove 126037 >first : d7d5
+126118 <first : move h3f2
+126118 >second: time 29921
+126118 >second: otim 29923
+book hit = (NULL)
+126118 >second: usermove 126118 >second: h3f2
+126225 <second: move b8a8
+126225 >first : time 29923
+126226 >first : otim 29910
+book hit = (NULL)
+126226 >first : usermove 126226 >first : b8a8
+126311 <first : move a3b5
+126311 >second: time 29910
+126312 >second: otim 29915
+book hit = (NULL)
+126312 >second: usermove 126312 >second: a3b5
+126415 <second: move a8b8
+126415 >first : time 29915
+126415 >first : otim 29899
+book hit = (NULL)
+126415 >first : usermove 126415 >first : a8b8
+126496 <first : move d2d3
+126496 >second: time 29899
+126496 >second: otim 29906
+book hit = (NULL)
+126497 >second: usermove 126497 >second: d2d3
+126582 <second: move c8e6
+126582 >first : time 29906
+126582 >first : otim 29891
+book hit = (NULL)
+126582 >first : usermove 126582 >first : c8e6
+126688 <first : move f2e4
+126689 >second: time 29891
+126689 >second: otim 29896
+book hit = (NULL)
+126689 >second: usermove 126689 >second: f2e4
+126797 <second: move e6g4
+126797 >first : time 29896
+126797 >first : otim 29880
+book hit = (NULL)
+126797 >first : usermove 126797 >first : e6g4
+126903 <first : move a1c1
+126904 >second: time 29880
+126904 >second: otim 29885
+book hit = (NULL)
+126904 >second: usermove 126904 >second: a1c1
+126989 <second: move d8c8
+126989 >first : time 29885
+126989 >first : otim 29871
+book hit = (NULL)
+126989 >first : usermove 126989 >first : d8c8
+127073 <first : move d1d2
+127074 >second: time 29871
+127074 >second: otim 29877
+book hit = (NULL)
+127074 >second: usermove 127074 >second: d1d2
+127159 <second: move e7e6
+127160 >first : time 29877
+127160 >first : otim 29863
+book hit = (NULL)
+127160 >first : usermove 127160 >first : e7e6
+127243 <first : move b2a3
+127244 >second: time 29863
+127244 >second: otim 29868
+book hit = (NULL)
+127244 >second: usermove 127244 >second: b2a3
+127329 <second: move c8d7
+127330 >first : time 29868
+127330 >first : otim 29854
+book hit = (NULL)
+127330 >first : usermove 127330 >first : c8d7
+127415 <first : move b5c7
+127415 >second: time 29854
+127415 >second: otim 29860
+book hit = (NULL)
+127415 >second: usermove 127415 >second: b5c7
+127523 <second: move d7c7
+127523 >first : time 29860
+127523 >first : otim 29844
+book hit = (NULL)
+127523 >first : usermove 127523 >first : d7c7
+127608 <first : move d3d4
+127608 >second: time 29844
+127608 >second: otim 29851
+book hit = (NULL)
+127608 >second: usermove 127608 >second: d3d4
+127697 <second: move b7b6
+127697 >first : time 29851
+127697 >first : otim 29835
+book hit = (NULL)
+127697 >first : usermove 127697 >first : b7b6
+127783 <first : move a3b2
+127784 >second: time 29835
+127784 >second: otim 29843
+book hit = (NULL)
+127784 >second: usermove 127784 >second: a3b2
+127870 <second: move c6d4
+127871 >first : time 29843
+127871 >first : otim 29826
+book hit = (NULL)
+127871 >first : usermove 127871 >first : c6d4
+127979 <first : move d2f4
+127980 >second: time 29826
+127980 >second: otim 29832
+book hit = (NULL)
+127980 >second: usermove 127980 >second: d2f4
+128086 <second: move b8c8
+128087 >first : time 29832
+128087 >first : otim 29815
+book hit = (NULL)
+128087 >first : usermove 128087 >first : b8c8
+128170 <first : move f4e5
+128170 >second: time 29815
+128170 >second: otim 29823
+book hit = (NULL)
+128170 >second: usermove 128170 >second: f4e5
+128255 <second: move h5f4
+128255 >first : time 29823
+128255 >first : otim 29807
+book hit = (NULL)
+128256 >first : usermove 128256 >first : h5f4
+128361 <first : move c1d1
+128362 >second: time 29807
+128362 >second: otim 29813
+book hit = (NULL)
+128362 >second: usermove 128362 >second: c1d1
+128446 <second: move g8h8
+128447 >first : time 29813
+128447 >first : otim 29798
+book hit = (NULL)
+128447 >first : usermove 128447 >first : g8h8
+128529 <first : move b2a3
+128530 >second: time 29798
+128530 >second: otim 29804
+book hit = (NULL)
+128530 >second: usermove 128530 >second: b2a3
+128614 <second: move f4h3
+128615 >first : time 29804
+128615 >first : otim 29790
+book hit = (NULL)
+128615 >first : usermove 128615 >first : f4h3
+128721 <first : move d1d4
+128721 >second: time 29790
+128721 >second: otim 29794
+book hit = (NULL)
+128721 >second: usermove 128721 >second: d1d4
+128828 <second: move h3f4
+128829 >first : time 29794
+128829 >first : otim 29779
+book hit = (NULL)
+128829 >first : usermove 128829 >first : h3f4
+128936 <first : move e5d5
+128937 >second: time 29779
+128937 >second: otim 29783
+book hit = (NULL)
+128937 >second: usermove 128937 >second: e5d5
+129022 <second: move g4h5
+129023 >first : time 29783
+129023 >first : otim 29770
+book hit = (NULL)
+129023 >first : usermove 129023 >first : g4h5
+129108 <first : move a3c1
+129109 >second: time 29770
+129109 >second: otim 29774
+book hit = (NULL)
+129109 >second: usermove 129109 >second: a3c1
+129212 <second: move f4g2
+129213 >first : time 29774
+129213 >first : otim 29760
+book hit = (NULL)
+129213 >first : usermove 129213 >first : f4g2
+129319 <first : move f1g2
+129320 >second: time 29760
+129320 >second: otim 29763
+book hit = (NULL)
+129320 >second: usermove 129320 >second: f1g2
+129403 <second: move e8e7
+129403 >first : time 29763
+129403 >first : otim 29752
+book hit = (NULL)
+129403 >first : usermove 129403 >first : e8e7
+129488 <first : move d5c6
+129488 >second: time 29752
+129488 >second: otim 29755
+book hit = (NULL)
+129488 >second: usermove 129488 >second: d5c6
+129575 <second: move h5g6
+129575 >first : time 29755
+129575 >first : otim 29743
+book hit = (NULL)
+129575 >first : usermove 129575 >first : h5g6
+129660 <first : move c1h6
+129661 >second: time 29743
+129661 >second: otim 29746
+book hit = (NULL)
+129661 >second: usermove 129661 >second: c1h6
+129768 <second: move h8g8
+129769 >first : time 29746
+129769 >first : otim 29732
+book hit = (NULL)
+129769 >first : usermove 129769 >first : h8g8
+129850 <first : move g1h1
+129851 >second: time 29732
+129851 >second: otim 29738
+book hit = (NULL)
+129851 >second: usermove 129851 >second: g1h1
+129933 <second: 1/2-1/2 {Stalemate}
+GameEnds(27, Stalemate, 6)
+129933 >first : result 1/2-1/2 {Stalemate}
+129934 >second: result 1/2-1/2 {Stalemate}
+129934 >first : force
+129934 >second: force
+Reset(1, 1) from gameMode 8
+recognized 'normal' (-1) as variant normal
+GameEnds(0, (null), 2)
+shuffleOpenings = 0
+153026 >first : new
+random
+153026 >first : level 40 5 0
+153026 >first : post
+153026 >first : hard
+153446 >first : force
+153446 >second: new
+random
+153446 >second: level 40 5 0
+153446 >second: post
+153446 >second: hard
+153446 >second: force
+New game (0): Zugzwang-Zugzwang (w)
+153457 >first : computer
+153457 >second: computer
+153457 >first : black
+153457 >first : time 30000
+153457 >first : otim 30000
+153457 >first : white
+book hit = (NULL)
+153457 >first : go
+nps: w=-1, b=-1
+153457 <first : move b1c3
+153457 >second: time 30000
+153457 >second: otim 30000
+book hit = (NULL)
+153457 >second: usermove 153457 >second: b1c3
+153457 >second: black
+153457 >second: go
+153572 <second: move b8a6
+153572 >first : time 30000
+153572 >first : otim 29988
+book hit = (NULL)
+153572 >first : usermove 153572 >first : b8a6
+153695 <first : move a1b1
+153695 >second: time 29988
+153695 >second: otim 29987
+book hit = (NULL)
+153695 >second: usermove 153695 >second: a1b1
+153795 <second: move a8b8
+153795 >first : time 29987
+153795 >first : otim 29978
+book hit = (NULL)
+153795 >first : usermove 153795 >first : a8b8
+153883 <first : move c3d5
+153884 >second: time 29978
+153884 >second: otim 29978
+book hit = (NULL)
+153884 >second: usermove 153884 >second: c3d5
+154000 <second: move g8h6
+154000 >first : time 29978
+154001 >first : otim 29966
+book hit = (NULL)
+154001 >first : usermove 154001 >first : g8h6
+154126 <first : move e2e4
+154126 >second: time 29966
+154126 >second: otim 29966
+book hit = (NULL)
+154126 >second: usermove 154126 >second: e2e4
+154223 <second: move e7e5
+154224 >first : time 29966
+154224 >first : otim 29957
+book hit = (NULL)
+154224 >first : usermove 154224 >first : e7e5
+154322 <first : move b2b3
+154322 >second: time 29957
+154322 >second: otim 29956
+book hit = (NULL)
+154322 >second: usermove 154322 >second: b2b3
+154412 <second: move b7b5
+154412 >first : time 29956
+154412 >first : otim 29948
+book hit = (NULL)
+154412 >first : usermove 154412 >first : b7b5
+154500 <first : move b1b2
+154500 >second: time 29948
+154500 >second: otim 29947
+book hit = (NULL)
+154500 >second: usermove 154500 >second: b1b2
+154589 <second: move d8e7
+154589 >first : time 29947
+154590 >first : otim 29939
+book hit = (NULL)
+154590 >first : usermove 154590 >first : d8e7
+154688 <first : move g1h3
+154689 >second: time 29939
+154689 >second: otim 29937
+book hit = (NULL)
+154689 >second: usermove 154689 >second: g1h3
+154803 <second: move h8g8
+154803 >first : time 29937
+154803 >first : otim 29927
+book hit = (NULL)
+154803 >first : usermove 154803 >first : h8g8
+154901 <first : move d1h5
+154901 >second: time 29927
+154901 >second: otim 29927
+book hit = (NULL)
+154901 >second: usermove 154901 >second: d1h5
+155019 <second: move g8h8
+155019 >first : time 29927
+155019 >first : otim 29915
+book hit = (NULL)
+155019 >first : usermove 155019 >first : g8h8
+155116 <first : move f1c4
+155116 >second: time 29915
+155116 >second: otim 29918
+book hit = (NULL)
+155116 >second: usermove 155116 >second: f1c4
+155235 <second: move e7d8
+155235 >first : time 29918
+155235 >first : otim 29904
+book hit = (NULL)
+155235 >first : usermove 155235 >first : e7d8
+155334 <first : move h1g1
+155334 >second: time 29904
+155334 >second: otim 29908
+book hit = (NULL)
+155334 >second: usermove 155335 >second: h1g1
+155430 <second: move b8b7
+155431 >first : time 29908
+155431 >first : otim 29894
+book hit = (NULL)
+155431 >first : usermove 155431 >first : b8b7
+155528 <first : move b3b4
+155529 >second: time 29894
+155529 >second: otim 29898
+book hit = (NULL)
+155529 >second: usermove 155529 >second: b3b4
+155618 <second: move g7g5
+155619 >first : time 29898
+155619 >first : otim 29885
+book hit = (NULL)
+155619 >first : usermove 155619 >first : g7g5
+155704 <first : move c4d3
+155704 >second: time 29885
+155704 >second: otim 29889
+book hit = (NULL)
+155704 >second: usermove 155704 >second: c4d3
+155797 <second: move a6c5
+155797 >first : time 29889
+155797 >first : otim 29876
+book hit = (NULL)
+155797 >first : usermove 155797 >first : a6c5
+155917 <first : move g2g4
+155917 >second: time 29876
+155917 >second: otim 29877
+book hit = (NULL)
+155917 >second: usermove 155917 >second: g2g4
+156012 <second: move b7b6
+156012 >first : time 29877
+156012 >first : otim 29866
+book hit = (NULL)
+156012 >first : usermove 156012 >first : b7b6
+156099 <first : move g1g3
+156100 >second: time 29866
+156100 >second: otim 29869
+book hit = (NULL)
+156100 >second: usermove 156100 >second: g1g3
+156190 <second: move b6c6
+156191 >first : time 29869
+156191 >first : otim 29857
+book hit = (NULL)
+156191 >first : usermove 156191 >first : b6c6
+156287 <first : move d3f1
+156287 >second: time 29857
+156287 >second: otim 29859
+book hit = (NULL)
+156287 >second: usermove 156287 >second: d3f1
+156407 <second: move f8d6
+156407 >first : time 29859
+156407 >first : otim 29845
+book hit = (NULL)
+156407 >first : usermove 156407 >first : f8d6
+156519 <first : move b4c5
+156519 >second: time 29845
+156519 >second: otim 29848
+book hit = (NULL)
+156519 >second: usermove 156519 >second: b4c5
+156616 <second: move a7a5
+156616 >first : time 29848
+156616 >first : otim 29835
+book hit = (NULL)
+156616 >first : usermove 156616 >first : a7a5
+156707 <first : move g3f3
+156707 >second: time 29835
+156707 >second: otim 29839
+book hit = (NULL)
+156707 >second: usermove 156707 >second: g3f3
+156806 <second: move a5a4
+156807 >first : time 29839
+156807 >first : otim 29825
+book hit = (NULL)
+156807 >first : usermove 156807 >first : a5a4
+156899 <first : move d5c7
+156900 >second: time 29825
+156900 >second: otim 29829
+book hit = (NULL)
+156900 >second: usermove 156900 >second: d5c7
+157009 <second: move c6c7
+157010 >first : time 29829
+157010 >first : otim 29814
+book hit = (NULL)
+157010 >first : usermove 157010 >first : c6c7
+157106 <first : move h5g6
+157107 >second: time 29814
+157107 >second: otim 29820
+book hit = (NULL)
+157107 >second: usermove 157107 >second: h5g6
+157204 <second: move c7c6
+157204 >first : time 29820
+157204 >first : otim 29805
+book hit = (NULL)
+157204 >first : usermove 157205 >first : c7c6
+157295 <first : move g6e6
+157296 >second: time 29805
+157296 >second: otim 29811
+book hit = (NULL)
+157296 >second: usermove 157296 >second: g6e6
+157383 <second: move d7e6
+157383 >first : time 29811
+157383 >first : otim 29796
+book hit = (NULL)
+157383 >first : usermove 157383 >first : d7e6
+157480 <first : move f3f7
+157481 >second: time 29796
+157481 >second: otim 29801
+book hit = (NULL)
+157481 >second: usermove 157481 >second: f3f7
+157603 <second: move d6c5
+157603 >first : time 29801
+157603 >first : otim 29784
+book hit = (NULL)
+157603 >first : usermove 157603 >first : d6c5
+157699 <first : move b2b4
+157699 >second: time 29784
+157699 >second: otim 29791
+book hit = (NULL)
+157699 >second: usermove 157699 >second: b2b4
+157790 <second: move d8d5
+157790 >first : time 29791
+157790 >first : otim 29775
+book hit = (NULL)
+157790 >first : usermove 157790 >first : d8d5
+157913 <first : move f1e2
+157914 >second: time 29775
+157914 >second: otim 29779
+book hit = (NULL)
+157914 >second: usermove 157914 >second: f1e2
+158003 <second: move h6f5
+158003 >first : time 29779
+158003 >first : otim 29766
+book hit = (NULL)
+158003 >first : usermove 158003 >first : h6f5
+158131 <first : move e4d5
+158131 >second: time 29766
+158131 >second: otim 29766
+book hit = (NULL)
+158131 >second: usermove 158131 >second: e4d5
+158228 <second: move c8a6
+158229 >first : time 29766
+158229 >first : otim 29756
+book hit = (NULL)
+158229 >first : usermove 158229 >first : c8a6
+158341 <first : move e2f3
+158342 >second: time 29756
+158342 >second: otim 29755
+book hit = (NULL)
+158342 >second: usermove 158342 >second: e2f3
+158439 <second: move f5d6
+158439 >first : time 29755
+158439 >first : otim 29746
+book hit = (NULL)
+158439 >first : usermove 158439 >first : f5d6
+158557 <first : move d2d4
+158557 >second: time 29746
+158557 >second: otim 29743
+book hit = (NULL)
+158557 >second: usermove 158557 >second: d2d4
+158662 <second: move a6c8
+158662 >first : time 29743
+158663 >first : otim 29736
+book hit = (NULL)
+158663 >first : usermove 158663 >first : a6c8
+158775 <first : move h3g1
+158775 >second: time 29736
+158775 >second: otim 29732
+book hit = (NULL)
+158775 >second: usermove 158775 >second: h3g1
+158890 <second: move c6a6
+158890 >first : time 29732
+158890 >first : otim 29724
+book hit = (NULL)
+158890 >first : usermove 158890 >first : c6a6
+158975 <first : move h2h4
+158975 >second: time 29724
+158975 >second: otim 29723
+book hit = (NULL)
+158975 >second: usermove 158975 >second: h2h4
+159061 <second: move c8d7
+159061 >first : time 29723
+159061 >first : otim 29715
+book hit = (NULL)
+159061 >first : usermove 159061 >first : c8d7
+159144 <first : move b4b5
+159144 >second: time 29715
+159144 >second: otim 29715
+book hit = (NULL)
+159144 >second: usermove 159144 >second: b4b5
+159227 <second: move e5d4
+159227 >first : time 29715
+159227 >first : otim 29707
+book hit = (NULL)
+159227 >first : usermove 159227 >first : e5d4
+159310 <first : move b5b8
+159310 >second: time 29707
+159310 >second: otim 29707
+book hit = (NULL)
+159310 >second: usermove 159310 >second: b5b8
+159418 <second: move e8f7
+159419 >first : time 29707
+159419 >first : otim 29696
+book hit = (NULL)
+159419 >first : usermove 159419 >first : e8f7
+159503 <first : move b8a8
+159503 >second: time 29696
+159503 >second: otim 29698
+book hit = (NULL)
+159503 >second: usermove 159503 >second: b8a8
+159586 <second: move d7b5
+159586 >first : time 29698
+159587 >first : otim 29688
+book hit = (NULL)
+159587 >first : usermove 159587 >first : d7b5
+159695 <first : move a2a3
+159696 >second: time 29688
+159696 >second: otim 29687
+book hit = (NULL)
+159696 >second: usermove 159696 >second: a2a3
+159780 <second: move e6d5
+159781 >first : time 29687
+159781 >first : otim 29679
+book hit = (NULL)
+159781 >first : usermove 159781 >first : e6d5
+159866 <first : move g1h3
+159866 >second: time 29679
+159866 >second: otim 29679
+book hit = (NULL)
+159866 >second: usermove 159866 >second: g1h3
+159973 <second: move c5b4
+159973 >first : time 29679
+159973 >first : otim 29669
+book hit = (NULL)
+159973 >first : usermove 159973 >first : c5b4
+160058 <first : move a3b4
+160058 >second: time 29669
+160058 >second: otim 29670
+book hit = (NULL)
+160058 >second: usermove 160058 >second: a3b4
+160144 <second: move h7h5
+160144 >first : time 29670
+160144 >first : otim 29660
+book hit = (NULL)
+160144 >first : usermove 160144 >first : h7h5
+160230 <first : move c2c4
+160230 >second: time 29660
+160230 >second: otim 29662
+book hit = (NULL)
+160230 >second: usermove 160230 >second: c2c4
+160313 <second: move b5e8
+160314 >first : time 29662
+160314 >first : otim 29652
+book hit = (NULL)
+160314 >first : usermove 160314 >first : b5e8
+160422 <first : move f3g2
+160422 >second: time 29652
+160422 >second: otim 29651
+book hit = (NULL)
+160422 >second: usermove 160422 >second: f3g2
+160506 <second: move d6f5
+160507 >first : time 29651
+160507 >first : otim 29643
+book hit = (NULL)
+160507 >first : usermove 160507 >first : d6f5
+160614 <first : move c4d5
+160614 >second: time 29643
+160615 >second: otim 29640
+book hit = (NULL)
+160615 >second: usermove 160615 >second: c4d5
+160699 <second: move e8d7
+160699 >first : time 29640
+160699 >first : otim 29635
+book hit = (NULL)
+160699 >first : usermove 160699 >first : e8d7
+160786 <first : move h4g5
+160787 >second: time 29635
+160787 >second: otim 29631
+book hit = (NULL)
+160787 >second: usermove 160787 >second: h4g5
+160869 <second: move d4d3
+160870 >first : time 29631
+160870 >first : otim 29627
+book hit = (NULL)
+160870 >first : usermove 160870 >first : d4d3
+160955 <first : move c1d2
+160956 >second: time 29627
+160956 >second: otim 29623
+book hit = (NULL)
+160956 >second: usermove 160956 >second: c1d2
+161039 <second: move d7e8
+161039 >first : time 29623
+161039 >first : otim 29618
+book hit = (NULL)
+161039 >first : usermove 161039 >first : d7e8
+161121 <first : move h3f4
+161121 >second: time 29618
+161122 >second: otim 59614
+book hit = (NULL)
+161122 >second: usermove 161122 >second: h3f4
+161226 <second: move f5e7
+161226 >first : time 59614
+161226 >first : otim 59608
+book hit = (NULL)
+161226 >first : usermove 161226 >first : f5e7
+161333 <first : move f4h5
+161333 >second: time 59608
+161333 >second: otim 59604
+book hit = (NULL)
+161333 >second: usermove 161333 >second: f4h5
+161440 <second: move e7g8
+161441 >first : time 59604
+161441 >first : otim 59597
+book hit = (NULL)
+161441 >first : usermove 161441 >first : e7g8
+161548 <first : move d2f4
+161549 >second: time 59597
+161549 >second: otim 59593
+book hit = (NULL)
+161549 >second: usermove 161549 >second: d2f4
+161656 <second: move e8b5
+161656 >first : time 59593
+161656 >first : otim 59586
+book hit = (NULL)
+161657 >first : usermove 161657 >first : e8b5
+161764 <first : move h5g7
+161765 >second: time 59586
+161765 >second: otim 59582
+book hit = (NULL)
+161765 >second: usermove 161765 >second: h5g7
+161873 <second: move g8e7
+161873 >first : time 59582
+161873 >first : otim 59575
+book hit = (NULL)
+161873 >first : usermove 161873 >first : g8e7
+161981 <first : move g5g6
+161981 >second: time 59575
+161981 >second: otim 59571
+book hit = (NULL)
+161981 >second: usermove 161981 >second: g5g6
+162065 <second: move a6g6
+162065 >first : time 59571
+162065 >first : otim 59567
+book hit = (NULL)
+162065 >first : usermove 162065 >first : a6g6
+162171 <first : move d5d6
+162172 >second: time 59567
+162172 >second: otim 59561
+book hit = (NULL)
+162172 >second: usermove 162172 >second: d5d6
+162257 <second: move a4a3
+162257 >first : time 59561
+162257 >first : otim 59558
+book hit = (NULL)
+162257 >first : usermove 162257 >first : a4a3
+162342 <first : move g2e4
+162342 >second: time 59558
+162342 >second: otim 59552
+book hit = (NULL)
+162343 >second: usermove 162343 >second: g2e4
+162447 <second: move d3d2
+162447 >first : time 59552
+162447 >first : otim 59548
+book hit = (NULL)
+162447 >first : usermove 162447 >first : d3d2
+162531 <first : move e1d2
+162531 >second: time 59548
+162531 >second: otim 59544
+book hit = (NULL)
+162531 >second: usermove 162531 >second: e1d2
+162615 <second: move b5c6
+162615 >first : time 59544
+162615 >first : otim 59539
+book hit = (NULL)
+162615 >first : usermove 162615 >first : b5c6
+162699 <first : move g7f5
+162700 >second: time 59539
+162700 >second: otim 59535
+book hit = (NULL)
+162700 >second: usermove 162700 >second: g7f5
+162807 <second: move e7d5
+162807 >first : time 59535
+162807 >first : otim 59529
+book hit = (NULL)
+162807 >first : usermove 162807 >first : e7d5
+162915 <first : move g4g5
+162915 >second: time 59529
+162915 >second: otim 59525
+book hit = (NULL)
+162915 >second: usermove 162915 >second: g4g5
+162999 <second: move a3a2
+162999 >first : time 59525
+162999 >first : otim 59520
+book hit = (NULL)
+163000 >first : usermove 163000 >first : a3a2
+163083 <first : move e4b1
+163083 >second: time 59520
+163083 >second: otim 59516
+book hit = (NULL)
+163083 >second: usermove 163083 >second: e4b1
+163188 <second: move c6a8
+163188 >first : time 59516
+163188 >first : otim 59510
+book hit = (NULL)
+163188 >first : usermove 163188 >first : c6a8
+163292 <first : move f2f3
+163292 >second: time 59510
+163292 >second: otim 59506
+book hit = (NULL)
+163292 >second: usermove 163292 >second: f2f3
+163377 <second: move a2b1
+163377 >first : time 59506
+163377 >first : otim 59501
+book hit = (NULL)
+163377 >first : usermove 163377 >first : a2b1q
+163464 <first : move f4h2
+163464 >second: time 59501
+163464 >second: otim 59497
+book hit = (NULL)
+163464 >second: usermove 163464 >second: f4h2
+163571 <second: move h8b8
+163571 >first : time 59497
+163571 >first : otim 59491
+book hit = (NULL)
+163571 >first : usermove 163571 >first : h8b8
+163677 <first : move h2g3
+163678 >second: time 59491
+163678 >second: otim 59487
+book hit = (NULL)
+163678 >second: usermove 163678 >second: h2g3
+163761 <second: move a8c6
+163761 >first : time 59487
+163761 >first : otim 59482
+book hit = (NULL)
+163761 >first : usermove 163762 >first : a8c6
+163870 <first : move f3f4
+163870 >second: time 59482
+163870 >second: otim 59476
+book hit = (NULL)
+163870 >second: usermove 163870 >second: f3f4
+163956 <second: move g6e6
+163956 >first : time 59476
+163956 >first : otim 59474
+book hit = (NULL)
+163956 >first : usermove 163956 >first : g6e6
+164037 <first : move g3f2
+164038 >second: time 59474
+164038 >second: otim 59468
+book hit = (NULL)
+164038 >second: usermove 164038 >second: g3f2
+164122 <second: move b8c8
+164123 >first : time 59468
+164123 >first : otim 59465
+book hit = (NULL)
+164123 >first : usermove 164123 >first : b8c8
+164208 <first : move f5g3
+164209 >second: time 59465
+164209 >second: otim 59459
+book hit = (NULL)
+164209 >second: usermove 164209 >second: f5g3
+164316 <second: move d5b6
+164317 >first : time 59459
+164317 >first : otim 59454
+book hit = (NULL)
+164317 >first : usermove 164317 >first : d5b6
+164421 <first : move g3e4
+164421 >second: time 59454
+164421 >second: otim 59449
+book hit = (NULL)
+164422 >second: usermove 164422 >second: g3e4
+164535 <second: move c6d5
+164535 >first : time 59449
+164535 >first : otim 59443
+book hit = (NULL)
+164535 >first : usermove 164535 >first : c6d5
+164629 <first : move f2d4
+164629 >second: time 59443
+164629 >second: otim 59439
+book hit = (NULL)
+164629 >second: usermove 164629 >second: f2d4
+164740 <second: move b1a2
+164740 >first : time 59439
+164740 >first : otim 59432
+book hit = (NULL)
+164740 >first : usermove 164740 >first : b1a2
+164838 <first : move d2d3
+164839 >second: time 59432
+164839 >second: otim 59429
+book hit = (NULL)
+164839 >second: usermove 164839 >second: d2d3
+164934 <second: move d5b7
+164935 >first : time 59429
+164935 >first : otim 59422
+book hit = (NULL)
+164935 >first : usermove 164935 >first : d5b7
+165053 <first : move d4h8
+165053 >second: time 59422
+165053 >second: otim 59418
+book hit = (NULL)
+165053 >second: usermove 165053 >second: d4h8
+165174 <second: move b7c6
+165174 >first : time 59418
+165174 >first : otim 59410
+book hit = (NULL)
+165174 >first : usermove 165174 >first : b7c6
+165272 <first : move h8e5
+165272 >second: time 59410
+165272 >second: otim 59408
+book hit = (NULL)
+165272 >second: usermove 165272 >second: h8e5
+165387 <second: move c6b5
+165387 >first : time 59408
+165387 >first : otim 59398
+book hit = (NULL)
+165387 >first : usermove 165388 >first : c6b5
+165483 <first : move d3d4
+165483 >second: time 59398
+165483 >second: otim 59398
+book hit = (NULL)
+165484 >second: usermove 165484 >second: d3d4
+165567 <second: move a2c4
+165568 >first : time 59398
+165568 >first : otim 59390
+book hit = (NULL)
+165568 >first : usermove 165568 >first : a2c4
+165672 <first : move d4e3
+165672 >second: time 59390
+165672 >second: otim 59388
+book hit = (NULL)
+165672 >second: usermove 165672 >second: d4e3
+165754 <second: move b6a4
+165754 >first : time 59388
+165754 >first : otim 59382
+book hit = (NULL)
+165754 >first : usermove 165754 >first : b6a4
+165858 <first : move e4f6
+165858 >second: time 59382
+165859 >second: otim 59377
+book hit = (NULL)
+165859 >second: usermove 165859 >second: e4f6
+165967 <second: move c8b8
+165967 >first : time 59377
+165967 >first : otim 59371
+book hit = (NULL)
+165967 >first : usermove 165967 >first : c8b8
+166051 <first : move f4f5
+166052 >second: time 59371
+166052 >second: otim 59369
+book hit = (NULL)
+166052 >second: usermove 166052 >second: f4f5
+166138 <second: move b5a6
+166139 >first : time 59369
+166139 >first : otim 59362
+book hit = (NULL)
+166139 >first : usermove 166139 >first : b5a6
+166222 <first : move f6d7
+166222 >second: time 59362
+166222 >second: otim 59361
+book hit = (NULL)
+166222 >second: usermove 166222 >second: f6d7
+166330 <second: move c4c5
+166330 >first : time 59361
+166330 >first : otim 59351
+book hit = (NULL)
+166330 >first : usermove 166330 >first : c4c5
+166415 <first : move b4c5
+166416 >second: time 59351
+166416 >second: otim 59352
+book hit = (NULL)
+166416 >second: usermove 166416 >second: b4c5
+166501 <second: move a6f1
+166501 >first : time 59352
+166501 >first : otim 59343
+book hit = (NULL)
+166501 >first : usermove 166501 >first : a6f1
+166609 <first : move d7f8
+166610 >second: time 59343
+166610 >second: otim 59341
+book hit = (NULL)
+166610 >second: usermove 166610 >second: d7f8
+166717 <second: move f1g2
+166717 >first : time 59341
+166717 >first : otim 59332
+book hit = (NULL)
+166717 >first : usermove 166717 >first : f1g2
+166802 <first : move f8h7
+166802 >second: time 59332
+166802 >second: otim 59333
+book hit = (NULL)
+166802 >second: usermove 166802 >second: f8h7
+166909 <second: move b8b4
+166909 >first : time 59333
+166909 >first : otim 59321
+book hit = (NULL)
+166909 >first : usermove 166909 >first : b8b4
+167014 <first : move g5g6
+167014 >second: time 59321
+167014 >second: otim 59322
+book hit = (NULL)
+167014 >second: usermove 167014 >second: g5g6
+167097 <second: move e6g6
+167098 >first : time 59322
+167098 >first : otim 59313
+book hit = (NULL)
+167098 >first : usermove 167098 >first : e6g6
+167182 <first : move e5g7
+167182 >second: time 59313
+167182 >second: otim 59314
+book hit = (NULL)
+167182 >second: usermove 167182 >second: e5g7
+167289 <second: move g2e4
+167290 >first : time 59314
+167290 >first : otim 59302
+book hit = (NULL)
+167290 >first : usermove 167290 >first : g2e4
+167396 <first : move h7g5
+167396 >second: time 59302
+167396 >second: otim 59303
+book hit = (NULL)
+167396 >second: usermove 167396 >second: h7g5
+167502 <second: move g6g5
+167502 >first : time 59303
+167502 >first : otim 59292
+book hit = (NULL)
+167502 >first : usermove 167502 >first : g6g5
+167587 <first : move g7h8
+167587 >second: time 59292
+167587 >second: otim 59295
+book hit = (NULL)
+167587 >second: usermove 167587 >second: g7h8
+167673 <second: move b4b8
+167674 >first : time 59295
+167674 >first : otim 59283
+book hit = (NULL)
+167674 >first : usermove 167674 >first : b4b8
+167781 <first : move f5f6
+167782 >second: time 59283
+167782 >second: otim 59284
+book hit = (NULL)
+167782 >second: usermove 167782 >second: f5f6
+167867 <second: move b8b4
+167867 >first : time 59284
+167867 >first : otim 59274
+book hit = (NULL)
+167867 >first : usermove 167867 >first : b8b4
+167975 <first : move c5c6
+167975 >second: time 59274
+167975 >second: otim 59273
+book hit = (NULL)
+167975 >second: usermove 167975 >second: c5c6
+168057 <second: move g5c5
+168058 >first : time 59273
+168058 >first : otim 59266
+book hit = (NULL)
+168058 >first : usermove 168058 >first : g5c5
+168164 <first : move h8g7
+168165 >second: time 59266
+168165 >second: otim 59262
+book hit = (NULL)
+168165 >second: usermove 168165 >second: h8g7
+168251 <second: move b4b8
+168251 >first : time 59262
+168251 >first : otim 59257
+book hit = (NULL)
+168251 >first : usermove 168251 >first : b4b8
+168356 <first : move d6d7
+168357 >second: time 59257
+168357 >second: otim 59252
+book hit = (NULL)
+168357 >second: usermove 168357 >second: d6d7
+168439 <second: move e4h7
+168440 >first : time 59252
+168440 >first : otim 59249
+book hit = (NULL)
+168440 >first : usermove 168440 >first : e4h7
+168546 <first : move e3d2
+168546 >second: time 59249
+168546 >second: otim 59241
+book hit = (NULL)
+168546 >second: usermove 168546 >second: e3d2
+168631 <second: move h7g8
+168632 >first : time 59241
+168632 >first : otim 59241
+book hit = (NULL)
+168632 >first : usermove 168632 >first : h7g8
+168713 <first : move g7h6
+168714 >second: time 59241
+168714 >second: otim 59233
+book hit = (NULL)
+168714 >second: usermove 168714 >second: g7h6
+168799 <second: move a4c3
+168799 >first : time 59233
+168799 >first : otim 59232
+book hit = (NULL)
+168799 >first : usermove 168799 >first : a4c3
+168906 <first : move d7d8
+168906 >second: time 59232
+168906 >second: otim 89222
+book hit = (NULL)
+168906 >second: usermove 168906 >second: d7d8q
+168992 <second: move c3a4
+168992 >first : time 89222
+168992 >first : otim 89224
+book hit = (NULL)
+168992 >first : usermove 168992 >first : c3a4
+169099 <first : move d8a5
+169100 >second: time 89224
+169100 >second: otim 89211
+book hit = (NULL)
+169100 >second: usermove 169100 >second: d8a5
+169207 <second: move b8b5
+169208 >first : time 89211
+169208 >first : otim 89213
+book hit = (NULL)
+169208 >first : usermove 169208 >first : b8b5
+169315 <first : move h6f8
+169316 >second: time 89213
+169316 >second: otim 89200
+book hit = (NULL)
+169316 >second: usermove 169316 >second: h6f8
+169421 <second: move a4b2
+169421 >first : time 89200
+169421 >first : otim 89202
+book hit = (NULL)
+169421 >first : usermove 169422 >first : a4b2
+169528 <first : move f8e7
+169529 >second: time 89202
+169529 >second: otim 89190
+book hit = (NULL)
+169529 >second: usermove 169529 >second: f8e7
+169614 <second: move b2d1
+169614 >first : time 89190
+169614 >first : otim 89194
+book hit = (NULL)
+169614 >first : usermove 169614 >first : b2d1
+169721 <first : move c6c7
+169722 >second: time 89194
+169722 >second: otim 89179
+book hit = (NULL)
+169722 >second: usermove 169722 >second: c6c7
+169806 <second: move g8h7
+169806 >first : time 89179
+169806 >first : otim 89185
+book hit = (NULL)
+169806 >first : usermove 169806 >first : g8h7
+169891 <first : move a5a1
+169892 >second: time 89185
+169892 >second: otim 89170
+book hit = (NULL)
+169892 >second: usermove 169892 >second: a5a1
+169999 <second: move c5e5
+170000 >first : time 89170
+170000 >first : otim 89175
+book hit = (NULL)
+170000 >first : usermove 170000 >first : c5e5
+170083 <first : move a1b2
+170084 >second: time 89175
+170084 >second: otim 89162
+book hit = (NULL)
+170084 >second: usermove 170084 >second: a1b2
+170169 <second: move d1e3
+170169 >first : time 89162
+170169 >first : otim 89166
+book hit = (NULL)
+170169 >first : usermove 170169 >first : d1e3
+170277 <first : move d2c3
+170277 >second: time 89166
+170278 >second: otim 89151
+book hit = (NULL)
+170278 >second: usermove 170278 >second: d2c3
+170362 <second: move e3c2
+170362 >first : time 89151
+170362 >first : otim 89158
+book hit = (NULL)
+170362 >first : usermove 170362 >first : e3c2
+170470 <first : move c3d2
+170470 >second: time 89158
+170470 >second: otim 89140
+book hit = (NULL)
+170470 >second: usermove 170470 >second: c3d2
+170554 <second: move b5b7
+170554 >first : time 89140
+170555 >first : otim 89149
+book hit = (NULL)
+170555 >first : usermove 170555 >first : b5b7
+170636 <first : move b2c1
+170637 >second: time 89149
+170637 >second: otim 89132
+book hit = (NULL)
+170637 >second: usermove 170637 >second: b2c1
+170722 <second: move h7d3
+170723 >first : time 89132
+170723 >first : otim 89141
+book hit = (NULL)
+170723 >first : usermove 170723 >first : h7d3
+170829 <first : move c7c8
+170829 >second: time 89141
+170829 >second: otim 89121
+book hit = (NULL)
+170829 >second: usermove 170829 >second: c7c8q
+170914 <second: move b7c7
+170914 >first : time 89121
+170914 >first : otim 89132
+book hit = (NULL)
+170914 >first : usermove 170914 >first : b7c7
+170998 <first : move c8f5
+170998 >second: time 89132
+170998 >second: otim 89113
+book hit = (NULL)
+170998 >second: usermove 170998 >second: c8f5
+171104 <second: move e5e3
+171104 >first : time 89113
+171104 >first : otim 89122
+book hit = (NULL)
+171104 >first : usermove 171104 >first : e5e3
+171187 <first : move e7d8
+171188 >second: time 89122
+171188 >second: otim 89104
+book hit = (NULL)
+171188 >second: usermove 171188 >second: e7d8
+171279 <second: move c2a3
+171279 >first : time 89104
+171279 >first : otim 89112
+book hit = (NULL)
+171279 >first : usermove 171279 >first : c2a3
+171392 <first : move d8c7
+171392 >second: time 89112
+171392 >second: otim 89093
+book hit = (NULL)
+171392 >second: usermove 171393 >second: d8c7
+171497 <second: move d3f1
+171498 >first : time 89093
+171498 >first : otim 89102
+book hit = (NULL)
+171498 >first : usermove 171498 >first : d3f1
+171619 <first : move d2e3
+171619 >second: time 89102
+171619 >second: otim 89081
+book hit = (NULL)
+171619 >second: usermove 171619 >second: d2e3
+171718 <second: move f1b5
+171719 >first : time 89081
+171719 >first : otim 89092
+book hit = (NULL)
+171719 >first : usermove 171719 >first : f1b5
+171835 <first : move c1b1
+171835 >second: time 89092
+171835 >second: otim 89069
+book hit = (NULL)
+171835 >second: usermove 171835 >second: c1b1
+171935 <second: move b5e8
+171935 >first : time 89069
+171935 >first : otim 89082
+book hit = (NULL)
+171935 >first : usermove 171935 >first : b5e8
+172052 <first : move e3e4
+172052 >second: time 89082
+172052 >second: otim 89058
+book hit = (NULL)
+172052 >second: usermove 172052 >second: e3e4
+172150 <second: move e8b5
+172151 >first : time 89058
+172151 >first : otim 89072
+book hit = (NULL)
+172151 >first : usermove 172151 >first : e8b5
+172267 <first : move f5f1
+172267 >second: time 89072
+172267 >second: otim 89046
+book hit = (NULL)
+172267 >second: usermove 172267 >second: f5f1
+172374 <second: move b5c4
+172374 >first : time 89046
+172374 >first : otim 89061
+book hit = (NULL)
+172374 >first : usermove 172374 >first : b5c4
+172457 <first : move b1b3
+172458 >second: time 89061
+172458 >second: otim 89038
+book hit = (NULL)
+172458 >second: usermove 172458 >second: b1b3
+172543 <second: move c4b3
+172543 >first : time 89038
+172543 >first : otim 89053
+book hit = (NULL)
+172543 >first : usermove 172543 >first : c4b3
+172627 <first : move c7d8
+172628 >second: time 89053
+172628 >second: otim 89029
+book hit = (NULL)
+172628 >second: usermove 172628 >second: c7d8
+172714 <second: move a3b1
+172714 >first : time 89029
+172714 >first : otim 89044
+book hit = (NULL)
+172714 >first : usermove 172714 >first : a3b1
+172821 <first : move e4f4
+172822 >second: time 89044
+172822 >second: otim 89018
+book hit = (NULL)
+172822 >second: usermove 172822 >second: e4f4
+172907 <second: move b1a3
+172908 >first : time 89018
+172908 >first : otim 89036
+book hit = (NULL)
+172908 >first : usermove 172908 >first : b1a3
+173015 <first : move d8c7
+173015 >second: time 89036
+173015 >second: otim 89007
+book hit = (NULL)
+173015 >second: usermove 173015 >second: d8c7
+173097 <second: move b3e6
+173097 >first : time 89007
+173097 >first : otim 89028
+book hit = (NULL)
+173097 >first : usermove 173097 >first : b3e6
+173205 <first : move f1e1
+173206 >second: time 89028
+173206 >second: otim 88997
+book hit = (NULL)
+173206 >second: usermove 173206 >second: f1e1
+173292 <second: move e6c8
+173292 >first : time 88997
+173292 >first : otim 89019
+book hit = (NULL)
+173292 >first : usermove 173292 >first : e6c8
+173396 <first : move c7b6
+173397 >second: time 89019
+173397 >second: otim 88986
+book hit = (NULL)
+173397 >second: usermove 173397 >second: c7b6
+173482 <second: move c8b7
+173482 >first : time 88986
+173482 >first : otim 89010
+book hit = (NULL)
+173482 >first : usermove 173482 >first : c8b7
+173565 <first : move b6c7
+173565 >second: time 89010
+173565 >second: otim 88978
+book hit = (NULL)
+173565 >second: usermove 173565 >second: b6c7
+173647 <second: move a3b5
+173647 >first : time 88978
+173647 >first : otim 89002
+book hit = (NULL)
+173647 >first : usermove 173647 >first : a3b5
+173758 <first : move c7d6
+173759 >second: time 89002
+173759 >second: otim 88967
+book hit = (NULL)
+173759 >second: usermove 173759 >second: c7d6
+173841 <second: move b7c6
+173842 >first : time 88967
+173842 >first : otim 88994
+book hit = (NULL)
+173842 >first : usermove 173842 >first : b7c6
+173923 <first : move d6c7
+173923 >second: time 88994
+173923 >second: otim 88959
+book hit = (NULL)
+173923 >second: usermove 173923 >second: d6c7
+174010 <second: move c6e4
+174010 >first : time 88959
+174010 >first : otim 88985
+book hit = (NULL)
+174010 >first : usermove 174010 >first : c6e4
+174117 <first : move e1d2
+174118 >second: time 88985
+174118 >second: otim 88948
+book hit = (NULL)
+174118 >second: usermove 174118 >second: e1d2
+174202 <second: move b5c3
+174203 >first : time 88948
+174203 >first : otim 88977
+book hit = (NULL)
+174203 >first : usermove 174203 >first : b5c3
+174307 <first : move d2a2
+174307 >second: time 88977
+174307 >second: otim 88937
+book hit = (NULL)
+174307 >second: usermove 174307 >second: d2a2
+174413 <second: move c3a2
+174413 >first : time 88937
+174413 >first : otim 88966
+book hit = (NULL)
+174413 >first : usermove 174413 >first : c3a2
+174520 <first : move c7a5
+174520 >second: time 88966
+174520 >second: otim 88927
+book hit = (NULL)
+174521 >second: usermove 174521 >second: c7a5
+174628 <second: move e4g2
+174628 >first : time 88927
+174628 >first : otim 88955
+book hit = (NULL)
+174628 >first : usermove 174628 >first : e4g2
+174736 <first : move a5b4
+174737 >second: time 88955
+174737 >second: otim 88916
+book hit = (NULL)
+174737 >second: usermove 174737 >second: a5b4
+174822 <second: move g2f1
+174823 >first : time 88916
+174823 >first : otim 88947
+book hit = (NULL)
+174823 >first : usermove 174823 >first : g2f1
+174907 <first : move b4f8
+174907 >second: time 88947
+174907 >second: otim 88907
+book hit = (NULL)
+174907 >second: usermove 174907 >second: b4f8
+175014 <second: move f1a6
+175014 >first : time 88907
+175014 >first : otim 88936
+book hit = (NULL)
+175014 >first : usermove 175014 >first : f1a6
+175121 <first : move f8e7
+175121 >second: time 88936
+175121 >second: otim 88896
+book hit = (NULL)
+175121 >second: usermove 175121 >second: f8e7
+175207 <second: move a6f1
+175207 >first : time 88896
+175208 >first : otim 88928
+book hit = (NULL)
+175208 >first : usermove 175208 >first : a6f1
+175313 <first : move f4f5
+175313 >second: time 88928
+175313 >second: otim 88886
+book hit = (NULL)
+175313 >second: usermove 175313 >second: f4f5
+175398 <second: move f1a6
+175399 >first : time 88886
+175399 >first : otim 88919
+book hit = (NULL)
+175399 >first : usermove 175399 >first : f1a6
+175507 <first : move e7d6
+175508 >second: time 88919
+175508 >second: otim 88875
+book hit = (NULL)
+175508 >second: usermove 175508 >second: e7d6
+175593 <second: move a6d3
+175593 >first : time 88875
+175593 >first : otim 88910
+book hit = (NULL)
+175593 >first : usermove 175593 >first : a6d3
+175703 <first : move f5f4
+175703 >second: time 88910
+175703 >second: otim 88864
+book hit = (NULL)
+175703 >second: usermove 175703 >second: f5f4
+175787 <second: move d3g6
+175787 >first : time 88864
+175787 >first : otim 88902
+book hit = (NULL)
+175787 >first : usermove 175787 >first : d3g6
+175894 <first : move f4g4
+175894 >second: time 88902
+175894 >second: otim 88853
+book hit = (NULL)
+175894 >second: usermove 175894 >second: f4g4
+175981 <second: move g6d3
+175981 >first : time 88853
+175981 >first : otim 88893
+book hit = (NULL)
+175981 >first : usermove 175981 >first : g6d3
+176085 <first : move d6f8
+176085 >second: time 88893
+176085 >second: otim 88843
+book hit = (NULL)
+176085 >second: usermove 176085 >second: d6f8
+176194 <second: move d3c2
+176194 >first : time 88843
+176194 >first : otim 88882
+book hit = (NULL)
+176194 >first : usermove 176194 >first : d3c2
+176279 <first : move f8d6
+176279 >second: time 88882
+176279 >second: otim 88834
+book hit = (NULL)
+176279 >second: usermove 176279 >second: f8d6
+176388 <second: move c2d3
+176388 >first : time 88834
+176388 >first : otim 88872
+book hit = (NULL)
+176388 >first : usermove 176388 >first : c2d3
+176474 <first : move d6c5
+176474 >second: time 88872
+176474 >second: otim 88826
+book hit = (NULL)
+176474 >second: usermove 176474 >second: d6c5
+176558 <second: move a2c1
+176558 >first : time 88826
+176558 >first : otim 88863
+book hit = (NULL)
+176558 >first : usermove 176558 >first : a2c1
+176666 <first : move g4f3
+176666 >second: time 88863
+176666 >second: otim 118815
+book hit = (NULL)
+176666 >second: usermove 176666 >second: g4f3
+176751 <second: move c1a2
+176751 >first : time 118815
+176751 >first : otim 118855
+book hit = (NULL)
+176751 >first : usermove 176751 >first : c1a2
+176858 <first : move c5d4
+176858 >second: time 118855
+176858 >second: otim 118804
+book hit = (NULL)
+176858 >second: usermove 176858 >second: c5d4
+176943 <second: move d3b1
+176944 >first : time 118804
+176944 >first : otim 118846
+book hit = (NULL)
+176944 >first : usermove 176944 >first : d3b1
+177051 <first : move d4e3
+177051 >second: time 118846
+177051 >second: otim 118794
+book hit = (NULL)
+177051 >second: usermove 177051 >second: d4e3
+177136 <second: move b1e4
+177137 >first : time 118794
+177137 >first : otim 118837
+book hit = (NULL)
+177137 >first : usermove 177137 >first : b1e4
+177247 <first : move f3e4
+177247 >second: time 118837
+177247 >second: otim 118783
+book hit = (NULL)
+177247 >second: usermove 177247 >second: f3e4
+177333 <second: move a2c3
+177333 >first : time 118783
+177333 >first : otim 118829
+book hit = (NULL)
+177333 >first : usermove 177333 >first : a2c3
+177446 <first : move e4d4
+177446 >second: time 118829
+177446 >second: otim 118771
+book hit = (NULL)
+177446 >second: usermove 177446 >second: e4d4
+177530 <second: move c3e4
+177530 >first : time 118771
+177531 >first : otim 118820
+book hit = (NULL)
+177531 >first : usermove 177531 >first : c3e4
+177637 <first : move e3f2
+177637 >second: time 118820
+177637 >second: otim 118761
+book hit = (NULL)
+177637 >second: usermove 177637 >second: e3f2
+177722 <second: move e4g5
+177722 >first : time 118761
+177722 >first : otim 118812
+book hit = (NULL)
+177722 >first : usermove 177722 >first : e4g5
+177827 <first : move f2e1
+177827 >second: time 118812
+177827 >second: otim 118750
+book hit = (NULL)
+177827 >second: usermove 177827 >second: f2e1
+177913 <second: move g5e4
+177914 >first : time 118750
+177914 >first : otim 118803
+book hit = (NULL)
+177914 >first : usermove 177914 >first : g5e4
+178030 <first : move d4e4
+178030 >second: time 118803
+178030 >second: otim 118739
+book hit = (NULL)
+178030 >second: usermove 178030 >second: d4e4
+178129 <second: move f7g6
+178129 >first : time 118739
+178129 >first : otim 118793
+book hit = (NULL)
+178129 >first : usermove 178129 >first : f7g6
+178216 <first : move f6f7
+178216 >second: time 118793
+178216 >second: otim 118730
+book hit = (NULL)
+178216 >second: usermove 178216 >second: f6f7
+178307 <second: move g6g7
+178307 >first : time 118730
+178307 >first : otim 118784
+book hit = (NULL)
+178307 >first : usermove 178307 >first : g6g7
+178407 <first : move e1g3
+178407 >second: time 118784
+178407 >second: otim 118720
+book hit = (NULL)
+178407 >second: usermove 178407 >second: e1g3
+178526 <second: move g7g6
+178526 >first : time 118720
+178526 >first : otim 118772
+book hit = (NULL)
+178526 >first : usermove 178526 >first : g7g6
+178622 <first : move g3f4
+178622 >second: time 118772
+178622 >second: otim 118710
+book hit = (NULL)
+178622 >second: usermove 178622 >second: g3f4
+178712 <second: move g6f7
+178713 >first : force
+178713 >first : usermove 178713 >first : g6f7
+GameEnds(27, Xboard adjudication: Insufficient mating material, 4)
+178713 >first : result 1/2-1/2 {Xboard adjudication: Insufficient mating material}
+178713 >second: result 1/2-1/2 {Xboard adjudication: Insufficient mating material}
+178714 >first : force
+178714 >second: force
+GameEnds(27, Xboard adjudication: Insufficient mating material, 2)
+206887 >first : quit
+206887 >second: quit

@@ -12,8 +12,11 @@ void FromEnginetoXboard::parseMove(std::string move){
 // Xboard. Set opponent on move.
 void FromEnginetoXboard::parseMovetoXboard(){
 	std::string movePiece;
-	if (!ChessBoard::randomPiece(WHITE_MODE))
-		resignCommand();
+	int commandResult = ChessBoard::randomPiece(WHITE_MODE);
+	if (commandResult == 2)
+		stalemateCommand();
+	else if (commandResult == -1)
+		checkmateCommand();
 	else {
 		std::string initial = ChessBoard::initialPosFunc();
 		std::string final = ChessBoard::finalPosFunc();
@@ -38,7 +41,7 @@ void FromEnginetoXboard::resignCommand(void){
 }
 
 void FromEnginetoXboard::checkmateCommand(void){
-	if (WHITE_MODE){
+	if (BLACK_MODE){
 		std::cout << "1-0 {WHITE mates}" << std::endl;
 	}
 	else{
