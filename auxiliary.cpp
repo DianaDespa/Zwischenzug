@@ -1,8 +1,5 @@
 #include "auxiliary.h"
 
-// Returns a string consisting of the bits of the argument "value", sorted from
-// least significant to most significant.
-// For debugging purposes.
 std::string Auxiliary::convertToBitString(BITBOARD value) {
 	std::string str(64, '0');
 

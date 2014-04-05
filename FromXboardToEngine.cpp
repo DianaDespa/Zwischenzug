@@ -22,6 +22,7 @@ void FromXboardtoEngine::newCommand(void) {
 
 // Exit program.
 void FromXboardtoEngine::quitCommand(void) {
+	ChessBoard::deleteTable();
 	exit(0);
 }
 

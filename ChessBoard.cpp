@@ -6,12 +6,13 @@ using namespace Pawn;
 using namespace Auxiliary;
 
 // Keeps track of the board's current start.
-board* ChessBoard::table = new board();
+board* ChessBoard::table = NULL;
 
 // Positions from and to which a piece moves.
 int ChessBoard::initial_position = 0,
 	ChessBoard::final_position = 0;
-int ChessBoard::flag = 0;
+bool ChessBoard::queen_flag = false,
+	 ChessBoard::castling_possible = true;
 int ChessBoard::final_pos_opponent = 0,
 	ChessBoard::white_en_passant = 0, 
 	ChessBoard::black_en_passant = 0;
@@ -27,23 +28,22 @@ std::string ChessBoard::ALPHA_NUMERIC_POSITIONS[64] =
 	"a7","b7","c7","d7","e7","f7","g7","h7",
 	"a8","b8","c8","d8","e8","f8","g8","h8"};
 
-// Constructor
-ChessBoard::ChessBoard(){
+// Frees allocated memory for table
+void ChessBoard::deleteTable() {
+	if (table != NULL)
+		delete table;
 }
 
-// Destructor
-ChessBoard::~ChessBoard() {
-	delete table;
-}
-
+// Checks if king is in danger of capture.
+// Returns the position of the "attacker" or -1 if the king is not in chess.
 int ChessBoard::kingInDanger(bool isWhite) {
 	std::vector<int> v;
 	size_t i;
 	if (isWhite) {
 		v = getOneBits(table->blackPieces);
 		for (i = 0; i < v.size(); ++i) {
-			//displayB(table->pieces[v[i]].nextMoves);
 			if (table->pieces[v[i]].nextAttacks & table->whiteKing) {
+				std::cout << "ATTACKER " << v[i] << std::endl;
 				return v[i];
 			}
 		}
@@ -51,8 +51,8 @@ int ChessBoard::kingInDanger(bool isWhite) {
 	else {
 		v = getOneBits(table->whitePieces);
 		for (i = 0; i < v.size(); ++i) {
-			//displayB(table->pieces[v[i]].nextMoves);
 			if (table->pieces[v[i]].nextAttacks & table->blackKing) {
+				std::cout << "ATTACKER " << v[i] << std::endl;
 				return v[i];
 			}
 		}
@@ -60,6 +60,8 @@ int ChessBoard::kingInDanger(bool isWhite) {
 	return -1;
 }
 
+// Tries to move a piece so that the king will not be in chess.
+// Returns true is the piece was moved with success, false otherwise. 
 bool ChessBoard::try_moving_piece(int start, int end, bool isWhite) {
     board* backup = new board();
     *backup = *table;
@@ -68,11 +70,24 @@ bool ChessBoard::try_moving_piece(int start, int end, bool isWhite) {
     if(kingInDanger(isWhite) == -1) {
     	initial_position = start;
     	final_position = end;
-        free(backup);        
+    	
+    	std::cout << "\n";
+
+        		for(int j =7 ; j>=0 ; j--){
+        		for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
+
+        			std::cout<<table->pieces[i].name<<" ";
+        		}
+        			std::cout << "\n";
+        	}
+
+        	std::cout << "\n";
+    	
+        delete(backup);        
         return true;
     }
     *table = *backup;
-    free(backup); 
+    delete(backup); 
     return false;
 }
 
@@ -151,7 +166,7 @@ void ChessBoard::movePiece(int initial_pos, int final_pos) {
 		switch (table->pieces[final_pos].name){
 		case 'P':
 			table->whitePawns &= ~(1ULL << initial_pos);
-			//white pawn promotion
+			// white pawn promotion
 			if (56 <= final_pos && final_pos <= 63) {
 				table->whiteQueens |= 1ULL << final_pos;
 				table->pieces[final_pos].name = 'Q';
@@ -220,9 +235,11 @@ void ChessBoard::movePiece(int initial_pos, int final_pos) {
 	updateBoard();
 }
 
-// Initialises all the bitboards and the board of piece codes.
+// Initialises all the bitboards, the board of piece codes, the flags and the
+// class variables.
 void ChessBoard::initializeBitboard() {
 
+	table = new board();
 	srand(time(NULL));
 	table->occupied = WHITE_PAWN | BLACK_PAWN | WHITE_ROOK | BLACK_ROOK
 					| WHITE_KNIGHT | BLACK_KNIGHT | WHITE_BISHOP | BLACK_BISHOP
@@ -291,12 +308,18 @@ void ChessBoard::initializeBitboard() {
 		table->pieces[i].nextAttacks = 0ULL;
 		table->pieces[i].nextMoves = 0ULL;
 	}
-	flag = 0;
+	queen_flag = false;
+	castling_possible = true;
+	initial_position = 0;
+	final_position = 0;
+	white_en_passant = 0;
+	black_en_passant = 0;
+	final_pos_opponent = 0;
 	table->whiteLostPieces.clear();
 	table->blackLostPieces.clear();
 }
 
-
+// Updates the fields on the pieces according to the current board state.
 void ChessBoard::updateBoard(){
 	for (int i = 0; i < 64; ++i) {
 		switch (table->pieces[i].name) {
@@ -621,43 +644,39 @@ std::string ChessBoard::finalPosFunc(){
 }
 
 // Moves opponent's piece on the board.
-void ChessBoard::updateOpponentMove(char* positions, bool isWhite){
-	if(strcmp(positions,"O-O") == 0){
-		//true = rocada mica
-		castling_recognition(isWhite, true);
-		return;
-	}
-	else if(strcmp(positions,"O-O-O") == 0) {
-		//false = rocada mare
-		castling_recognition(isWhite, false);
-		return;
-	}
-		
-		
+void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {	
 	int file1 = positions[0] - 'a'; int rank1 = positions[1] - '1';
 	int file2 = positions[2] - 'a'; int rank2 = positions[3] - '1';
 
 	int initial_pos = rank1 * 8 + file1;
 	final_pos_opponent = rank2 * 8 + file2;
 	movePiece(initial_pos, final_pos_opponent);
-	//en_passant_recognition(isWhite);
-	return;
+	
+	// Check for castling move from the opponent.
+	if (castling_recognition(initial_pos, final_pos_opponent, isWhite))
+		return;
+	
+	// Check for en passant move from the opponent.
+	en_passant_recognition(isWhite);
 }
 
+// Generate a vector of available move positions for the queen.
 std::vector<int> ChessBoard::generateValidQueenMove(int pos, bool isWhite) {
 	std::vector<int> available_positions;
 	
-	
-	flag = 1;
+	queen_flag = true;
+	// Use moves from the rook and bishop.
     available_positions = generateValidBishopMove(pos, isWhite);
 	std::vector<int> aux_vector = generateValidRookMove(pos, isWhite);
-    available_positions.insert(available_positions.end(), aux_vector.begin(), aux_vector.end());
-    flag = 0;
+    available_positions.insert(available_positions.end(),
+    						   aux_vector.begin(),
+    						   aux_vector.end());
+    queen_flag = false;
  
-
     return available_positions;
 }
 
+// Generate a vector of available move positions for the knight.
 std::vector<int> ChessBoard::generateValidKingMove(int pos, bool isWhite){
 	int offset [] = { 9 , 8, 7, 1, -1, -7, -8, -9};
 	std::vector<int> available_positions;
@@ -667,35 +686,48 @@ std::vector<int> ChessBoard::generateValidKingMove(int pos, bool isWhite){
 	if (isWhite) {
 		for (int i = 0; i < 8; ++i) {
 			final_pos = pos + offset[i];
-			if (final_pos * (63 - final_pos) >=0 && abs(pos % 8 - final_pos % 8) <= 2) {
-				if (table->pieces[final_pos].name == EMPTY_CODE || table->pieces[final_pos].name > 'a') {
+			
+			if (final_pos * (63 - final_pos) >=0 &&
+				abs(pos % 8 - final_pos % 8) <= 2) {
+				
+				if (table->pieces[final_pos].name == EMPTY_CODE ||
+					table->pieces[final_pos].name > 'a') {
+					
 					available_positions.push_back(final_pos);
                     table->pieces[pos].nextMoves |= 1ULL << final_pos;
 				}
 			}
 		}
-		table->pieces[pos].nextAttacks = table->pieces[pos].nextMoves & table->blackPieces;
+		table->pieces[pos].nextAttacks = table->pieces[pos].nextMoves &
+										 table->blackPieces;
 	}
 	else{
 		for(int i = 0; i < 8; ++i){
 			final_pos = pos + offset[i];
-			if (final_pos * (63 - final_pos) >=0 && abs(pos % 8 - final_pos % 8) <= 2) {
-				if (table->pieces[final_pos].name == EMPTY_CODE || table->pieces[final_pos].name < 'a') {
+			
+			if (final_pos * (63 - final_pos) >=0 &&
+				abs(pos % 8 - final_pos % 8) <= 2) {
+				
+				if (table->pieces[final_pos].name == EMPTY_CODE ||
+					table->pieces[final_pos].name < 'a') {
+					
 					available_positions.push_back(final_pos);
                     table->pieces[pos].nextMoves |= 1ULL << final_pos;
 				}
 			}
 		}
-		table->pieces[pos].nextAttacks = table->pieces[pos].nextMoves & table->whitePieces;
+		table->pieces[pos].nextAttacks = table->pieces[pos].nextMoves &
+										 table->whitePieces;
 	}
 	table->pieces[pos].nextMoves &= ~table->occupied;
     return available_positions;
 }
 
+// Generate a vector of available move positions for the knight.
 std::vector<int> ChessBoard::generateValidKnightMove(int pos, bool isWhite){
 	int offset [] = { 10 , 17, 15, 6, -10, -17, -15, -6};
 	std::vector<int> available_positions;
-	int final_pos;
+	int final_pos, color;
 	table->pieces[pos].nextAttacks = 0ULL;
 	table->pieces[pos].nextMoves = 0ULL;
 	
@@ -728,6 +760,7 @@ std::vector<int> ChessBoard::generateValidKnightMove(int pos, bool isWhite){
     return available_positions;
 }
 
+// Generate a vector of available move positions for the bishop.
 std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 	std::vector<int> available_positions;
 	int final_pos;
@@ -737,7 +770,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 	if (isWhite) {
 		for (int i = 1; i < 8 - pos % 8; ++i) {
 			final_pos = pos + 9 * i;
-            if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a')
+            if (table->pieces[final_pos].name != EMPTY_CODE &&
+            	table->pieces[final_pos].name < 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -753,7 +787,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 		}
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos - 9 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -770,7 +805,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 		
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos + 7 * i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7  ) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -787,7 +823,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 
 		for (int i = 1; i < 8 - pos % 8; ++i) {
 			final_pos = pos - 7 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -821,7 +858,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 		
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos - 9 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -838,7 +876,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 		
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos + 7 * i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -855,7 +894,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 		
 		for (int i = 1; i < 8 - pos % 8; ++i) {
 			final_pos = pos - 7 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -873,18 +913,21 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 	return available_positions;
 }
 
+// // Generate a vector of available move positions for the rook.
 std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 	std::vector<int> available_positions;
 
 	int final_pos;
-	if(flag == 0) {
+	if (!queen_flag) {
         table->pieces[pos].nextAttacks = 0ULL;
         table->pieces[pos].nextMoves = 0ULL;
     }
+    
 	if (isWhite) {
 		for (int i = 1; i < 8 - pos % 8; ++i) {
             final_pos = pos + i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -901,7 +944,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 		
 		for (int i = 1; i < 8 - pos / 8; ++i) {
 			final_pos = pos + 8 * i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a')
 				break;
 			if (final_pos * (63 - final_pos) >=0 && final_pos / 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -917,7 +961,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 		}
 		for (int i = 1; i <= pos / 8; ++i) {
 			final_pos = pos - 8 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&	
+				table->pieces[final_pos].name < 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >=0 && final_pos /8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -934,7 +979,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos - i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name < 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name < 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -951,7 +997,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 	} else {
 		for (int i = 1; i < 8 - pos / 8; ++i) {
 			final_pos = pos + 8 * i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -968,7 +1015,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 		
 		for (int i = 1; i <= pos / 8; ++i) {
 			final_pos = pos - 8 * i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos / 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -985,7 +1033,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 		
 		for (int i = 1; i <= 8 - pos % 8; ++i) {
 			final_pos = pos + i;
-			if (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a')
+			if (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a')
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 0) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -1002,7 +1051,8 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
 		
 		for (int i = 1; i <= pos % 8; ++i) {
 			final_pos = pos - i;
-			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE && table->pieces[final_pos].name > 'a'))
+			if (final_pos < 0 || (table->pieces[final_pos].name != EMPTY_CODE &&
+				table->pieces[final_pos].name > 'a'))
 				break;
 			if (final_pos * (63 - final_pos) >= 0 && final_pos % 8 != 7) {
 				if (table->pieces[final_pos].name == EMPTY_CODE) {
@@ -1020,10 +1070,11 @@ std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
     return available_positions;
 }
 
+// Tries to get the king out of chess, if he is in danger.
 int ChessBoard::kingIsSafe(bool isWhite) {
 	int attacker = kingInDanger(isWhite);
 	if (attacker != -1) {
-		// se inaltura amenintarea
+		// Looks for another piece to remove the "attacker".
 		std::vector<int> v;
 		size_t i;
 		if (isWhite) {
@@ -1040,7 +1091,10 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 			}
 		}
 
-		//se muta regele
+		//Tries to move the king somehow.
+		if (try_castling(isWhite))
+			return 1;
+		
 		std::vector<int> king_position, valid_final_moves;
 		if(isWhite)
 			king_position = getOneBits(table->whiteKing);
@@ -1051,16 +1105,21 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 
 		while (valid_final_moves.size() != 0) {
 			int final_king = rand() % valid_final_moves.size();
-			if(try_moving_piece(king_position[0], valid_final_moves[final_king], isWhite)) {
+			if(try_moving_piece(king_position[0],
+								valid_final_moves[final_king],
+								isWhite)) {
+				castling_possible = false;
 				return 1;
 			}
 			valid_final_moves.erase(valid_final_moves.begin() + final_king);
 		}
 
-		//kamikaze
-
-		if ((table->pieces[attacker].name != 'n' && table->pieces[attacker].name != 'p') ||
-			(table->pieces[attacker].name != 'N' && table->pieces[attacker].name != 'P')) {
+		// Tries to find another piece to get in the way of the attacker with
+		// another piece.
+		if ((table->pieces[attacker].name != 'n' &&
+			table->pieces[attacker].name != 'p') ||
+			(table->pieces[attacker].name != 'N' &&
+			table->pieces[attacker].name != 'P')) {
 
 			int file_k = king_position[0] % 8,
 				rank_k = king_position[0] / 8,
@@ -1068,8 +1127,10 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 				rank_a = attacker / 8;
 			int dif_file = file_a - file_k,
 				dif_rank = rank_a - rank_k;
+			
 			int step;
 			BITBOARD mask = 0ULL;
+			
 			if (file_k == file_a) {
 				step = (rank_k > rank_a) ? 8 : -8;
 			} else if (rank_k == rank_a){
@@ -1084,14 +1145,17 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 				else
 					step = -7;
 			}
+			
+			// Builds a mask with the path of the attacker to the king.
 			i = attacker + step;
-			while (i != king_position[0]) {
+			while (i != king_position[0]){ //&& i >= 0 && i < 64) {
 				mask |= 1ULL << i;
 				i += step;
 			}
 
 			std::vector<int> aux;
 
+			// Gather all pieces.
 			if (isWhite) {
 				v = getOneBits(table->whitePawns);
 				aux = getOneBits(table->whiteBishops);
@@ -1115,8 +1179,11 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 				v.insert(v.end(), aux.begin(), aux.end());
 			}
 
+			// Finds the intersection of a piece's path with the attacker's and
+			// tries to move the piece.
 			for (i = 0; i < v.size(); ++i) {
-				std::vector<int> intersect = getOneBits(table->pieces[v[i]].nextMoves & mask);
+				std::vector<int> intersect = 
+							getOneBits(table->pieces[v[i]].nextMoves &mask);
 				if (intersect.size() != 0) {
 					if(try_moving_piece(v[i], intersect[0], isWhite)) { 
 						return 1;
@@ -1129,11 +1196,43 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 	return 0;
 }
 
+// Helper function for checking if a piece type has any available moves.
+// Arguments are: a vector with the positions of the pieces of that type on the
+// board; a pointer to a function that generates possible moves for that piece
+// type; a bool for checking the color of the engine.
+//
+// Returns 1 if a valid move lead to victory, 0 if a simple valid move was
+// found, -1 if no valid move was found.
+int ChessBoard::randomPieceHelper(std::vector<int> piece_positions,
+								  std::vector<int> (* generate)(int, bool),
+								  bool isWhite) {
+	int chosen_piece, next_pos;			  
+	while (piece_positions.size() != 0) {
+		chosen_piece = rand() % piece_positions.size();
+		std::vector<int> valid_final_moves =
+							generate(piece_positions[chosen_piece], isWhite);
+		
+		while (valid_final_moves.size() != 0) {
+			next_pos = rand() % valid_final_moves.size();
+			if (try_moving_piece(piece_positions[chosen_piece],
+								valid_final_moves[next_pos],
+								isWhite)) {
+				return 0;
+			}
+			valid_final_moves.erase(valid_final_moves.begin() + next_pos);
+		}
+		if (table->pieces[piece_positions[chosen_piece]].name == 'K' ||
+			table->pieces[piece_positions[chosen_piece]].name == 'k')
+			return -1;
+		piece_positions.erase(piece_positions.begin() + chosen_piece);
+	}
+	return -1;
+}
+
 // Chooses a random available piece to move on the board.
 // Returns true if there is a piece that can be moved, false otherwise.
 int ChessBoard::randomPiece(bool isWhite) {
     int security = kingIsSafe(isWhite);
-	
 	if (security == 0) {
 		std::vector<int> rook_positions;
 		std::vector<int> king_positions;
@@ -1143,19 +1242,18 @@ int ChessBoard::randomPiece(bool isWhite) {
 		std::vector<int> valid_final_moves;
     
 		board* backup;
-
-		int pos = rand() % 5;
-		while(1) {
-			switch(pos){
+		int ret, pos = rand() % 6;
+		for (int k = 1; k <= 2; ++k) {
+			switch (pos) {
 			case 0:
 				backup = new board();
 				*backup = *table;
 				if(randomPositionPawn(isWhite)) {
 					if (kingInDanger(isWhite) != -1) {
 						*table = *backup;
-						free(backup);
+						delete(backup);
 					} else {
-						free(backup);
+						delete(backup);
 						return 0;
 					}
 				}
@@ -1164,17 +1262,12 @@ int ChessBoard::randomPiece(bool isWhite) {
 					rook_positions = getOneBits(table->whiteRooks);
 				else
 					rook_positions = getOneBits(table->blackRooks);
-				while (rook_positions.size() != 0){
-					int chosen_rook = rand() % rook_positions.size();
-					valid_final_moves = generateValidRookMove(rook_positions[chosen_rook], isWhite);
-					while (valid_final_moves.size() != 0){
-						int final_rook = rand() % valid_final_moves.size();
-						if(try_moving_piece(rook_positions[chosen_rook],valid_final_moves[final_rook], isWhite)) {
-							return 0;
-						}
-						valid_final_moves.erase(valid_final_moves.begin() + final_rook);
-					}
-					rook_positions.erase(rook_positions.begin() + chosen_rook);
+				ret = randomPieceHelper(rook_positions,
+											generateValidRookMove,
+											isWhite);
+				if (ret != -1) {
+					castling_possible = false;
+					return ret;
 				}
 			case 2:
 				if (isWhite)
@@ -1182,98 +1275,80 @@ int ChessBoard::randomPiece(bool isWhite) {
 				else
 					queen_positions = getOneBits(table->blackQueens);
 
-				while (queen_positions.size() != 0){
-					int chosen_queen = rand() % queen_positions.size() ;
-					valid_final_moves = generateValidQueenMove(queen_positions[chosen_queen], isWhite);
-
-					while (valid_final_moves.size() != 0){
-						int final_queen = rand() % valid_final_moves.size();
-						if(try_moving_piece(queen_positions[chosen_queen], valid_final_moves[final_queen], isWhite)) {
-							return 0;
-						}
-						valid_final_moves.erase(valid_final_moves.begin() + final_queen);
-					}
-					queen_positions.erase(queen_positions.begin() + chosen_queen);
-				}
+				ret = randomPieceHelper(queen_positions,
+											generateValidQueenMove,
+											isWhite);
+				if (ret != -1)
+					return ret;
 			case 3:
 				if (isWhite)
 					bishop_positions = getOneBits(table->whiteBishops);
 				else
 					bishop_positions = getOneBits(table->blackBishops);
 
-				while (bishop_positions.size() != 0){
-					int chosen_bishop = rand() % bishop_positions.size() ;
-					valid_final_moves = generateValidBishopMove(bishop_positions[chosen_bishop], isWhite);
-					while (valid_final_moves.size() != 0){
-						int final_bishop = rand() % valid_final_moves.size();
-						if(try_moving_piece(bishop_positions[chosen_bishop], valid_final_moves[final_bishop], isWhite)) {
-							return 0;
-						}
-						valid_final_moves.erase(valid_final_moves.begin() + final_bishop);
-					}
-					bishop_positions.erase(bishop_positions.begin() + chosen_bishop);
-				}
+				ret = randomPieceHelper(bishop_positions,
+											generateValidBishopMove,
+											isWhite);
+				if (ret != -1)
+					return ret;
 			case 4:
 				if (isWhite)
 					knight_positions = getOneBits(table->whiteKnights);
 				else
 					knight_positions = getOneBits(table->blackKnights);
 
-				while (knight_positions.size() != 0){
-					int chosen_knight = rand() % knight_positions.size() ;
-					valid_final_moves = generateValidKnightMove
-										(knight_positions[chosen_knight], isWhite);
-					while (valid_final_moves.size() != 0){
-						int final_knight = rand() % valid_final_moves.size();
-						if(try_moving_piece(knight_positions[chosen_knight], valid_final_moves[final_knight], isWhite)) {
-							return 0;
-						}
-						valid_final_moves.erase(valid_final_moves.begin() + final_knight);
-					}
-					knight_positions.erase(knight_positions.begin() + chosen_knight);
-				}
+				ret = randomPieceHelper(knight_positions,
+											generateValidKnightMove,
+											isWhite);
+				if (ret != -1)
+					return ret;
 			case 5:
+				if (try_castling(isWhite))
+					return 0;
 				if (isWhite)
 					king_positions = getOneBits(table->whiteKing);
 				else
 					king_positions = getOneBits(table->blackKing);
 
-				valid_final_moves = generateValidKingMove(king_positions[0], isWhite);
-				while (valid_final_moves.size() != 0){
-					int final_king = rand() % valid_final_moves.size();
-					if(try_moving_piece(king_positions[0],valid_final_moves[final_king], isWhite)) {
-						return 0;
-					}
-					valid_final_moves.erase(valid_final_moves.begin() + final_king);
+				ret = randomPieceHelper(king_positions,
+											generateValidKingMove,
+											isWhite);
+				if (ret != -1) {
+					castling_possible = false;
+					return ret;	
 				}
-				return 2;
+				break;
 			}
+			pos = 0; // check again all pieces for possible moves
 		}
+		return 2; // stalemate
 	} else if (security == 1) {
-		return 0;
+		return 0; // everyhting is ok
 	}
-	return -1;
+	return -1; // lost game
 }
 
-void ChessBoard::en_passant_recognition(bool isWhite){
-	if(isWhite){
-		//daca la mine s-au mutat 2 fata de pozitia initiala
-		if ( black_en_passant != 0 ){
-			if( final_pos_opponent == black_en_passant + 8 && table->pieces[final_pos_opponent].name == 'P' ){
-				table->blackLostPieces.push_back('p');
-				table->blackPawns &= ~(1ULL << black_en_passant);
-				table->blackPieces &= ~(1ULL << black_en_passant);
-				table->occupied &= ~(1ULL << (black_en_passant));
-				table->pieces[black_en_passant].name = EMPTY_CODE;
-				table->pieces[black_en_passant].nextMoves = 0ULL;
-				table->pieces[black_en_passant].nextAttacks = 0ULL;
-				black_en_passant = 0;
-			}
-		}
-	}
-	else{
-		if ( white_en_passant != 0 ){
-			if( final_pos_opponent == white_en_passant - 8 && table->pieces[final_pos_opponent].name == 'p'  ){
+/*
+// Checks if the engine has given checkmate to it's opponent.
+bool ChessBoard::winner(bool isWhite) {
+	board *backup = new board();
+	*backup = *table;
+	int backup_init = initial_position, backup_fin = final_position;
+	bool ret = (randomPiece(!isWhite) == -1) ? true : false;
+	*table = *backup;
+	delete(backup);
+	initial_position = backup_init;
+	final_position = backup_fin;
+	return ret;
+}*/
+
+// Interprets the en passant move from the opponent.
+void ChessBoard::en_passant_recognition(bool isWhite) {
+	if (isWhite) {
+		if (white_en_passant != 0) {
+			if (final_pos_opponent == white_en_passant - 8 &&
+				table->pieces[final_pos_opponent].name == 'p') {
+			
 				table->whiteLostPieces.push_back('P');
 				table->whitePawns &= ~(1ULL << white_en_passant);
 				table->whitePieces &= ~(1ULL << white_en_passant);
@@ -1282,100 +1357,94 @@ void ChessBoard::en_passant_recognition(bool isWhite){
 				table->pieces[white_en_passant].nextMoves = 0ULL;
 				table->pieces[white_en_passant].nextAttacks = 0ULL;
 				white_en_passant = 0;
+				updateBoard();
+			}
+		}
+	} else {
+		if (black_en_passant != 0) {
+			if (final_pos_opponent == black_en_passant + 8 &&
+				table->pieces[final_pos_opponent].name == 'P') {
+			
+				table->blackLostPieces.push_back('p');
+				table->blackPawns &= ~(1ULL << black_en_passant);
+				table->blackPieces &= ~(1ULL << black_en_passant);
+				table->occupied &= ~(1ULL << (black_en_passant));
+				table->pieces[black_en_passant].name = EMPTY_CODE;
+				table->pieces[black_en_passant].nextMoves = 0ULL;
+				table->pieces[black_en_passant].nextAttacks = 0ULL;
+				black_en_passant = 0;
+				updateBoard();
 			}
 		}
 	}
 }
 
-void ChessBoard::castling_recognition(bool isWhite, bool isSmall){
-	if(isWhite){
-		if(isSmall){
-			movePiece(60, 62);
-			movePiece(63, 61);
+// Interprets the castling move from the opponent.
+bool ChessBoard::castling_recognition(int start, int end, bool isWhite){
+	if (!isWhite) {
+		if (start == 4 && table->pieces[end].name == 'K') {
+			if (end == 6) {
+				movePiece(7, 5);
+				return true;
+			} else if (end == 2) {
+				movePiece(0, 3);
+				return true;	
+			}
 		}
-		else{
-			movePiece(60, 58);
-			movePiece(56, 59);
+	} else {
+		if (start == 60 && table->pieces[end].name == 'k') {
+			if (end == 62) {
+				movePiece(63, 61);
+				return true;
+			} else if (end == 58) {
+				movePiece(56, 59);
+				return true;	
+			}
 		}
 	}
-	else{		
-		if(isSmall){
-			movePiece(4, 6);
-			movePiece(7, 5);
-		}
-		else{
-			movePiece(4, 2);
-			movePiece(0, 3);
-		}
-	}
+	return false;
 }
 
-/*
-int main(){
-	ChessBoard c;
-	c.initializeBitboard();
-
-	//c.movePiece(2,47);
-	//std::vector<int> v = c.generateValidRookMove(0,true);
-	//c.randomPiece(true);
-	//c.updateOpponentMove("O-O", true);
-    
-    c.movePiece(1, 18);
-    c.movePiece(48, 40);
-    c.movePiece(6, 21);
-    c.movePiece(56, 48);
-    c.movePiece(18,35);
-   //if(c.kingInDanger(true) != -1)
-     //    std::cout<<"bau";
-
-    std::string a, b;
-    std::cout << "\n";
-
-        		for(int j =7 ; j>=0 ; j--){
-        		for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
-
-        			std::cout<<c.table->pieces[i].name<<" ";
-        		}
-        			std::cout << "\n";
-        	}
-
-        	std::cout << "\n";
-
-    	std::cout << "\n";
-        b = convertToBitString(c.table->pieces[51].nextMoves);
-        	for(int j =7 ; j>=0 ; j--){
-    		for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
-
-    			std::cout<<b[i]<<" ";
-    		}
-    			std::cout << "\n";
-    	}
-
-    	std::cout << "\n";
-
-   // if(c.randomPiece(false))
-    //	std::cout << "AM MUTAT" <<std::endl;
-
-		for(int j =7 ; j>=0 ; j--){
-		for(int i = 8*j ; i<= 8*(j+1) -1  ; i ++ ){
-
-			std::cout<<c.table->pieces[i].name<<" ";
+// Does castling for the engine, if possible.
+bool ChessBoard::try_castling(bool isWhite) {
+	if (castling_possible) {
+		if (isWhite) {
+			if (table->pieces[1].name == EMPTY_CODE &&
+				table->pieces[2].name == EMPTY_CODE &&
+				table->pieces[3].name == EMPTY_CODE) {
+				if (try_moving_piece(4, 2, isWhite)) {
+					movePiece(0, 3);
+					castling_possible = false;
+					return true;
+				}
+			}
+			if (table->pieces[5].name == EMPTY_CODE &&
+				table->pieces[6].name == EMPTY_CODE) {
+				if (try_moving_piece(4, 6, isWhite)) {
+					movePiece(7, 5);
+					castling_possible = false;
+					return true;
+				}
+			}
+		} else {
+			if (table->pieces[57].name == EMPTY_CODE &&
+				table->pieces[58].name == EMPTY_CODE &&
+				table->pieces[59].name == EMPTY_CODE) {
+				if (try_moving_piece(60, 58, isWhite)) {
+					movePiece(56, 59);
+					castling_possible = false;
+					return true;
+				}
+			}
+			if (table->pieces[61].name == EMPTY_CODE &&
+				table->pieces[62].name == EMPTY_CODE) {
+				if (try_moving_piece(60, 62, isWhite)) {
+					movePiece(63, 61);
+					castling_possible = false;
+					return true;
+				}
+			}
 		}
-			std::cout << "\n";
 	}
-
-	std::cout << "\n";
-
-	for (size_t i = 0; i < c.table->blackLostPieces.size(); ++i) {
-		std::cout << c.table->blackLostPieces[i] << " ";
-	}
-
-	std::cout << "\n";
-
-	for (size_t i = 0; i < c.table->whiteLostPieces.size(); ++i) {
-		std::cout << c.table->whiteLostPieces[i] << " ";
-	}
-	return 0;
+	return false;
 }
-
-*/

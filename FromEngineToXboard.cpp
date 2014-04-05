@@ -15,8 +15,10 @@ void FromEnginetoXboard::parseMovetoXboard(){
 	int commandResult = ChessBoard::randomPiece(WHITE_MODE);
 	if (commandResult == 2)
 		stalemateCommand();
-	else if (commandResult == -1)
+	else if (commandResult == 1)
 		checkmateCommand();
+	else if (commandResult == -1)
+		resignCommand();
 	else {
 		std::string initial = ChessBoard::initialPosFunc();
 		std::string final = ChessBoard::finalPosFunc();
@@ -26,7 +28,6 @@ void FromEnginetoXboard::parseMovetoXboard(){
 		WHITE_MOVING = !WHITE_MOVING;
 		BLACK_MOVING = !BLACK_MOVING;
 	}
-	
 }
 
 // Send resign command for the engine, for the corresponding color.
@@ -40,8 +41,9 @@ void FromEnginetoXboard::resignCommand(void){
 	setbuf(stdout, NULL);
 }
 
+// Send checkmate command, if the engine wins.
 void FromEnginetoXboard::checkmateCommand(void){
-	if (BLACK_MODE){
+	if (WHITE_MODE){
 		std::cout << "1-0 {WHITE mates}" << std::endl;
 	}
 	else{
@@ -50,6 +52,7 @@ void FromEnginetoXboard::checkmateCommand(void){
 	setbuf(stdout, NULL);
 }
 
+// Send stalemate command.
 void FromEnginetoXboard::stalemateCommand(void){
 	std::cout << "1/2-1/2 {Stalemate}" << std::endl;
 	setbuf(stdout, NULL);
