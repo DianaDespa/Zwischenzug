@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 1
+// Zugzwang Chess Engine - stage 2
 
 #include "FromEngineToXboard.h"
 

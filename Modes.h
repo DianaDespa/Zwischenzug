@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 1
+// Zugzwang Chess Engine - stage 2
 
 #ifndef _MODES_H
 #define _MODES_H

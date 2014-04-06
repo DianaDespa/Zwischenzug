@@ -12,6 +12,8 @@ Zugzwang is a Winboard/Xboard chess engine written in C++ developed as a univers
 
 Implementation details:
 
+----------Stage 1----------
+
 For efficiency, Zugzwang engine uses as board representation - the bitboard. The main idea is to represent the board using a sequence of bits of 1 or 0 (in a 64 bits variable), each bit indicating the absence or the presence of some state about each place on the board. For this matter, our implementation contains a series of bitboards for white pieces, black pieces, and for each piece type.
 
 For the first stage of implementation, we used a couple of classes each of them with it's own purpose.
@@ -33,3 +35,10 @@ Finally, the ChessBoard class is used for making a valid move, or a valid attack
 At this stage we've managed to generate all the "next-move" bitboards for each piece (all the possible moves one piece can go to in order to attack the opponent)
 This was used in order to know whether the king is in danger or not. 
 However, at this stage we couldn't manage to make the version stable so there may be some bugs when the king is attacked. 
+
+----------Stage 2----------
+
+At this stage, we expanded the ChessBoard class with several new methods that simulate the behaviour of a chess player that moves randomly, but defends his king fiercely :D. Also, now, when trying to generate a valid move, the engine can tell whether the king is in chess, in which case it tries several methods to get him out of chess, whether it has lost the game or is in stalemate.
+
+//TODO en passant, castling, nu merge winner :(
+We split the implementations of the ChessBoard class members into different files in order to find a specific method easier, when debugging or modifying the code.

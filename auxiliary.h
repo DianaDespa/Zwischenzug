@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 2
+
 #ifndef AUXILIARY_H_
 #define AUXILIARY_H_
 

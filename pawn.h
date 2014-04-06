@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 2
+
 #ifndef PAWN_H_
 #define PAWN_H_
 

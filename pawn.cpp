@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 2
+
 #include "pawn.h"
 
 BITBOARD Pawn::pawnAttacks(int pos, bool isWhite) {

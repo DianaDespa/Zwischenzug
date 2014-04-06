@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 1
+// Zugzwang Chess Engine - stage 2
 
 #ifndef _PARSER_H
 #define _PARSER_H

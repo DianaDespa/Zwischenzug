@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 1
+// Zugzwang Chess Engine - stage 2
 
 namespace Modes {
 	bool XBOARD_MODE = false;

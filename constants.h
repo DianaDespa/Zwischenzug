@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 1
+// Zugzwang Chess Engine - stage 2
 
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H

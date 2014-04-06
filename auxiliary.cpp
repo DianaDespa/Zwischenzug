@@ -1,3 +1,5 @@
+// Zugzwang Chess Engine - stage 2
+
 #include "auxiliary.h"
 
 std::string Auxiliary::convertToBitString(BITBOARD value) {
