@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 2
+// Zugzwang Chess Engine
 
 // Methods: randomPieceHelper,
 //			en_passant_recognition,
@@ -111,6 +111,8 @@ bool ChessBoard::castling_recognition(int start, int end, bool isWhite){
 	int backup_init = initial_position, backup_fin = final_position;
 	bool ret = (randomPiece(!isWhite) == -1) ? true : false;
 	*table = *backup;
+	backup->whiteLostPieces.clear();
+	backup->blackLostPieces.clear();
 	delete(backup);
 	initial_position = backup_init;
 	final_position = backup_fin;

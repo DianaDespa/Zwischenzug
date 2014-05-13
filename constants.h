@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 2
+// Zugzwang Chess Engine
 
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H
@@ -34,11 +34,18 @@
 #define BLACK_KING_CODE 'k'
 #define EMPTY_CODE '0'
 
+//standard chess values for each piece
+#define PAWN_VALUE 1
+#define KNIGHT_VALUE 3
+#define BISHOP_VALUE 3
+#define ROOK_VALUE 5
+#define QUEEN_VALUE 9
+
 typedef unsigned long long BITBOARD;
 
 // The characteristics of a piece
 struct piece{
-	BITBOARD nextAttacks, nextMoves; //to be implemented
+	BITBOARD nextAttacks, nextMoves;
 	char name;
 };
 

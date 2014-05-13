@@ -40,5 +40,16 @@ However, at this stage we couldn't manage to make the version stable so there ma
 
 At this stage, we expanded the ChessBoard class with several new methods that simulate the behaviour of a chess player that moves randomly, but defends his king fiercely :D. Also, now, when trying to generate a valid move, the engine can tell whether the king is in chess, in which case it tries several methods to get him out of chess, whether it has lost the game or is in stalemate.
 
-//TODO en passant, castling, nu merge winner :(
 We split the implementations of the ChessBoard class members into different files in order to find a specific method easier, when debugging or modifying the code.
+
+To start with, the class ChessBoard-public_methods contains, beside the classic functions implemented in the first stage, a function that is used for choosing randomly between all the pieces and all the legal moves that can be applied when the time comes. 
+
+In order to make correct updates of the opponent moves, in the ChessBoard-helper_methods class we have functions that recognise chess techniques such as castling and en_passant.
+
+Also, there can be found a function that is used for checking whether a given piece has any randomly generated moves left or not.
+
+In the ChessBoard-generate_moves_methods class, we've managed to implement the castling function (only if possible & valid).
+
+In order to make the piece moves valid taking in consideration that it won't endanger the king, the move is checked by several functions before it is sent to the board. The functions are as follow: try_moving_piece, kingIsSafe and try_castling. Before any move is made, a backup for the table of bitboards is computed. If a certain move isn't valid, the table is reestablished and another move awaits to be generated.
+   
+When all the possible moves are computed and none found valid, the engine resigns. That is also the case in the event of a stalemate.

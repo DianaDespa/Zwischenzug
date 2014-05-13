@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 2
+// Zugzwang Chess Engine
 
 #ifndef _XBOARD_TO_ENGINE_H
 #define _XBOARD_TO_ENGINE_H

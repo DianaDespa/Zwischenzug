@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 2
+// Zugzwang Chess Engine
 
 // Methods: deleteTable,
 //			initializeBitboard
@@ -133,7 +133,13 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {
 int ChessBoard::randomPiece(bool isWhite) {
     int security = kingIsSafe(isWhite);
 	if (security == 0) {
-		std::vector<int> rook_positions;
+		score_max sc = negaMax(INT_MIN, INT_MAX, 3, isWhite);
+		if (sc.positions.first != -1) {
+			movePiece(sc.positions.first, sc.positions.second);
+			return 0;
+		}	
+		// everyhting is ok
+		/*std::vector<int> rook_positions;
 		std::vector<int> king_positions;
 		std::vector<int> queen_positions;
 		std::vector<int> bishop_positions;
@@ -150,8 +156,12 @@ int ChessBoard::randomPiece(bool isWhite) {
 				if(randomPositionPawn(isWhite)) {
 					if (kingInDanger(isWhite) != -1) {
 						*table = *backup;
+						backup->whiteLostPieces.clear();
+						backup->blackLostPieces.clear();
 						delete(backup);
 					} else {
+						backup->whiteLostPieces.clear();
+						backup->blackLostPieces.clear();
 						delete(backup);
 						return 0;
 					}
@@ -220,9 +230,10 @@ int ChessBoard::randomPiece(bool isWhite) {
 			}
 			pos = 0; // check again all pieces for possible moves
 		}
-		return 2; // stalemate
+		return 2; // stalemate*/
 	} else if (security == 1) {
 		return 0; // everyhting is ok
 	}
 	return -1; // lost game
 }
+

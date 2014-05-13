@@ -1,4 +1,4 @@
-// Zugzwang Chess Engine - stage 2
+// Zugzwang Chess Engine
 
 #ifndef _FUNC_H
 #define _FUNC_H
@@ -9,10 +9,18 @@
 #include <ctime>
 #include <stdlib.h>
 #include <cmath>
+#include <utility>
+#include <map>
 #include <cstring>
+#include <climits>
 #include "constants.h"
 #include "pawn.h"
 #include "auxiliary.h"
+
+typedef struct{
+	int score;
+	std::pair<int, int> positions;
+} score_max;
 
 // Class that implements the chess board's current state and functions for
 // generating moves and checking move validity.
@@ -126,6 +134,10 @@ public:
 	
 	// Returns the algebraic notation corresponding to initial_position.
 	static std::string initialPosFunc(void);
+	
+	static int eval_heuristic(bool isWhite);
+	static score_max negaMax(int alpha, int beta, int depth, bool isWhite);
+	//static int negaMax(int alpha, int beta, int depth, bool isWhite);
 };
 
 #endif
