@@ -542,17 +542,14 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 	map<int, vector<int> > legal_moves;
 	vector<int> v, temp;
 	vector<int> aux;
-	cout<<"\nINTRARAAM!!!!!!!!!!!!!!!!!!!!  " << depth <<endl;
 
 	score_max max;
 	max.score = alpha;
 	
 	if (isWhite) {
 		v = getOneBits(table->whitePieces);
-		printBitboard(table->whitePieces);
 	} else {
 		v = getOneBits(table->blackPieces);
-		printBitboard(table->blackPieces);
 	}
 	
 	for (int i = 0; i < v.size(); ++i) {
@@ -576,7 +573,7 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 			*backup = *table;
 			movePiece(it->first, *ii);	
 			
-			Score = negaMax(-beta, -alpha, depth-1, isWhite);
+			Score = negaMax(-beta, -alpha, depth-1, !isWhite);
 			Score.score = -Score.score;
 			
 			*table = *backup;

@@ -134,10 +134,11 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {
 int ChessBoard::randomPiece(bool isWhite) {
     int security = kingIsSafe(isWhite);
 	if (security == 0) {
-		std::cout << "RANDOM PIECE: KING IS SAFE\n";
-		score_max sc = negaMax(INT_MIN, INT_MAX, 3, isWhite);
+		score_max sc = negaMax(INT_MIN, INT_MAX, 4, isWhite);
 		if (sc.positions.first != -1) {
 			movePiece(sc.positions.first, sc.positions.second);
+			initial_position = sc.positions.first;
+			final_position = sc.positions.second;
 			return 0;
 		}	
 		// everyhting is ok

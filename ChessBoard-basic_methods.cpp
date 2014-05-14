@@ -12,8 +12,6 @@ using namespace Auxiliary;
 // Checks if king is in danger of capture.
 // Returns the position of the "attacker" or -1 if the king is not in chess.
 int ChessBoard::kingInDanger(bool isWhite) {
-	
-	std::cout << "CHECK KING IN DANGER\n";
 	std::vector<int> v;
 	size_t i;
 	if (isWhite) {
@@ -40,8 +38,6 @@ int ChessBoard::kingInDanger(bool isWhite) {
 // and all the piece types, depending on the piece that moves and whether the
 // move is a capture.
 void ChessBoard::movePiece(int initial_pos, int final_pos) {
-
-	std::cout << "I'M IN MOVEPIECE\n";
 	// Set the bit for the initial position to 0.
 	table->occupied &= ~(1ULL << (initial_pos));
 

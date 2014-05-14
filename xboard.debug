@@ -66,948 +66,215 @@ recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
 StartChildProcess (dir="/home/diana/github/Zwischenzug") /home/diana/github/Zwischenzug/ZugzwangEngine
-596 >first : xboard
+598 >first : xboard
 protover 2
 shuffleOpenings = 0
-621 <first : feature myname="Zugzwang"
-621 >first : accepted myname
-624 <first : feature usermove=1
-624 >first : accepted usermove
-624 <first : feature sigint=0
-624 >first : accepted sigint
-624 <first : feature sigterm=0
-624 >first : accepted sigterm
-624 <first : feature done=1
-624 >first : accepted done
-625 >first : new
+616 <first : feature myname="Zugzwang"
+616 >first : accepted myname
+617 <first : feature usermove=1
+617 >first : accepted usermove
+617 <first : feature sigint=0
+617 >first : accepted sigint
+617 <first : feature sigterm=0
+617 >first : accepted sigterm
+617 <first : feature done=1
+617 >first : accepted done
+618 >first : new
 random
-625 >first : level 40 5 0
-625 >first : post
-625 >first : hard
-1098 >first : force
+618 >first : level 40 5 0
+618 >first : post
+618 >first : hard
+1758 >first : force
 StartChildProcess (dir="/home/diana/github/Zwischenzug") /home/diana/github/Zwischenzug/ZugzwangEngine
-1099 >second: xboard
+1758 >second: xboard
 protover 2
-1101 <second: feature myname="Zugzwang"
-1101 >second: accepted myname
-1102 <second: feature usermove=1
-1102 >second: accepted usermove
-1102 <second: feature sigint=0
-1102 >second: accepted sigint
-1102 <second: feature sigterm=0
-1102 >second: accepted sigterm
-1102 <second: feature done=1
-1102 >second: accepted done
-1103 >second: new
+1760 <second: feature myname="Zugzwang"
+1760 >second: accepted myname
+1760 <second: feature usermove=1
+1760 >second: accepted usermove
+1760 <second: feature sigint=0
+1760 >second: accepted sigint
+1760 <second: feature sigterm=0
+1760 >second: accepted sigterm
+1760 <second: feature done=1
+1760 >second: accepted done
+1761 >second: new
 random
-1103 >second: level 40 5 0
-1103 >second: post
-1103 >second: hard
-1103 >second: force
+1761 >second: level 40 5 0
+1761 >second: post
+1761 >second: hard
+1761 >second: force
 New game (0): Zugzwang-Zugzwang (w)
-1113 >first : computer
-1113 >second: computer
-1113 >first : black
-1114 >first : time 30000
-1114 >first : otim 30000
-1114 >first : white
+1773 >first : computer
+1773 >second: computer
+1773 >first : black
+1773 >first : time 30000
+1773 >first : otim 30000
+1773 >first : white
 book hit = (NULL)
-1114 >first : go
+1773 >first : go
 nps: w=-1, b=-1
-1114 <first : CHECK KING IN DANGER
-1114 <first : RANDOM PIECE: KING IS SAFE
-1114 <first : 
-1114 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  3
-1114 <first : 1 1 1 1 1 1 1 1 
-1114 <first : 1 1 1 1 1 1 1 1 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : I'M IN MOVEPIECE
-1114 <first : 
-1114 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1114 <first : 1 0 1 1 1 1 1 1 
-1114 <first : 1 1 1 1 1 1 1 1 
-1114 <first : 1 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1114 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : I'M IN MOVEPIECE
-1115 <first : 
-1115 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1115 <first : 0 1 1 1 1 1 1 1 
-1115 <first : 1 1 1 1 1 1 1 1 
-1115 <first : 1 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : 0 0 0 0 0 0 0 0 
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1115 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : 
-1120 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1120 <first : 1 0 1 1 1 1 1 1 
-1120 <first : 1 1 1 1 1 1 1 1 
-1120 <first : 0 0 1 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : I'M IN MOVEPIECE
-1120 <first : 
-1120 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1120 <first : 0 1 1 1 1 1 1 1 
-1120 <first : 1 1 1 1 1 1 1 1 
-1120 <first : 0 0 1 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : 0 0 0 0 0 0 0 0 
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1120 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : 
-1121 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1121 <first : 1 1 1 1 1 1 0 1 
-1121 <first : 1 1 1 1 1 1 1 1 
-1121 <first : 0 0 0 0 0 1 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : I'M IN MOVEPIECE
-1121 <first : 
-1121 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1121 <first : 1 0 1 1 1 1 0 1 
-1121 <first : 1 1 1 1 1 1 1 1 
-1121 <first : 1 0 0 0 0 1 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : 0 0 0 0 0 0 0 0 
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1121 <first : I'M IN MOVEPIECE
-1122 <first : I'M IN MOVEPIECE
-1122 <first : 
-1122 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1122 <first : 1 1 1 1 1 1 0 1 
-1122 <first : 1 1 1 1 1 1 1 1 
-1122 <first : 0 0 0 0 0 0 0 1 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : I'M IN MOVEPIECE
-1122 <first : 
-1122 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1122 <first : 1 0 1 1 1 1 0 1 
-1122 <first : 1 1 1 1 1 1 1 1 
-1122 <first : 1 0 0 0 0 0 0 1 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : 0 0 0 0 0 0 0 0 
-1122 <first : I'M IN MOVEPIECE
-1122 <first : I'M IN MOVEPIECE
-1122 <first : I'M IN MOVEPIECE
-1122 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1123 <first : I'M IN MOVEPIECE
-1124 <first : I'M IN MOVEPIECE
-1124 <first : I'M IN MOVEPIECE
-1124 <first : I'M IN MOVEPIECE
-1124 <first : I'M IN MOVEPIECE
-1124 <first : 
-1124 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1124 <first : 1 1 1 1 1 1 1 1 
-1124 <first : 0 1 1 1 1 1 1 1 
-1124 <first : 1 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : I'M IN MOVEPIECE
-1124 <first : 
-1124 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1124 <first : 0 1 1 1 1 1 1 1 
-1124 <first : 1 1 1 1 1 1 1 1 
-1124 <first : 1 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1124 <first : 0 0 0 0 0 0 0 0 
-1125 <first : 0 0 0 0 0 0 0 0 
-1125 <first : 0 0 0 0 0 0 0 0 
-1125 <first : 0 0 0 0 0 0 0 0 
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1125 <first : I'M IN MOVEPIECE
-1126 <first : I'M IN MOVEPIECE
-1126 <first : I'M IN MOVEPIECE
-1126 <first : I'M IN MOVEPIECE
-1126 <first : I'M IN MOVEPIECE
-1126 <first : I'M IN MOVEPIECE
-1126 <first : 
-1126 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1126 <first : 1 1 1 1 1 1 1 1 
-1126 <first : 0 1 1 1 1 1 1 1 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : 1 0 0 0 0 0 0 0 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : I'M IN MOVEPIECE
-1126 <first : 
-1126 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1126 <first : 0 1 1 1 1 1 1 1 
-1126 <first : 1 1 1 1 1 1 1 1 
-1126 <first : 0 0 0 0 0 0 0 0 
-1126 <first : 1 0 0 0 0 0 0 0 
-1126 <first : 0 0 0 0 0 0 0 0 
-1127 <first : 0 0 0 0 0 0 0 0 
-1127 <first : 0 0 0 0 0 0 0 0 
-1127 <first : 0 0 0 0 0 0 0 0 
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1127 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : 
-1128 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1128 <first : 1 1 1 1 1 1 1 1 
-1128 <first : 1 0 1 1 1 1 1 1 
-1128 <first : 0 1 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : I'M IN MOVEPIECE
-1128 <first : 
-1128 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1128 <first : 1 0 1 1 1 1 1 1 
-1128 <first : 1 0 1 1 1 1 1 1 
-1128 <first : 1 1 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : 0 0 0 0 0 0 0 0 
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1128 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : 
-1129 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1129 <first : 1 1 1 1 1 1 1 1 
-1129 <first : 1 0 1 1 1 1 1 1 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 1 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : I'M IN MOVEPIECE
-1129 <first : 
-1129 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1129 <first : 1 0 1 1 1 1 1 1 
-1129 <first : 1 0 1 1 1 1 1 1 
-1129 <first : 1 0 0 0 0 0 0 0 
-1129 <first : 0 1 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : 0 0 0 0 0 0 0 0 
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1129 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : 
-1130 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1130 <first : 1 1 1 1 1 1 1 1 
-1130 <first : 1 1 0 1 1 1 1 1 
-1130 <first : 0 0 1 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : I'M IN MOVEPIECE
-1130 <first : 
-1130 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1130 <first : 1 0 1 1 1 1 1 1 
-1130 <first : 1 1 0 1 1 1 1 1 
-1130 <first : 1 0 1 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : 0 0 0 0 0 0 0 0 
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1130 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : 
-1131 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1131 <first : 1 1 1 1 1 1 1 1 
-1131 <first : 1 1 0 1 1 1 1 1 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 1 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : I'M IN MOVEPIECE
-1131 <first : 
-1131 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1131 <first : 1 0 1 1 1 1 1 1 
-1131 <first : 1 1 0 1 1 1 1 1 
-1131 <first : 1 0 0 0 0 0 0 0 
-1131 <first : 0 0 1 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : 0 0 0 0 0 0 0 0 
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1131 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : 
-1132 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1132 <first : 1 1 1 1 1 1 1 1 
-1132 <first : 1 1 1 0 1 1 1 1 
-1132 <first : 0 0 0 1 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : I'M IN MOVEPIECE
-1132 <first : 
-1132 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1132 <first : 1 0 1 1 1 1 1 1 
-1132 <first : 1 1 1 1 1 1 1 1 
-1132 <first : 0 0 0 1 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : 0 0 0 0 0 0 0 0 
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1132 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : 
-1133 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1133 <first : 1 1 1 1 1 1 1 1 
-1133 <first : 1 1 1 0 1 1 1 1 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 1 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : I'M IN MOVEPIECE
-1133 <first : 
-1133 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1133 <first : 1 0 1 1 1 1 1 1 
-1133 <first : 1 1 1 1 1 1 1 1 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 1 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : 0 0 0 0 0 0 0 0 
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1133 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : 
-1134 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1134 <first : 1 1 1 1 1 1 1 1 
-1134 <first : 1 1 1 1 0 1 1 1 
-1134 <first : 0 0 0 0 1 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : I'M IN MOVEPIECE
-1134 <first : 
-1134 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1134 <first : 1 0 1 1 1 1 1 1 
-1134 <first : 1 1 1 1 0 1 1 1 
-1134 <first : 1 0 0 0 1 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : 0 0 0 0 0 0 0 0 
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1134 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : 
-1135 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1135 <first : 1 1 1 1 1 1 1 1 
-1135 <first : 1 1 1 1 0 1 1 1 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 1 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : I'M IN MOVEPIECE
-1135 <first : 
-1135 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1135 <first : 1 0 1 1 1 1 1 1 
-1135 <first : 1 1 1 1 0 1 1 1 
-1135 <first : 1 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 1 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : 0 0 0 0 0 0 0 0 
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1135 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : I'M IN MOVEPIECE
-1136 <first : 
-1136 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1136 <first : 1 1 1 1 1 1 1 1 
-1136 <first : 1 1 1 1 1 0 1 1 
-1136 <first : 0 0 0 0 0 1 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : I'M IN MOVEPIECE
-1136 <first : 
-1136 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1136 <first : 1 0 1 1 1 1 1 1 
-1136 <first : 1 1 1 1 1 0 1 1 
-1136 <first : 1 0 0 0 0 1 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1136 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : 
-1137 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1137 <first : 1 1 1 1 1 1 1 1 
-1137 <first : 1 1 1 1 1 0 1 1 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 1 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : I'M IN MOVEPIECE
-1137 <first : 
-1137 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1137 <first : 1 0 1 1 1 1 1 1 
-1137 <first : 1 1 1 1 1 0 1 1 
-1137 <first : 1 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 1 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : 0 0 0 0 0 0 0 0 
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1137 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : 
-1138 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1138 <first : 1 1 1 1 1 1 1 1 
-1138 <first : 1 1 1 1 1 1 0 1 
-1138 <first : 0 0 0 0 0 0 1 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : I'M IN MOVEPIECE
-1138 <first : 
-1138 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1138 <first : 1 0 1 1 1 1 1 1 
-1138 <first : 1 1 1 1 1 1 0 1 
-1138 <first : 1 0 0 0 0 0 1 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : 0 0 0 0 0 0 0 0 
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1138 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : 
-1139 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1139 <first : 1 1 1 1 1 1 1 1 
-1139 <first : 1 1 1 1 1 1 0 1 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 1 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : I'M IN MOVEPIECE
-1139 <first : 
-1139 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1139 <first : 1 0 1 1 1 1 1 1 
-1139 <first : 1 1 1 1 1 1 0 1 
-1139 <first : 1 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 1 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : 0 0 0 0 0 0 0 0 
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1139 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : 
-1140 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1140 <first : 1 1 1 1 1 1 1 1 
-1140 <first : 1 1 1 1 1 1 1 0 
-1140 <first : 0 0 0 0 0 0 0 1 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : I'M IN MOVEPIECE
-1140 <first : 
-1140 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1140 <first : 1 0 1 1 1 1 1 1 
-1140 <first : 1 1 1 1 1 1 1 0 
-1140 <first : 1 0 0 0 0 0 0 1 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : 0 0 0 0 0 0 0 0 
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1140 <first : I'M IN MOVEPIECE
-1141 <first : I'M IN MOVEPIECE
-1141 <first : I'M IN MOVEPIECE
-1141 <first : I'M IN MOVEPIECE
-1141 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : 
-1144 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  2
-1144 <first : 1 1 1 1 1 1 1 1 
-1144 <first : 1 1 1 1 1 1 1 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 1 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : I'M IN MOVEPIECE
-1144 <first : 
-1144 <first : INTRARAAM!!!!!!!!!!!!!!!!!!!!  1
-1144 <first : 1 0 1 1 1 1 1 1 
-1144 <first : 1 1 1 1 1 1 1 0 
-1144 <first : 1 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 1 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : 0 0 0 0 0 0 0 0 
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : I'M IN MOVEPIECE
-1144 <first : move a1a1
-GameEnds(26, Xboard: Forfeit due to invalid move: a1a1 (a1a1) res=23, 4)
-1146 >first : result 0-1 {Xboard: Forfeit due to invalid move: a1a1 (a1a1) res=23}
-1146 >second: result 0-1 {Xboard: Forfeit due to invalid move: a1a1 (a1a1) res=23}
-1146 >first : force
-1146 >second: force
-ForwardInner(1), current 0, forward 0
-GameEnds(26, Xboard: Forfeit due to invalid move: a1a1 (a1a1) res=23, 2)
-3672 >first : quit
-3675 >second: quit
+1773 <first : RANDOM PIECE: KING IS SAFE
+1807 <first : move h2h4
+1807 >second: time 30000
+1807 >second: otim 29996
+book hit = (NULL)
+1807 >second: usermove 1807 >second: h2h4
+1807 >second: black
+1807 >second: go
+1889 <second: RANDOM PIECE: KING IS SAFE
+1889 <second: move a7a5
+1890 >first : time 29996
+1890 >first : otim 29991
+book hit = (NULL)
+1890 >first : usermove 1890 >first : a7a5
+1978 <first : RANDOM PIECE: KING IS SAFE
+1978 <first : move b1a3
+1978 >second: time 29991
+1978 >second: otim 29987
+book hit = (NULL)
+1978 >second: usermove 1978 >second: b1a3
+2089 <second: RANDOM PIECE: KING IS SAFE
+2089 <second: move g8h6
+2089 >first : time 29987
+2089 >first : otim 29980
+book hit = (NULL)
+2089 >first : usermove 2089 >first : g8h6
+2195 <first : RANDOM PIECE: KING IS SAFE
+2195 <first : move a1b1
+2195 >second: time 29980
+2195 >second: otim 29977
+book hit = (NULL)
+2195 >second: usermove 2195 >second: a1b1
+2278 <second: RANDOM PIECE: KING IS SAFE
+2278 <second: move h8g8
+2278 >first : time 29977
+2278 >first : otim 29972
+book hit = (NULL)
+2278 >first : usermove 2278 >first : h8g8
+2361 <first : RANDOM PIECE: KING IS SAFE
+2361 <first : move b1a1
+2361 >second: time 29972
+2361 >second: otim 29968
+book hit = (NULL)
+2361 >second: usermove 2361 >second: b1a1
+2447 <second: RANDOM PIECE: KING IS SAFE
+2447 <second: move g8h8
+2447 >first : time 29968
+2447 >first : otim 29963
+book hit = (NULL)
+2447 >first : usermove 2447 >first : g8h8
+2533 <first : RANDOM PIECE: KING IS SAFE
+2533 <first : move a1b1
+2533 >second: time 29963
+2533 >second: otim 29960
+book hit = (NULL)
+2533 >second: usermove 2533 >second: a1b1
+2618 <second: RANDOM PIECE: KING IS SAFE
+2618 <second: move h8g8
+2619 >first : time 29960
+2619 >first : otim 29955
+book hit = (NULL)
+2619 >first : usermove 2619 >first : h8g8
+2703 <first : RANDOM PIECE: KING IS SAFE
+2703 <first : move b1a1
+2703 >second: time 29955
+2703 >second: otim 29951
+book hit = (NULL)
+2703 >second: usermove 2703 >second: b1a1
+2789 <second: RANDOM PIECE: KING IS SAFE
+2789 <second: move g8h8
+2789 >first : time 29951
+2789 >first : otim 29946
+book hit = (NULL)
+2789 >first : usermove 2789 >first : g8h8
+2875 <first : RANDOM PIECE: KING IS SAFE
+2875 <first : move a1b1
+2875 >second: time 29946
+2875 >second: otim 29943
+book hit = (NULL)
+2875 >second: usermove 2875 >second: a1b1
+2960 <second: RANDOM PIECE: KING IS SAFE
+2960 <second: move h8g8
+2960 >first : time 29943
+2960 >first : otim 29938
+book hit = (NULL)
+2960 >first : usermove 2960 >first : h8g8
+3050 <first : RANDOM PIECE: KING IS SAFE
+3050 <first : move b1a1
+3051 >second: time 29938
+3051 >second: otim 29934
+book hit = (NULL)
+3051 >second: usermove 3051 >second: b1a1
+3136 <second: RANDOM PIECE: KING IS SAFE
+3137 <second: move g8h8
+3137 >first : time 29934
+3137 >first : otim 29929
+book hit = (NULL)
+3137 >first : usermove 3137 >first : g8h8
+3220 <first : RANDOM PIECE: KING IS SAFE
+3220 <first : move a1b1
+3220 >second: time 29929
+3220 >second: otim 29925
+book hit = (NULL)
+3220 >second: usermove 3220 >second: a1b1
+3303 <second: RANDOM PIECE: KING IS SAFE
+3304 <second: move h8g8
+3304 >first : time 29925
+3304 >first : otim 29921
+book hit = (NULL)
+3304 >first : usermove 3304 >first : h8g8
+3391 <first : RANDOM PIECE: KING IS SAFE
+3391 <first : move b1a1
+3391 >second: time 29921
+3391 >second: otim 29917
+book hit = (NULL)
+3391 >second: usermove 3391 >second: b1a1
+3475 <second: RANDOM PIECE: KING IS SAFE
+3475 <second: move g8h8
+3475 >first : time 29917
+3475 >first : otim 29912
+book hit = (NULL)
+3475 >first : usermove 3475 >first : g8h8
+3560 <first : RANDOM PIECE: KING IS SAFE
+3560 <first : move a1b1
+3560 >second: time 29912
+3560 >second: otim 29908
+book hit = (NULL)
+3560 >second: usermove 3560 >second: a1b1
+3647 <second: RANDOM PIECE: KING IS SAFE
+3647 <second: move h8g8
+3647 >first : time 29908
+3647 >first : otim 29903
+book hit = (NULL)
+3647 >first : usermove 3647 >first : h8g8
+3733 <first : RANDOM PIECE: KING IS SAFE
+3733 <first : move b1a1
+3734 >second: time 29903
+3734 >second: otim 29900
+book hit = (NULL)
+3734 >second: usermove 3734 >second: b1a1
+3816 <second: RANDOM PIECE: KING IS SAFE
+3816 <second: move g8h8
+3816 >first : time 29900
+3816 >first : otim 29895
+book hit = (NULL)
+3817 >first : usermove 3817 >first : g8h8
+3903 <first : RANDOM PIECE: KING IS SAFE
+3903 <first : move a1b1
+3903 >second: time 29895
+3903 >second: otim 29891
+book hit = (NULL)
+3903 >second: usermove 3903 >second: a1b1
+3990 <second: RANDOM PIECE: KING IS SAFE
+3990 <second: move h8g8
+3990 >first : force
+3990 >first : usermove 3990 >first : h8g8
+GameEnds(27, XBoard adjudication: repetition draw, 4)
+3990 >first : result 1/2-1/2 {XBoard adjudication: repetition draw}
+3990 >second: result 1/2-1/2 {XBoard adjudication: repetition draw}
+3993 >first : force
+3994 >second: force
+GameEnds(27, XBoard adjudication: repetition draw, 2)
+5482 >first : quit
+5483 >second: quit
