@@ -36,10 +36,10 @@
 
 //standard chess values for each piece
 #define PAWN_VALUE 1
-#define KNIGHT_VALUE 3
+#define KNIGHT_VALUE 2
 #define BISHOP_VALUE 3
-#define ROOK_VALUE 5
-#define QUEEN_VALUE 9
+#define ROOK_VALUE 3
+#define QUEEN_VALUE 4
 
 typedef unsigned long long BITBOARD;
 

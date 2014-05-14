@@ -127,7 +127,7 @@ public:
 	// Returns 0 if there is a piece that can simply be moved, 1 if a piece was 
 	// moved and the engine won, -1 if the engine cannot make a valid move (the
 	// engine lost), 2 if the engine is in stalemate.
-	static int randomPiece(bool isWhite);
+	static int getMove(bool isWhite);
 	
 	// Returns the algebraic notation corresponding to final_position.
 	static std::string finalPosFunc(void);
@@ -135,9 +135,12 @@ public:
 	// Returns the algebraic notation corresponding to initial_position.
 	static std::string initialPosFunc(void);
 	
+	// The function that returns a score corresponding to a certain state of the
+	// board.
 	static int eval_heuristic(bool isWhite);
+	
+	// NegaMax algorithm which returns the best score and the move that leads to it.
 	static score_max negaMax(int alpha, int beta, int depth, bool isWhite);
-	//static int negaMax(int alpha, int beta, int depth, bool isWhite);
 };
 
 #endif

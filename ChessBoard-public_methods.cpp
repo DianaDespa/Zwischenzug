@@ -131,7 +131,7 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {
 // Returns 0 if there is a piece that can simply be moved, 1 if a piece was 
 // moved and the engine won, -1 if the engine cannot make a valid move (the
 // engine lost), 2 if the engine is in stalemate.
-int ChessBoard::randomPiece(bool isWhite) {
+int ChessBoard::getMove(bool isWhite) {
     int security = kingIsSafe(isWhite);
 	if (security == 0) { // everyhting is ok
 		score_max sc = negaMax(INT_MIN, INT_MAX, 4, isWhite);
@@ -140,6 +140,8 @@ int ChessBoard::randomPiece(bool isWhite) {
 			initial_position = sc.positions.first;
 			final_position = sc.positions.second;
 			return 0;
+		} else {
+			return 2;
 		}
 	} else if (security == 1) {
 		return 0; // everyhting is ok

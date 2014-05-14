@@ -522,7 +522,6 @@ int ChessBoard::eval_heuristic(bool isWhite){
 	return rank + mobility/10 + attacks;
 }
 
-	
 score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 	
 	score_max Score;
@@ -571,7 +570,7 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 				continue;
 			}
 			
-			Score = negaMax(-beta, -alpha, depth-1, isWhite);
+			Score = negaMax(-beta, -alpha, depth-1, !isWhite); // switch color
 			Score.score = -Score.score;
 			
 			*table = *backup;
@@ -582,10 +581,8 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 				max.score = Score.score;
 				max.positions = make_pair(it->first, *ii);
 			}
-			
 			if (alpha >= beta)
 				break;
-			
 		}
 		if (alpha >= beta)
 			break;

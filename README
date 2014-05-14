@@ -53,3 +53,8 @@ In the ChessBoard-generate_moves_methods class, we've managed to implement the c
 In order to make the piece moves valid taking in consideration that it won't endanger the king, the move is checked by several functions before it is sent to the board. The functions are as follow: try_moving_piece, kingIsSafe and try_castling. Before any move is made, a backup for the table of bitboards is computed. If a certain move isn't valid, the table is reestablished and another move awaits to be generated.
    
 When all the possible moves are computed and none found valid, the engine resigns. That is also the case in the event of a stalemate.
+
+----------Stage 3&4&5----------
+
+At this stage, we've written an alpha-beta negamax function in the ChessBoard-generate-valid-moves.cpp file.
+The heuristic depends not only on the score of each piece ( pawn = 1; knight = 3; bishop = 3; rook = 5; queen = 9 ), but also on the mobility of the board.

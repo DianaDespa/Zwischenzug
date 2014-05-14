@@ -12,7 +12,7 @@ void FromEnginetoXboard::parseMove(std::string move){
 // Xboard. Set opponent on move.
 void FromEnginetoXboard::parseMovetoXboard(){
 	std::string movePiece;
-	int commandResult = ChessBoard::randomPiece(WHITE_MODE);
+	int commandResult = ChessBoard::getMove(WHITE_MODE);
 	if (commandResult == 2)
 		stalemateCommand();
 	else if (commandResult == 1)
