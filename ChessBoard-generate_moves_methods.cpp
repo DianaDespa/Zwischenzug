@@ -17,6 +17,7 @@
 
 using namespace Auxiliary;
 using namespace std;
+
 // Tries to move a piece so that the king will not be in chess.
 // Returns true is the piece was moved with success, false otherwise. 
 bool ChessBoard::try_moving_piece(int start, int end, bool isWhite) {
@@ -88,7 +89,7 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 	int attacker = kingInDanger(isWhite);
 	if (attacker != -1) {
 		// Looks for another piece to remove the "attacker".
-		std::vector<int> v;
+		vector<int> v;
 		size_t i;
 		if (isWhite) {
 			v = getOneBits(table->whitePieces);
@@ -106,7 +107,7 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 
 		//Tries to move the king somehow.
 		
-		std::vector<int> king_position, valid_final_moves;
+		vector<int> king_position, valid_final_moves;
 		if(isWhite)
 			king_position = getOneBits(table->whiteKing);
 		else
@@ -164,7 +165,7 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 				i += step;
 			}
 
-			std::vector<int> aux;
+			vector<int> aux;
 
 			// Gather all pieces.
 			if (isWhite) {
@@ -193,7 +194,7 @@ int ChessBoard::kingIsSafe(bool isWhite) {
 			// Finds the intersection of a piece's path with the attacker's and
 			// tries to move the piece.
 			for (i = 0; i < v.size(); ++i) {
-				std::vector<int> intersect = 
+				vector<int> intersect = 
 							getOneBits(table->pieces[v[i]].nextMoves &mask);
 				if (intersect.size() != 0) {
 					if(try_moving_piece(v[i], intersect[0], isWhite)) { 
@@ -441,7 +442,7 @@ bool ChessBoard::generateValidPawnAttack(int pos, bool isWhite){
 // Chooses a random available pawn to move on the board.
 // Returns true if there is a pawn that can be moved, false otherwise.
 bool ChessBoard::randomPositionPawn(bool isWhite){
-	std::vector<int> v;
+	vector<int> v;
 	int p;
 
 	// Keeps track of all available pawns, depending on the color of the engine
@@ -467,13 +468,13 @@ bool ChessBoard::randomPositionPawn(bool isWhite){
 }
 
 // Generate a vector of available move positions for the queen.
-std::vector<int> ChessBoard::generateValidQueenMove(int pos, bool isWhite) {
-	std::vector<int> available_positions;
+vector<int> ChessBoard::generateValidQueenMove(int pos, bool isWhite) {
+	vector<int> available_positions;
 	
 	queen_flag = true;
 	// Use moves from the rook and bishop.
     available_positions = generateValidBishopMove(pos, isWhite);
-	std::vector<int> aux_vector = generateValidRookMove(pos, isWhite);
+	vector<int> aux_vector = generateValidRookMove(pos, isWhite);
     available_positions.insert(available_positions.end(),
     						   aux_vector.begin(),
     						   aux_vector.end());
@@ -491,7 +492,7 @@ int ChessBoard::eval_heuristic(bool isWhite){
 		opposite_pieces = table->blackPieces;
 	else opposite_pieces = table->whitePieces;
 	
-	std::vector<int> positions = getOneBits(opposite_pieces);
+	vector<int> positions = getOneBits(opposite_pieces);
 	
 	for(int i = 0; i< positions.size(); ++i){
 		if(table->pieces[positions[i]].name == 'Q' ||
@@ -501,7 +502,7 @@ int ChessBoard::eval_heuristic(bool isWhite){
 								table->pieces[positions[i]].nextAttacks).size();
 		}
 		else if(table->pieces[positions[i]].name == 'K' ||
-			table->pieces[positions[i]].name == 'K'){
+			table->pieces[positions[i]].name == 'k'){
 			rank += KNIGHT_VALUE;
 			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
 								table->pieces[positions[i]].nextAttacks).size();
@@ -531,80 +532,76 @@ int ChessBoard::eval_heuristic(bool isWhite){
 
 	
 score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
-	std::map<int, std::vector<int> > legal_moves;
-	std::vector<int> v, temp;
-	std::vector<int> aux;
-	std::cout<<"\nINTRARAAM!!!!!!!!!!!!!!!!!!!!  " << depth <<std::endl;
+	
+	score_max Score;
+	if (depth == 0) {
+		Score.score = eval_heuristic(isWhite);
+		return Score;
+	}
+	
+	map<int, vector<int> > legal_moves;
+	vector<int> v, temp;
+	vector<int> aux;
+	cout<<"\nINTRARAAM!!!!!!!!!!!!!!!!!!!!  " << depth <<endl;
 
 	score_max max;
-	max.score = INT_MAX; 
-	score_max Score;
+	max.score = alpha;
 	
 	if (isWhite) {
 		v = getOneBits(table->whitePieces);
+		printBitboard(table->whitePieces);
 	} else {
 		v = getOneBits(table->blackPieces);
+		printBitboard(table->blackPieces);
 	}
+	
 	for (int i = 0; i < v.size(); ++i) {
-		 
 		temp = getOneBits(table->pieces[v[i]].nextAttacks |
 							table->pieces[v[i]].nextMoves);
-		//aux.insert(aux.end(), temp.begin(), temp.end());
-		legal_moves.insert(make_pair(v[i], temp)); 	
-		std::cout<<"\nPentru "<< table->pieces[v[i]].name << std::endl;
-		 
-		for(int j = 0; j< temp.size(); j++){
-				std::cout<<"\n"<<temp[j]<<std::endl;
-		}
+		legal_moves.insert(make_pair(v[i], temp));
 	}
 		
 	if(legal_moves.size() == 0){
-		//daca regele e in pericol 
 		int p = kingIsSafe(isWhite);
 		score_max s;
 		s.score = p;
-		s.positions = std::make_pair(-1, -1);
+		s.positions = make_pair(-1, -1);
 		return s;
 	}
-	 for (std::map<int,vector<int> >::iterator it = legal_moves.begin(); it != legal_moves.end(); ++it){
-		for (std::vector<int>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii){
-			board* backup = new board();
+	
+	board* backup;
+	for (map<int,vector<int> >::iterator it = legal_moves.begin(); it != legal_moves.end(); ++it){
+		for (vector<int>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii){
+			backup = new board();
 			*backup = *table;
 			movePiece(it->first, *ii);	
 			
-			if (depth == 0) {
-				Score.score = eval_heuristic(isWhite);
-				Score.positions = make_pair(it->first, *ii);
-			} else {
-				Score = negaMax(-beta, -alpha, depth-1, isWhite);
-				Score.score = -Score.score;
-			}
-		
+			Score = negaMax(-beta, -alpha, depth-1, isWhite);
+			Score.score = -Score.score;
+			
 			*table = *backup;
 			delete(backup);
-		
-			if (isWhite && Score.score > beta)
-				break;
-			if (!isWhite && Score.score < alpha)
-				break;			
-			if (isWhite && Score.score >= alpha)
+			
+			if (Score.score >= alpha) {
 				alpha = Score.score;
-			if (!isWhite && Score.score <= beta)
-				beta = Score.score;
-	
-			if(Score.score > max.score){
 				max.score = Score.score;
-				max.positions = Score.positions;
+				max.positions = make_pair(it->first, *ii);
 			}
+			
+			if (alpha >= beta)
+				break;
+			
 		}
+		if (alpha >= beta)
+			break;
 	}
 	return max;
 }
 
 // Generate a vector of available move positions for the knight.
-std::vector<int> ChessBoard::generateValidKingMove(int pos, bool isWhite){
+vector<int> ChessBoard::generateValidKingMove(int pos, bool isWhite){
 	int offset [] = { 9 , 8, 7, 1, -1, -7, -8, -9};
-	std::vector<int> available_positions;
+	vector<int> available_positions;
 	int final_pos;
 	table->pieces[pos].nextMoves = 0ULL;
 	
@@ -649,9 +646,9 @@ std::vector<int> ChessBoard::generateValidKingMove(int pos, bool isWhite){
 }
 
 // Generate a vector of available move positions for the knight.
-std::vector<int> ChessBoard::generateValidKnightMove(int pos, bool isWhite){
+vector<int> ChessBoard::generateValidKnightMove(int pos, bool isWhite){
 	int offset [] = { 10 , 17, 15, 6, -10, -17, -15, -6};
-	std::vector<int> available_positions;
+	vector<int> available_positions;
 	int final_pos, color;
 	table->pieces[pos].nextAttacks = 0ULL;
 	table->pieces[pos].nextMoves = 0ULL;
@@ -692,8 +689,8 @@ std::vector<int> ChessBoard::generateValidKnightMove(int pos, bool isWhite){
 }
 
 // Generate a vector of available move positions for the bishop.
-std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
-	std::vector<int> available_positions;
+vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
+	vector<int> available_positions;
 	int final_pos;
     table->pieces[pos].nextAttacks = 0ULL;
     table->pieces[pos].nextMoves = 0ULL;
@@ -846,8 +843,8 @@ std::vector<int> ChessBoard::generateValidBishopMove(int pos, bool isWhite) {
 }
 
 // // Generate a vector of available move positions for the rook.
-std::vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
-	std::vector<int> available_positions;
+vector<int> ChessBoard::generateValidRookMove(int pos, bool isWhite){
+	vector<int> available_positions;
 
 	int final_pos;
 	if (!queen_flag) {
