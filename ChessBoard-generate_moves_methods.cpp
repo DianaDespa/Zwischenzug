@@ -485,7 +485,7 @@ vector<int> ChessBoard::generateValidQueenMove(int pos, bool isWhite) {
 
 int ChessBoard::eval_heuristic(bool isWhite){
 
-	int rank = 0, mobility = 0;
+	int rank = 0, mobility = 0, attacks = 0;
 	BITBOARD opposite_pieces;
 	
 	if(isWhite)
@@ -498,36 +498,28 @@ int ChessBoard::eval_heuristic(bool isWhite){
 		if(table->pieces[positions[i]].name == 'Q' ||
 			table->pieces[positions[i]].name == 'q'){
 			rank += QUEEN_VALUE;
-			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
-								table->pieces[positions[i]].nextAttacks).size();
 		}
 		else if(table->pieces[positions[i]].name == 'K' ||
 			table->pieces[positions[i]].name == 'k'){
 			rank += KNIGHT_VALUE;
-			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
-								table->pieces[positions[i]].nextAttacks).size();
 		}
 		else if(table->pieces[positions[i]].name == 'B' ||
 			table->pieces[positions[i]].name == 'b'){
 			rank += BISHOP_VALUE;
-			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
-								table->pieces[positions[i]].nextAttacks).size();
 		}
 		else if(table->pieces[positions[i]].name == 'R' ||
 			table->pieces[positions[i]].name == 'r'){
 			rank += ROOK_VALUE;
-			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
-								table->pieces[positions[i]].nextAttacks).size();
 		}
 		else if(table->pieces[positions[i]].name == 'P' ||
 			table->pieces[positions[i]].name == 'p'){
 			rank += PAWN_VALUE;
-			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
-								table->pieces[positions[i]].nextAttacks).size();
 		}
+		mobility += getOneBits(table->pieces[positions[i]].nextMoves).size();
+		attacks += getOneBits(table->pieces[positions[i]].nextAttacks).size();
 	}
 	
-	return rank + mobility/10;
+	return rank + mobility/10 + attacks;
 }
 
 	
@@ -579,7 +571,7 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 				continue;
 			}
 			
-			Score = negaMax(-beta, -alpha, depth-1, !isWhite);
+			Score = negaMax(-beta, -alpha, depth-1, isWhite);
 			Score.score = -Score.score;
 			
 			*table = *backup;
