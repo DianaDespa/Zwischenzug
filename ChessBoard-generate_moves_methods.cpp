@@ -494,33 +494,36 @@ int ChessBoard::eval_heuristic(bool isWhite){
 	std::vector<int> positions = getOneBits(opposite_pieces);
 	
 	for(int i = 0; i< positions.size(); ++i){
-			if(table->pieces[positions[i]].name == 'Q' ||
-				table->pieces[positions[i]].name == 'q'){
-				rank += QUEEN_VALUE;
-				mobility += getOneBits(table->pieces[positions[i]].nextMoves | table->pieces[positions[i]].nextAttacks).size();
-			}
-			else if(table->pieces[positions[i]].name == 'K' ||
-				table->pieces[positions[i]].name == 'K'){
-				rank += KNIGHT_VALUE;
-				mobility += getOneBits(table->pieces[positions[i]].nextMoves | table->pieces[positions[i]].nextAttacks).size();
-			}
-			else if(table->pieces[positions[i]].name == 'B' ||
-				table->pieces[positions[i]].name == 'b'){
-				rank += BISHOP_VALUE;
-				mobility += getOneBits(table->pieces[positions[i]].nextMoves | table->pieces[positions[i]].nextAttacks).size();
-			}
-			else if(table->pieces[positions[i]].name == 'R' ||
-				table->pieces[positions[i]].name == 'r'){
-				rank += ROOK_VALUE;
-				mobility += getOneBits(table->pieces[positions[i]].nextMoves | table->pieces[positions[i]].nextAttacks).size();
-			}
-			else if(table->pieces[positions[i]].name == 'P' ||
-				table->pieces[positions[i]].name == 'p'){
-				rank += PAWN_VALUE;
-				mobility += getOneBits(table->pieces[positions[i]].nextMoves | table->pieces[positions[i]].nextAttacks).size();
-			}
-		
-		
+		if(table->pieces[positions[i]].name == 'Q' ||
+			table->pieces[positions[i]].name == 'q'){
+			rank += QUEEN_VALUE;
+			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
+								table->pieces[positions[i]].nextAttacks).size();
+		}
+		else if(table->pieces[positions[i]].name == 'K' ||
+			table->pieces[positions[i]].name == 'K'){
+			rank += KNIGHT_VALUE;
+			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
+								table->pieces[positions[i]].nextAttacks).size();
+		}
+		else if(table->pieces[positions[i]].name == 'B' ||
+			table->pieces[positions[i]].name == 'b'){
+			rank += BISHOP_VALUE;
+			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
+								table->pieces[positions[i]].nextAttacks).size();
+		}
+		else if(table->pieces[positions[i]].name == 'R' ||
+			table->pieces[positions[i]].name == 'r'){
+			rank += ROOK_VALUE;
+			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
+								table->pieces[positions[i]].nextAttacks).size();
+		}
+		else if(table->pieces[positions[i]].name == 'P' ||
+			table->pieces[positions[i]].name == 'p'){
+			rank += PAWN_VALUE;
+			mobility += getOneBits(table->pieces[positions[i]].nextMoves |
+								table->pieces[positions[i]].nextAttacks).size();
+		}
 	}
 	
 	return rank + mobility/10;
@@ -531,29 +534,28 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 	std::map<int, std::vector<int> > legal_moves;
 	std::vector<int> v, temp;
 	std::vector<int> aux;
-	std::cout<<"\nINTRARAAM!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+	std::cout<<"\nINTRARAAM!!!!!!!!!!!!!!!!!!!!  " << depth <<std::endl;
 
 	score_max max;
 	max.score = INT_MAX; 
 	score_max Score;
 	
-	
 	if (isWhite) {
-			v = getOneBits(table->whitePieces);
-		}
-	else {
-			v = getOneBits(table->blackPieces);
-		}
+		v = getOneBits(table->whitePieces);
+	} else {
+		v = getOneBits(table->blackPieces);
+	}
 	for (int i = 0; i < v.size(); ++i) {
 		 
-		 temp = getOneBits(table->pieces[v[i]].nextAttacks | table->pieces[v[i]].nextMoves);
-		 aux.insert(aux.end(), temp.begin(), temp.end());
-		 legal_moves.insert(make_pair(v[i], aux)); 	
-		 std::cout<<"\nPentru "<< table->pieces[v[i]].name << std::endl;
+		temp = getOneBits(table->pieces[v[i]].nextAttacks |
+							table->pieces[v[i]].nextMoves);
+		//aux.insert(aux.end(), temp.begin(), temp.end());
+		legal_moves.insert(make_pair(v[i], temp)); 	
+		std::cout<<"\nPentru "<< table->pieces[v[i]].name << std::endl;
 		 
-		 for(int j = 0; j< v.size(); j++){
-				std::cout<<"\n"<<v[j]<<std::endl;
-			}
+		for(int j = 0; j< temp.size(); j++){
+				std::cout<<"\n"<<temp[j]<<std::endl;
+		}
 	}
 		
 	if(legal_moves.size() == 0){
@@ -564,51 +566,37 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 		s.positions = std::make_pair(-1, -1);
 		return s;
 	}
-	//for (int i = 0; i< legal_moves.size(); ++i){
-		//it = legal_moves.find()
-	 for (std::map<int,vector<int> >::iterator it=legal_moves.begin(); it!=legal_moves.end(); ++it){
-		//std::cout << it->first << " => " << it->second << '\n';
-		for (std::vector<int>::iterator ii = it->second.begin() ; ii != it->second.end(); ++ii){
-			//std::cout << ' ' << *it;
-		//for(int j = 0; j< it->second.size(); j++){
+	 for (std::map<int,vector<int> >::iterator it = legal_moves.begin(); it != legal_moves.end(); ++it){
+		for (std::vector<int>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii){
 			board* backup = new board();
 			*backup = *table;
-			//TODO de facut miscarea 
 			movePiece(it->first, *ii);	
 			
-			if(depth == 0){
+			if (depth == 0) {
 				Score.score = eval_heuristic(isWhite);
 				Score.positions = make_pair(it->first, *ii);
+			} else {
+				Score = negaMax(-beta, -alpha, depth-1, isWhite);
+				Score.score = -Score.score;
 			}
-		else {
-			//score = -negaMax(-beta, -alpha, depth-1, isWhite);
-			score_max Score = negaMax(-beta, -alpha, depth-1, isWhite);
-			Score.score = -Score.score;
-			
-		}
 		
-		*table = *backup;
-		delete(backup);
+			*table = *backup;
+			delete(backup);
 		
-		if(isWhite && Score.score > beta)
-			break;
-			
-		if(!isWhite && Score.score < alpha)
-			break;
-			
-		if(isWhite && Score.score >= alpha)
-			alpha = Score.score;
-		if(!isWhite && Score.score <= beta)
-			beta = Score.score;
+			if (isWhite && Score.score > beta)
+				break;
+			if (!isWhite && Score.score < alpha)
+				break;			
+			if (isWhite && Score.score >= alpha)
+				alpha = Score.score;
+			if (!isWhite && Score.score <= beta)
+				beta = Score.score;
 	
-		if(Score.score > max.score){
-			max.score = Score.score;
-			max.positions = Score.positions;
-			/*if(depth == MAX_DEPTH){
-				bestMove = legal_moves[i];
-			}*/
+			if(Score.score > max.score){
+				max.score = Score.score;
+				max.positions = Score.positions;
+			}
 		}
-	}
 	}
 	return max;
 }

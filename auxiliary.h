@@ -3,6 +3,7 @@
 #ifndef AUXILIARY_H_
 #define AUXILIARY_H_
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include "constants.h"
@@ -16,6 +17,8 @@ namespace Auxiliary {
 	
 	// Returns a vector consisting of the set bits of the argumeny "x".
 	std::vector<int> getOneBits(BITBOARD x);
+	
+	void printBitboard(BITBOARD b);
 };
 
 #endif

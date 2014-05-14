@@ -14,6 +14,16 @@ std::string Auxiliary::convertToBitString(BITBOARD value) {
 	return str;
 }
 
+void Auxiliary::printBitboard(BITBOARD b) {
+	std::string str = convertToBitString(b);
+	for (int i = 0; i < 8; ++i) {
+		for (int j = 0; j < 8; ++j) {
+			std::cout << str[i * 8 + j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
 std::vector<int> Auxiliary::getOneBits(BITBOARD x) {
 	std::vector<int> res;
 	for (int i = 0; i < 64; ++i) {

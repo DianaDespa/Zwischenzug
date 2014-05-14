@@ -97,6 +97,7 @@ void ChessBoard::initializeBitboard() {
 	final_pos_opponent = 0;
 	table->whiteLostPieces.clear();
 	table->blackLostPieces.clear();
+	updateBoard();
 }
 
 // Returns the algebraic notation corresponding to initial_position.
@@ -133,6 +134,7 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {
 int ChessBoard::randomPiece(bool isWhite) {
     int security = kingIsSafe(isWhite);
 	if (security == 0) {
+		std::cout << "RANDOM PIECE: KING IS SAFE\n";
 		score_max sc = negaMax(INT_MIN, INT_MAX, 3, isWhite);
 		if (sc.positions.first != -1) {
 			movePiece(sc.positions.first, sc.positions.second);
