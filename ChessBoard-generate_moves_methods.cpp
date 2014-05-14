@@ -567,11 +567,17 @@ score_max ChessBoard::negaMax(int alpha, int beta, int depth, bool isWhite){
 	}
 	
 	board* backup;
-	for (map<int,vector<int> >::iterator it = legal_moves.begin(); it != legal_moves.end(); ++it){
-		for (vector<int>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii){
+	for (map<int,vector<int> >::iterator it = legal_moves.begin(); it != legal_moves.end(); ++it) {
+		for (vector<int>::iterator ii = it->second.begin(); ii != it->second.end(); ++ii) {
+			
 			backup = new board();
 			*backup = *table;
-			movePiece(it->first, *ii);	
+			
+			if (!try_moving_piece(it->first, *ii, isWhite)) {
+				*table = *backup;
+				delete(backup);
+				continue;
+			}
 			
 			Score = negaMax(-beta, -alpha, depth-1, !isWhite);
 			Score.score = -Score.score;

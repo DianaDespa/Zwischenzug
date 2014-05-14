@@ -133,107 +133,14 @@ void ChessBoard::updateOpponentMove(char* positions, bool isWhite) {
 // engine lost), 2 if the engine is in stalemate.
 int ChessBoard::randomPiece(bool isWhite) {
     int security = kingIsSafe(isWhite);
-	if (security == 0) {
+	if (security == 0) { // everyhting is ok
 		score_max sc = negaMax(INT_MIN, INT_MAX, 4, isWhite);
 		if (sc.positions.first != -1) {
 			movePiece(sc.positions.first, sc.positions.second);
 			initial_position = sc.positions.first;
 			final_position = sc.positions.second;
 			return 0;
-		}	
-		// everyhting is ok
-		/*std::vector<int> rook_positions;
-		std::vector<int> king_positions;
-		std::vector<int> queen_positions;
-		std::vector<int> bishop_positions;
-		std::vector<int> knight_positions;
-		std::vector<int> valid_final_moves;
-    
-		board* backup;
-		int ret, pos = rand() % 6;
-		for (int k = 1; k <= 2; ++k) {
-			switch (pos) {
-			case 0:
-				backup = new board();
-				*backup = *table;
-				if(randomPositionPawn(isWhite)) {
-					if (kingInDanger(isWhite) != -1) {
-						*table = *backup;
-						backup->whiteLostPieces.clear();
-						backup->blackLostPieces.clear();
-						delete(backup);
-					} else {
-						backup->whiteLostPieces.clear();
-						backup->blackLostPieces.clear();
-						delete(backup);
-						return 0;
-					}
-				}
-			case 1:
-				if (isWhite)
-					rook_positions = getOneBits(table->whiteRooks);
-				else
-					rook_positions = getOneBits(table->blackRooks);
-				ret = random_piece_helper(rook_positions,
-											generateValidRookMove,
-											isWhite);
-				if (ret != -1) {
-					castling_possible = false;
-					return ret;
-				}
-			case 2:
-				if (isWhite)
-					queen_positions = getOneBits(table->whiteQueens);
-				else
-					queen_positions = getOneBits(table->blackQueens);
-
-				ret = random_piece_helper(queen_positions,
-											generateValidQueenMove,
-											isWhite);
-				if (ret != -1)
-					return ret;
-			case 3:
-				if (isWhite)
-					bishop_positions = getOneBits(table->whiteBishops);
-				else
-					bishop_positions = getOneBits(table->blackBishops);
-
-				ret = random_piece_helper(bishop_positions,
-											generateValidBishopMove,
-											isWhite);
-				if (ret != -1)
-					return ret;
-			case 4:
-				if (isWhite)
-					knight_positions = getOneBits(table->whiteKnights);
-				else
-					knight_positions = getOneBits(table->blackKnights);
-
-				ret = random_piece_helper(knight_positions,
-											generateValidKnightMove,
-											isWhite);
-				if (ret != -1)
-					return ret;
-			case 5:
-				if (try_castling(isWhite))
-					return 0;
-				if (isWhite)
-					king_positions = getOneBits(table->whiteKing);
-				else
-					king_positions = getOneBits(table->blackKing);
-
-				ret = random_piece_helper(king_positions,
-											generateValidKingMove,
-											isWhite);
-				if (ret != -1) {
-					castling_possible = false;
-					return ret;	
-				}
-				break;
-			}
-			pos = 0; // check again all pieces for possible moves
 		}
-		return 2; // stalemate*/
 	} else if (security == 1) {
 		return 0; // everyhting is ok
 	}
